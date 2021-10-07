@@ -1,12 +1,14 @@
 import React, { Suspense } from 'react'
 import { Redirect, Route, Switch, useLocation } from "react-router";
+import Header from "../../components/Header"
+import Footer from "../../components/Footer"
 
 const HomeTemplate = ({ routes }) => {
     console.log("route_homepage", routes.routes)
 
     return (
         <div className="home__container">
-            <header>this is header</header>
+            <Header />
             <div className="main">
                 <Suspense fallback={<div>Processing...</div>}>
                     <Switch>
@@ -21,7 +23,7 @@ const HomeTemplate = ({ routes }) => {
                     </Switch>
                 </Suspense>
             </div>
-            <footer>This is footer</footer>
+            <Footer />
         </div>
     )
 }
