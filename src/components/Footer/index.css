@@ -1,0 +1,73 @@
+.footer{
+    color: #fff;
+    background-color: #000;
+    width: 100%;
+    padding: 15px 0px;
+}
+.footer .footer_top--formmail form{
+    margin-top: 10px;
+}
+.footer .footer_top--formmail input{
+    margin-right: 10px;
+    color: #fff;
+    padding: 0px 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background: transparent;
+}
+.footer .footer_top--formmail button{
+    color: #fff;
+    border: 1px solid gray;
+    background: transparent;
+    padding: 0px 15px;
+}
+.footer .footer_top--formmail button:hover{
+    background: burlywood;
+}
+.footer ul li{
+    font-size: 14px;
+    cursor: pointer;
+}
+.footer ul li:hover{
+    text-decoration: underline;
+    color: burlywood;
+}
+.footer_top{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
+}
+
+.footer_middle{
+    margin-top: 20px;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.footer_middle .footer_middle--social{
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+}
+.footer_middle .footer_middle--payment{
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+}
+.footer_middle .footer_middle--social ion-icon{
+    font-size: 20px;
+}
+
+.footer_middle .footer_middle--social ion-icon:hover{
+    color: burlywood;
+    cursor: pointer;
+}
+.footer_bottom{
+    margin-top: 20px;
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
+}

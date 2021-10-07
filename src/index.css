@@ -24,9 +24,13 @@
   padding: 0;
   box-sizing: border-box;
 }
-body {
+ul li{
+  list-style: none;
   margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+}
+body {
+  font-family: "arvoregular" !important;
+  overflow-x: hidden;
 }
 
