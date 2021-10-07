@@ -1,26 +1,39 @@
-import React from 'react';
-import { decreaseCounter, increaseCounter } from "./redux/Counter/counter.actions"
-import { useDispatch, useSelector } from "react-redux"
-
+import React, { Suspense } from 'react';
+import ErrorBoundary from './components/ErrorBoundary';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import appRoutes from './routes';
 import './App.css';
 
 function App() {
-  const dispatch = useDispatch();
-  const counter = useSelector(state => state.counter.count)
 
+  console.log("app router", appRoutes)
+
+  const showLayout = (routes) => {
+    if (routes && routes.length > 0) {
+      return routes.map((item, idx) => (
+        <Route
+          key={idx}
+          exact={item.exact}
+          path={item.path}
+          render={(props) => <item.component {...props} routes={item.routes} />}
+        />
+      ));
+    }
+  };
 
   return (
-
-    <div className='App'>
-
-      <div>Count: {counter}</div>
-      <button onClick={() => dispatch(increaseCounter())}>Increase Count</button>
-      <button onClick={() => dispatch(decreaseCounter())} >Decrease Count</button>
-    </div>
-
+    <BrowserRouter>
+      <div>
+        {/* ĐỪNG BAO GIỜ ĐỂ ErrorBoundary và Suspense BÊN TRONG Switch, trong Switch chỉ có Route thôi.
+        nếu không sẽ bị lỗi chuyển trang. Phải bọc ngay bên ngoài Switch như thế này thì mới đúng quy định của React */}
+        <ErrorBoundary>
+          <Suspense fallback={<div>Processing...</div>}>
+            <Switch>{showLayout(appRoutes)}</Switch>
+          </Suspense>
+        </ErrorBoundary>
+      </div>
+    </BrowserRouter>
   );
-
 }
-
 
 export default App;
