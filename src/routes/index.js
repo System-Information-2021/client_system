@@ -16,9 +16,9 @@ const appRoutes = [
             },
             {
                 exact: true,
-                path: "/login",
+                path: "/register",
                 component: React.lazy(() =>
-                    import("../container/HomeTemplate/LoginPage")
+                    import("../container/HomeTemplate/RegisterPage")
                 ),
             },
             {
