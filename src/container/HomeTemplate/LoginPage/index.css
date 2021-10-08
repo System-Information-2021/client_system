@@ -1,0 +1,74 @@
+.form_login{
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-family: "extralight";
+}
+.form_login button{
+    font-family:"msrmedium";
+}
+.form_login .side_left{
+    float: right;
+}
+.form_login .title_login{
+    font-size: 28px;
+    font-family: "msrmedium";
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+
+}
+.form_login .btn_create_new_account{
+    padding: 7px 20px;
+    background-color: #000;
+    outline: none;
+    text-transform: uppercase;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+.form_login .btn_create_new_account:hover{
+    background-color: burlywood;
+    color: #000;
+}
+.form_login .side_right .form-group{
+    margin-bottom: 15px;
+}
+.form_login .btn_login{
+    border: 1px solid #000;
+    background-color: transparent;
+    text-transform: uppercase;
+    padding: 5px 15px;
+    margin-right: 10px;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+}
+.form_login .btn_login:hover{
+    background-color: burlywood;
+    color: #000;
+}
+
+.form_login .btn_reset_form{
+    border: 1px solid #000;
+    background-color: transparent;
+    text-transform: uppercase;
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+.form_login .btn_reset_form:hover{
+    background-color: burlywood;
+    color: #000;
+}
+.form_login .side_left .side_left--title{
+    font-family: "msrmedium";
+    text-transform: uppercase;
+}
+.form_login .side_right .please_login{
+    margin-bottom: 10px;
+}
+
+.form_login .side_right .side_left--title{
+    font-family: "msrmedium";
+    text-transform: uppercase;
+
+}

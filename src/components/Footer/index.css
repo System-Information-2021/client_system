@@ -3,7 +3,8 @@
     background-color: #000;
     width: 100%;
     height: 100%;
-    padding: 15px 0px;
+    padding: 20px 0px;
+    font-family: "extrab";
 }
 .footer .footer_top--formmail form{
     margin-top: 10px;
@@ -41,12 +42,13 @@
 }
 
 .footer_middle{
-    margin-top: 20px;
+    margin-top: 50px;
     font-size: 14px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    padding-top: 50px;
 }
 .footer_middle .footer_middle--social{
     display: flex;

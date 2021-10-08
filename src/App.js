@@ -1,4 +1,5 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
+import { useHistory, Redirect } from "react-router-dom"
 import ErrorBoundary from './components/ErrorBoundary';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import appRoutes from './routes';
@@ -23,7 +24,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div>
+      <div className="app">
         {/* ĐỪNG BAO GIỜ ĐỂ ErrorBoundary và Suspense BÊN TRONG Switch, trong Switch chỉ có Route thôi.
         nếu không sẽ bị lỗi chuyển trang. Phải bọc ngay bên ngoài Switch như thế này thì mới đúng quy định của React */}
         <ErrorBoundary>
