@@ -2,6 +2,7 @@
     color: #fff;
     background-color: #000;
     width: 100%;
+    height: 100%;
     padding: 15px 0px;
 }
 .footer .footer_top--formmail form{
@@ -34,7 +35,7 @@
 }
 .footer_top{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
     align-items: center;
 }
@@ -71,3 +72,13 @@
     text-align: center;
     width: 100%;
 }
+
+/* responsive */
+@media screen and (min-device-width: 375px) and (max-device-width: 768px) { 
+    .footer_top{
+        flex-direction: column;
+    }
+    .footer_middle{
+        flex-direction: column;
+    }
+ }
