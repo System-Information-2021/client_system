@@ -3,8 +3,10 @@ import "./index.css"
 
 const index = () => {
     return (
-        <div className="header">
+        <div className="header container">
             <div className="header_left">
+                <div className="hambuger"><ion-icon name="reorder-four-outline"></ion-icon></div>
+                <div className="show_icon">Show Icon</div>
                 <ul className="header_left--menu">
                     <li>Home</li>
                     <li>About Us</li>

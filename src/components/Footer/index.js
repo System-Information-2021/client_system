@@ -4,7 +4,7 @@ import "./index.css"
 const index = () => {
     return (
         <div className="footer">
-            <div className="footer_top">
+            <div className="footer_top container">
                 <ul className="footer_top--list1">
                     <li>Blog</li>
                     <li>Product Index</li>
