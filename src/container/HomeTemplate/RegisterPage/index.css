@@ -1,0 +1,46 @@
+.form_register{
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-family: "extralight";
+    text-transform: uppercase;
+}
+.form_register .register__title{
+    font-size: 28px;
+    font-family: "msrmedium";
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+.form_register .new_customer{
+    font-size: 22px;
+    font-family: "msrmedium";
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+
+
+}
+.form_register .new_infor{
+    font-size: 22px;
+    font-family: "msrmedium";
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+
+
+}
+.form_register .form-group{
+    margin-bottom: 15px;
+}
+.form_register .btn_register{
+    padding: 7px 20px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    background-color: #000;
+    color: #fff;
+}
+.form_register .btn_register:hover{
+    background-color: burlywood;
+    color: #000;
+}

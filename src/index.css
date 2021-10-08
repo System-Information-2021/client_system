@@ -1,22 +1,41 @@
 @font-face {
-  font-family: "arvobold";
+  font-family: "msrblack";
   src: local("GoldmanBold"),  
-  url("./assets/fonts/Arvo-Bold.ttf") format("truetype");
+  url("./assets/fonts/Montserrat-Black.ttf") format("truetype");
 }
 @font-face {
-  font-family: "arvobolditalic";
+  font-family: "msrblacki";
   src: local("GoldmanBold"),
-  url("./assets/fonts/Arvo-BoldItalic.ttf") format("truetype");
+  url("./assets/fonts/Montserrat-BlackItalic.ttf") format("truetype");
 }
 @font-face {
-  font-family: "arvoitalic";
+  font-family: "extrab";
   src: local("GoldmanBold"),
-  url("./assets/fonts/Arvo-Italic.ttf") format("truetype");
+  url("./assets/fonts/Montserrat-ExtraBold.ttf") format("truetype");
 }
 @font-face {
-  font-family: "arvoregular";
+  font-family: "extrabi";
   src: local("GoldmanBold"),
-  url("./assets/fonts/Arvo-Regular.ttf") format("truetype");
+  url("./assets/fonts/Montserrat-ExtraBoldItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "msrmedium";
+  src: local("GoldmanBold"),
+  url("./assets/fonts/Montserrat-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "msri";
+  src: local("GoldmanBold"),
+  url("./assets/fonts/Montserrat-Italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "extralight";
+  src: local("GoldmanBold"),
+  url("./assets/fonts/Montserrat-ExtraLight.ttf") format("truetype");
+}
+
+button{
+  font-family: "msrmedium";
 }
             
 *{
@@ -38,7 +57,7 @@ ul li{
 }
 
 body {
-  font-family: "arvoregular" !important;
+  font-family: "msrmedium" !important;
   overflow-x: hidden;
 }
 

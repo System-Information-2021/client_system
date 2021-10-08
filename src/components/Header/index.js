@@ -1,7 +1,10 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import "./index.css"
 
-const index = () => {
+const Index = () => {
+    let history = useHistory();
+
     return (
         <div className="header container">
             <div className="header_left">
@@ -18,11 +21,11 @@ const index = () => {
             <div className="header_right">
                 <div className="header__right--groupButton">
                     <ul>
-                        <li className="login">
-                            <li><ion-icon name="log-in"></ion-icon> Login</li>
+                        <li className="login" onClick={() => history.push("/login")} >
+                            <ion-icon name="log-in"></ion-icon> Login
                         </li>
-                        <li className="register">
-                            <li><ion-icon name="pencil-outline"></ion-icon> Register</li>
+                        <li className="register" onClick={() => history.push("/register")}>
+                            <ion-icon name="pencil-outline"></ion-icon> Register
                         </li>
                     </ul>
                 </div>
@@ -31,4 +34,4 @@ const index = () => {
     )
 }
 
-export default index
+export default Index
