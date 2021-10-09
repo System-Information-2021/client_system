@@ -23,9 +23,16 @@ const appRoutes = [
             },
             {
                 exact: true,
-                path: "/product",
+                path: "/",
                 component: React.lazy(() =>
                     import("../container/HomeTemplate/ProductPage")
+                ),
+            },
+            {
+                exact: true,
+                path: "/about-us",
+                component: React.lazy(() =>
+                    import("../container/HomeTemplate/AbourUs")
                 ),
             },
         ]

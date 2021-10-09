@@ -4,8 +4,6 @@ import Header from "../../components/Header"
 import Footer from "../../components/Footer"
 import SearchForm from "../../components/SearchForm"
 import MenuCategory from "../../components/MenuCategory"
-import Banner from '../../components/Banner'
-import Introduction from "../../components/Introduction"
 import "./index.css"
 
 const HomeTemplate = ({ routes }) => {
@@ -15,7 +13,6 @@ const HomeTemplate = ({ routes }) => {
             <Header />
             <SearchForm />
             <MenuCategory />
-            {/* <Banner /> */}
 
             <div className="main">
                 <Suspense fallback={<div>Processing...</div>}>
@@ -31,7 +28,6 @@ const HomeTemplate = ({ routes }) => {
                     </Switch>
                 </Suspense>
             </div>
-            {/* <Introduction /> */}
             <Footer />
         </div>
     )
