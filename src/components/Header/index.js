@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import { actLogout } from "../../redux/User/user.actions"
 import "./index.css"
 
 const Index = () => {
+    const [username, setUserName] = useState(null);
+    let user = JSON.parse(localStorage.getItem("user"))
     let history = useHistory();
+
+    useEffect(() => {
+        if (user) setUserName(user.firstname + user.lastname)
+        console.log(user)
+    }, [user])
 
     return (
         <div className="header container">
@@ -21,12 +29,20 @@ const Index = () => {
             <div className="header_right">
                 <div className="header__right--groupButton">
                     <ul>
-                        <li className="login" onClick={() => history.push("/login")} >
-                            <ion-icon name="log-in"></ion-icon> Login
-                        </li>
-                        <li className="register" onClick={() => history.push("/register")}>
-                            <ion-icon name="pencil-outline"></ion-icon> Register
-                        </li>
+                        {
+                            username ? (<li>
+                                Hello {username}
+                            </li>) : <li className="login" onClick={() => history.push("/login")} >
+                                <ion-icon name="log-in"></ion-icon> Login
+                            </li>
+                        }
+                        {
+                            username ? (<li onClick={() => actLogout()} >
+                                <ion-icon name="log-out-outline"></ion-icon> Logout
+                            </li>) : (<li className="register" onClick={() => history.push("/register")}>
+                                <ion-icon name="pencil-outline"></ion-icon> Register
+                            </li>)
+                        }
                     </ul>
                 </div>
             </div>

@@ -7,7 +7,6 @@ import MenuCategory from "../../components/MenuCategory"
 import "./index.css"
 
 const HomeTemplate = ({ routes }) => {
-    console.log("route_homepage", routes.routes)
     return (
         <div className="home__container">
             <Header />
@@ -15,7 +14,7 @@ const HomeTemplate = ({ routes }) => {
             <MenuCategory />
 
             <div className="main">
-                <Suspense fallback={<div>Processing...</div>}>
+                <Suspense fallback={<div className="contaner">Processing...</div>}>
                     <Switch>
                         {routes.map((item, idx) => (
                             <Route

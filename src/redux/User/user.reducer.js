@@ -11,7 +11,7 @@ const INITIAL_STATE = {
 const userReducer = (state = INITIAL_STATE, { type, payload }) => {
     switch (type) {
         case USER_LOGIN:
-            state.data = payload;
+            state.userData = payload;
             state.error = null;
             state.tokenError = null;
             return { ...state };
