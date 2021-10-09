@@ -1,0 +1,17 @@
+.product_item{
+    display: flex;
+    flex-direction: column;
+    font-family: "extralight";
+    background-color: yellowgreen;
+    width: 300px;
+    height: 100%;
+}
+.product_item .product_image{
+    width: 100%;
+}
+
+.product_item .product_image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

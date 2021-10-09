@@ -1,0 +1,14 @@
+.products{
+    width: 100%;
+}
+.products .list_products_slider{
+    height: 400px;
+    margin-bottom: 10px;
+}
+.products .product_title{
+    font-size: 24px;
+    margin-top: 15px;
+    font-family: "msrmedium";
+    text-transform: uppercase;
+
+}

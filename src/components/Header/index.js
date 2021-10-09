@@ -11,7 +11,7 @@ const Index = () => {
                 <div className="hambuger"><ion-icon name="reorder-four-outline"></ion-icon></div>
                 <div className="show_icon">Show Icon</div>
                 <ul className="header_left--menu">
-                    <li>Home</li>
+                    <li onClick={() => history.push("/")}>Home</li>
                     <li>About Us</li>
                     <li>My Account</li>
                     <li>Contact Us</li>
