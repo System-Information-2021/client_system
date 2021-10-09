@@ -1,7 +1,20 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { actLogin } from "../../../redux/User/user.actions"
+import { useHistory } from 'react-router-dom'
 import "./index.css"
 
-const index = () => {
+const Index = () => {
+    const dispatch = useDispatch();
+    let history = useHistory();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const submitValue = (e) => {
+        e.preventDefault();
+        dispatch(actLogin({ email, password }, history))
+    }
+
     return (
         <div className="form_login container">
             <div className="title_login">My Account</div>
@@ -19,14 +32,14 @@ const index = () => {
                     </div>
                     <form>
                         <div className="row">
-                            <div class="form-group ">
-                                <input type="text" class="form-control" placeholder="Email" />
+                            <div className="form-group ">
+                                <input type="text" className="form-control" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
                             </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control" placeholder="Password" />
+                            <div className="form-group">
+                                <input type="password" className="form-control" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
                             </div>
                         </div>
-                        <button className="btn_login" type="submit"><ion-icon name="log-in"></ion-icon> Login</button>
+                        <button className="btn_login" onClick={submitValue} type="submit"><ion-icon name="log-in" ></ion-icon> Login</button>
                         <button className="btn_reset_form" type="reset"> <ion-icon name="refresh-outline"></ion-icon> reset form</button>
                     </form>
                 </div>
@@ -35,4 +48,4 @@ const index = () => {
     )
 }
 
-export default index
+export default Index

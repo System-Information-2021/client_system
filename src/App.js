@@ -7,7 +7,7 @@ import './App.css';
 
 function App() {
 
-  console.log("app router", appRoutes)
+
 
   const showLayout = (routes) => {
     if (routes && routes.length > 0) {
@@ -22,13 +22,18 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    let user = JSON.parse(localStorage.getItem("user"));
+    console.log('user_infor', user)
+  }, [])
+
   return (
     <BrowserRouter>
       <div className="app">
         {/* ĐỪNG BAO GIỜ ĐỂ ErrorBoundary và Suspense BÊN TRONG Switch, trong Switch chỉ có Route thôi.
         nếu không sẽ bị lỗi chuyển trang. Phải bọc ngay bên ngoài Switch như thế này thì mới đúng quy định của React */}
         <ErrorBoundary>
-          <Suspense fallback={<div>Processing...</div>}>
+          <Suspense fallback={<div className="contaner">Processing...</div>}>
             <Switch>{showLayout(appRoutes)}</Switch>
           </Suspense>
         </ErrorBoundary>
