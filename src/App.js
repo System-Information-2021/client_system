@@ -1,11 +1,15 @@
 import React, { Suspense, useEffect, useState } from 'react';
 import { useHistory, Redirect } from "react-router-dom"
+import { actLogout } from "./redux/User/user.actions"
+import jwt_decode from "jwt-decode";
 import ErrorBoundary from './components/ErrorBoundary';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import appRoutes from './routes';
 import './App.css';
 
 function App() {
+  let user = JSON.parse(localStorage.getItem("user"));
+  let token = localStorage.getItem("token")
 
 
 
@@ -22,10 +26,21 @@ function App() {
     }
   };
 
+
   useEffect(() => {
-    let user = JSON.parse(localStorage.getItem("user"));
-    console.log('user_infor', user)
-  }, [])
+    console.log("user", user)
+    if (token !== null) {
+      console.log(token)
+      const decodedToken = jwt_decode(token)
+
+      console.log("time expire", decodedToken.exp * 1000 < new Date().getTime())
+      console.log("get time", new Date().getTime())
+      if (decodedToken.exp * 1000 < new Date().getTime()) {
+        console.log(decodedToken.exp)
+        actLogout();
+      }
+    }
+  }, [token])
 
   return (
     <BrowserRouter>

@@ -5,11 +5,12 @@ const index = () => {
     return (
         <div className="menu_category container">
             <ul>
-                <li>Men</li>
-                <li>Woman</li>
+                <li>All Product</li>
+                <li>Asava</li>
+                <li>BOYY</li>
                 <li>Adidas</li>
                 <li>Jodan</li>
-
+                <li>Other</li>
             </ul>
         </div>
     )
