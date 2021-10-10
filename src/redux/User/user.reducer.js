@@ -1,6 +1,6 @@
 import { USER_LOGIN, USER_LOGIN_LOADING, USER_LOGIN_FAIL } from "./user.types"
 const INITIAL_STATE = {
-    loading: true,
+    loading: false,
     data: null,
     userData: null,
     tokenError: null,

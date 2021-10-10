@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { actLogin } from "../../../redux/User/user.actions"
 import { useHistory } from 'react-router-dom'
 import "./index.css"
 
 const Index = () => {
+    const loadingUser = useSelector(state => state.user.loading)
     const dispatch = useDispatch();
     let history = useHistory();
     const [email, setEmail] = useState("");
@@ -39,7 +40,7 @@ const Index = () => {
                                 <input type="password" className="form-control" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
                             </div>
                         </div>
-                        <button className="btn_login" onClick={submitValue} type="submit"><ion-icon name="log-in" ></ion-icon> Login</button>
+                        <button className="btn_login" onClick={submitValue} type="submit"><ion-icon name="log-in" ></ion-icon> {loadingUser === true ? "loading..." : "Login"}</button>
                         <button className="btn_reset_form" type="reset"> <ion-icon name="refresh-outline"></ion-icon> reset form</button>
                     </form>
                 </div>

@@ -30,7 +30,7 @@ const Index = () => {
             <Banner />
             <div className="product_title">Featured Products</div>
             <div className="list_products_slider">
-                <Carousel responsive={responsive} partialVisible={true} >
+                <Carousel responsive={responsive} partialVisible={true} autoPlay={true} autoPlaySpeed={1000} >
                     <ProductItemSlider />
                     <ProductItemSlider />
                     <ProductItemSlider />
@@ -41,7 +41,7 @@ const Index = () => {
 
             <div className="product_title">NEW RELEASES</div>
             <div className="list_products_slider">
-                <Carousel responsive={responsive} partialVisible={true} >
+                <Carousel responsive={responsive} partialVisible={true} autoPlay={true} autoPlaySpeed={2000} >
                     <ProductItemSlider />
                     <ProductItemSlider />
                     <ProductItemSlider />

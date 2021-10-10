@@ -14,7 +14,7 @@ export const actLogin = (payload, history) => {
             dispatch(actLoginLoading(true))
 
             const { data } = await apiInstance({
-                url: "/user/login",
+                url: "/login",
                 method: "POST",
                 data: { email: payload.email, password: payload.password }
             })
