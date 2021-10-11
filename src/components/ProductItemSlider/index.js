@@ -15,7 +15,6 @@ const index = () => {
                 <span className="product_infor">In Stock.</span>
                 <button className="product_button">Add To Cart</button>
             </div>
-
         </div>
     )
 }

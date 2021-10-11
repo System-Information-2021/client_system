@@ -36,15 +36,16 @@
     color: burlywood;
 }
 /* responsive */
-@media screen and (min-device-width: 375px) and (max-device-width: 768px) { 
+@media screen and (min-device-width: 350px) and (max-device-width: 768px) { 
     .header{
         flex-direction: column;
         height: 100%;
         width: 100%;
         position: relative;
+        text-align: center;
     }
-    .header .show_icon{
-        display: block;
+    .header .active_menu{
+        display: block !important;
     }
     .header .hambuger{
         display: block;
@@ -55,5 +56,6 @@
     }
     .header .header_left--menu{
         flex-direction: column;
+        display: none;
     }
 }

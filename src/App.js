@@ -4,6 +4,7 @@ import { actLogout } from "./redux/User/user.actions"
 import jwt_decode from "jwt-decode";
 import ErrorBoundary from './components/ErrorBoundary';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import "react-pagination-library/build/css/index.css"; //for css
 import appRoutes from './routes';
 import './App.css';
 

@@ -7,16 +7,19 @@ const Index = () => {
     let user = JSON.parse(localStorage.getItem("user"))
     let history = useHistory();
 
-    useEffect(() => {
+    const activeMenu = () => {
+        let headerEl = document.getElementById("header_menu")
 
-    }, [user])
+        if (headerEl) {
+            headerEl.classList.toggle("active_menu")
+        }
+    }
 
     return (
         <div className="header container">
             <div className="header_left">
-                <div className="hambuger"><ion-icon name="reorder-four-outline"></ion-icon></div>
-                <div className="show_icon">Show Icon</div>
-                <ul className="header_left--menu">
+                <div className="hambuger" id="hambuger" onClick={activeMenu}><ion-icon name="reorder-four-outline"></ion-icon></div>
+                <ul className="header_left--menu" id="header_menu">
                     <li onClick={() => history.push("/")}>Home</li>
                     <li>About Us</li>
                     <li onClick={() => history.push("/login")}>My Account</li>

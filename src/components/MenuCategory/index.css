@@ -8,12 +8,24 @@
     font-size: 14px;
     font-family: "extrab";
 }
+.menu_category .mobile{
+    display: none !important;
+}
+.menu_category .hambuger_category{
+    display: none;
+}
 .menu_category ul{
     height: 100%;
+    width: 100%;
     display: flex;
+    overflow-x: scroll;
+}
+.menu_category ul::-webkit-scrollbar{
+    display: none;
 }
 .menu_category ul li{
     height: 100%;
+    width: auto;
     padding: 0px 10px;
     line-height: 60px;
 }
@@ -21,3 +33,7 @@
     background-color: burlywood;
     cursor: pointer;
 }
+
+@media screen and (min-device-width: 350px) and (max-device-width: 768px) {
+   
+ }
