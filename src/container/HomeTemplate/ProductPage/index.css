@@ -1,6 +1,10 @@
 .products{
     width: 100%;
 }
+.products .destop{
+    display: block;
+}
+
 .products .list_products_slider{
     height: 400px;
     margin-bottom: 10px;
@@ -10,5 +14,9 @@
     margin-top: 15px;
     font-family: "msrmedium";
     text-transform: uppercase;
+}
+
+/* responsive */
+@media screen and (min-device-width: 350px) and (max-device-width: 768px) { 
 
 }

@@ -3,6 +3,7 @@
     margin-bottom: 15px;
     font-family: "extralight";
     text-transform: uppercase;
+    padding: 0px 10px !important;
 }
 .form_register .register__title{
     font-size: 28px;

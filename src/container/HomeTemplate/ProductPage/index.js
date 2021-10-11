@@ -19,38 +19,54 @@ const Index = () => {
 
     const responsive = {
 
+        superLargeDesktop: {
+            // the naming can be any, depends on you.
+            breakpoint: { max: 3000, min: 4400 },
+            items: 3,
+            partialVisibilityGutter: 40
+        },
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
-            items: 4,
-            // partialVisibilityGutter: 500
+            items: 3,
+            partialVisibilityGutter: 40
         },
+        tablet: {
+            breakpoint: { max: 1024, min: 464 },
+            items: 2,
+            partialVisibilityGutter: 30
+        },
+        mobile: {
+            breakpoint: { max: 464, min: 0 },
+            items: 1
+        }
     };
     return (
         <div className="products container">
             <Banner />
-            <div className="product_title">Featured Products</div>
-            <div className="list_products_slider">
-                <Carousel responsive={responsive} partialVisible={true} autoPlay={true} autoPlaySpeed={1000} >
-                    <ProductItemSlider />
-                    <ProductItemSlider />
-                    <ProductItemSlider />
-                    <ProductItemSlider />
-                    <ProductItemSlider />
-                </Carousel>
+            <div className="destop">
+                <div className="product_title">Featured Products</div>
+                <div className="list_products_slider">
+                    <Carousel responsive={responsive} >
+                        <ProductItemSlider />
+                        <ProductItemSlider />
+                        <ProductItemSlider />
+                        <ProductItemSlider />
+                        <ProductItemSlider />
+                    </Carousel>
+                </div>
+                <div className="product_title">NEW RELEASES</div>
+                <div className="list_products_slider">
+                    <Carousel responsive={responsive} >
+                        <ProductItemSlider />
+                        <ProductItemSlider />
+                        <ProductItemSlider />
+                        <ProductItemSlider />
+                        <ProductItemSlider />
+                    </Carousel>
+                </div>
+                <Introduction />
             </div>
 
-            <div className="product_title">NEW RELEASES</div>
-            <div className="list_products_slider">
-                <Carousel responsive={responsive} partialVisible={true} autoPlay={true} autoPlaySpeed={2000} >
-                    <ProductItemSlider />
-                    <ProductItemSlider />
-                    <ProductItemSlider />
-                    <ProductItemSlider />
-                    <ProductItemSlider />
-                </Carousel>
-            </div>
-
-            <Introduction />
         </div>
     )
 }

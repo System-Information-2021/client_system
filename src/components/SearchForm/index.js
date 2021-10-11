@@ -1,10 +1,17 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
+import Logo from "../../assets/images/logo.png"
 import "./index.css"
 
-const index = () => {
+const Index = () => {
+    let history = useHistory();
+
     return (
         <div className="search_form container">
-            <div className="logo_app">Shopping Online</div>
+            <div className="logo_app" onClick={() => history.push("/")}>
+                <img src={Logo} alt="logo" />
+                <div>Shopping Online</div>
+            </div>
             <form className="form_group">
                 <input type="text" placeholder="search product ..." />
                 <button type="submit">
@@ -15,4 +22,4 @@ const index = () => {
     )
 }
 
-export default index
+export default Index
