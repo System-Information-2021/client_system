@@ -5,9 +5,10 @@
 }
 .admin_product .admin_product_header{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     padding-bottom: 10px;
+    column-gap: 10px;
 }
 
 .admin_product .admin_product_header .admin_product_title{
@@ -29,14 +30,22 @@
 }
 
 .admin_product .admin_product_main_list{
-    height: 80vh;
+    height: 75vh;
     width: 100%;
-    overflow-x: scroll;
-    background: yellowgreen;
+    overflow: scroll;
+}
+.admin_product .admin_product_main_list::-webkit-scrollbar{
+    display: none;
 }
 
 .admin_product .product_pagination{
     position: absolute;
     bottom: 0;
     right: 0;
+}
+.admin_product .btn{
+    cursor: pointer;
+    margin-bottom: 10px;
+    background: #000;
+    color: #fff;
 }

@@ -25,6 +25,11 @@ const appRoutes = [
             },
             {
                 exact: true,
+                path: "/admin/product/edit",
+                component: React.lazy(() => import("../container/AdminTemplate/ProductPageEdit"))
+            },
+            {
+                exact: true,
                 path: "/admin/user",
                 component: React.lazy(() => import("../container/AdminTemplate/userPage"))
             },

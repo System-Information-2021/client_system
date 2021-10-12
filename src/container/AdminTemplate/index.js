@@ -19,7 +19,7 @@ const Index = ({ routes }) => {
             <SidebarAdmin />
             <div className="main_admin">
                 <div className="header_admin">
-                    <div className="breadcrumb">
+                    <div className="breadcrumb_container">
                         <BreadCrumb />
                     </div>
                     <button className="logout_button" onClick={user.logout}>

@@ -1,7 +1,6 @@
 .form_login{
     margin-top: 10px;
     margin-bottom: 15px;
-    font-family: "extralight";
     padding: 0px 10px !important;
 }
 .form_login .list-group-item-dark{
@@ -9,14 +8,12 @@
     color: #fff;
 }
 .form_login button{
-    font-family:"msrmedium";
 }
 .form_login .side_left{
     float: right;
 }
 .form_login .title_login{
     font-size: 28px;
-    font-family: "msrmedium";
     font-weight: bold;
     text-transform: uppercase;
     margin-bottom: 15px;
@@ -65,11 +62,9 @@
     color: #000;
 }
 .form_login .side_left .side_left--title{
-    font-family: "msrmedium";
     text-transform: uppercase;
     
 }.form_login .side_right .side_left--title{
-    font-family: "msrmedium";
     text-transform: uppercase;
 }
 .form_login .side_right .please_login{
@@ -77,6 +72,5 @@
 }
 
 .form_login .side_right .side_left--title{
-    font-family: "msrmedium";
     text-transform: uppercase;
 }
