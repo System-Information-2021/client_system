@@ -1,0 +1,42 @@
+.admin_product{
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+}
+.admin_product .admin_product_header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.admin_product .admin_product_header .admin_product_title{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.admin_product .admin_product_header .admin_product_new{
+    padding: 10px;
+    border: 1px solid #000;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.admin_product .admin_product_header .admin_product_new:hover{
+    background: #000;
+    color: #fff;
+}
+
+.admin_product .admin_product_main_list{
+    height: 80vh;
+    width: 100%;
+    overflow-x: scroll;
+    background: yellowgreen;
+}
+
+.admin_product .product_pagination{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}

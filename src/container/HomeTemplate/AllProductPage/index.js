@@ -14,7 +14,6 @@ const Index = () => {
         setCurrentPage(numPage);
     }
 
-
     return (
         <div className="all_product container">
             <div className="filter_group">

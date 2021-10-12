@@ -1,7 +1,36 @@
 import React from "react"
 import HomeTemplate from "../container/HomeTemplate"
+import AdminTemplate from "../container/AdminTemplate"
 
 const appRoutes = [
+    {
+        exact: false,
+        path: "/admin",
+        component: AdminTemplate,
+        routes: [
+            {
+                exact: true,
+                path: "/admin",
+                component: React.lazy(() => import("../container/AdminTemplate/Admin"))
+            },
+            {
+                exact: true,
+                path: "/admin/product",
+                component: React.lazy(() => import("../container/AdminTemplate/ProductPage"))
+            },
+            {
+                exact: true,
+                path: "/admin/product/create",
+                component: React.lazy(() => import("../container/AdminTemplate/ProductPageCreate"))
+            },
+            {
+                exact: true,
+                path: "/admin/user",
+                component: React.lazy(() => import("../container/AdminTemplate/userPage"))
+            },
+
+        ]
+    },
     {
         exact: false,
         path: "/",
@@ -43,6 +72,7 @@ const appRoutes = [
                 ),
             },
         ]
-    }
+    },
+
 ]
 export default appRoutes;

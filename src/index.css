@@ -34,8 +34,9 @@
   url("./assets/fonts/Montserrat-ExtraLight.ttf") format("truetype");
 }
 .bottom-border .is-active li{
-  border-bottom: 3px solid burlywood !important;
+  border-bottom: 3px solid #FFF4D4 !important;
 }
+
 
 button{
   font-family: "msrmedium";

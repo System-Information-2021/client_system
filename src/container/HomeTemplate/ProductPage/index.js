@@ -5,7 +5,6 @@ import "./index.css"
 import Banner from "../../../components/Banner"
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import ProductItem from "../../../components/ProductItem"
 import ProductItemSlider from "../../../components/ProductItemSlider"
 
 import Introduction from "../../../components/Introduction"
