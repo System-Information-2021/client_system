@@ -15,6 +15,8 @@ function App() {
 
 
   const showLayout = (routes) => {
+    console.log(routes)
+
     if (routes && routes.length > 0) {
       return routes.map((item, idx) => (
         <Route
@@ -31,17 +33,14 @@ function App() {
   useEffect(() => {
     console.log("user", user)
     if (token !== null) {
-      console.log(token)
       const decodedToken = jwt_decode(token)
 
-      console.log("time expire", decodedToken.exp * 1000 < new Date().getTime())
-      console.log("get time", new Date().getTime())
       if (decodedToken.exp * 1000 < new Date().getTime()) {
-        console.log(decodedToken.exp)
         actLogout();
       }
     }
   }, [token])
+
 
   return (
     <BrowserRouter>

@@ -10,7 +10,7 @@
     position: absolute;
     right: 0;
     top: 0;
-    background-color: burlywood;
+    background-color: #FFF4D4;
     color: #fff;
     padding: 10px 15px;
     cursor: pointer;
@@ -24,7 +24,7 @@
 .product_item .product_image{
     width: 100%;
     height: 60%;
-    border: 1px solid burlywood;
+    border: 1px solid #FFF4D4;
 }
 
 .product_item .product_image img{
@@ -35,7 +35,7 @@
 .product_item .product_description{
     padding: 10px;
     flex: 1;
-    background-color: burlywood;
+    background-color: #FFF4D4;
     color: #000;
     font-family: "";
     margin-top: auto;

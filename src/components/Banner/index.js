@@ -1,6 +1,6 @@
 import React from 'react'
 import "./index.css"
-import ImageBanner from "../../assets/images/banner3.jpg"
+import ImageBanner from "../../assets/images/banner.png"
 
 const index = () => {
     return (

@@ -33,7 +33,7 @@
 .header ul li:hover{
     text-decoration: underline;
     cursor: pointer;
-    color: burlywood;
+    color: #FFF4D4;
 }
 /* responsive */
 @media screen and (min-device-width: 350px) and (max-device-width: 768px) { 

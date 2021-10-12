@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { actLogout } from "../../redux/User/user.actions"
+import useUser from '../../hook/useUser'
 import "./index.css"
 
 const Index = () => {
-    let user = JSON.parse(localStorage.getItem("user"))
+    let users = JSON.parse(localStorage.getItem("user"))
+    const user = useUser()
     let history = useHistory();
+
+    console.log(user.data)
 
     const activeMenu = () => {
         let headerEl = document.getElementById("header_menu")
@@ -31,14 +35,14 @@ const Index = () => {
                 <div className="header__right--groupButton">
                     <ul>
                         {
-                            user ? (<li onClick={() => history.push("/login")}>
-                                Hello {user.lastname + user.firstname || user.email}
+                            users ? (<li onClick={() => history.push("/login")}>
+                                Hello {users.lastname + users.firstname || users.email}
                             </li>) : <li className="login" onClick={() => history.push("/login")} >
                                 <ion-icon name="log-in"></ion-icon> Login
                             </li>
                         }
                         {
-                            user ? (<li onClick={() => actLogout()} >
+                            users ? (<li onClick={user.logout} >
                                 <ion-icon name="log-out-outline"></ion-icon> Logout
                             </li>) : (<li className="register" onClick={() => history.push("/register")}>
                                 <ion-icon name="pencil-outline"></ion-icon> Register

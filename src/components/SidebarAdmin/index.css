@@ -1,0 +1,37 @@
+.sidebar_admin{
+    height: 100vh;
+    width: 300px;
+    padding: 10px;
+    background: burlywood;
+}
+.sidebar_admin .sidebar_logo{
+    margin: 0 auto;
+    width: 100px;
+    height: 150px;
+    cursor: pointer;
+}
+.sidebar_admin .sidebar_logo img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.sidebar_admin .sidebar_list{
+    width: 100%;
+}
+.sidebar_admin .sidebar_list li{
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    padding: 10px 0px;
+    padding-left: 10px;
+    margin: 5px 0px;
+    cursor: pointer;
+}
+.sidebar_admin .sidebar_list .active{
+    background: #000;
+    color: #fff;
+}
+.sidebar_admin .sidebar_list li:hover{
+    background: #000;
+    color: #fff;
+}
