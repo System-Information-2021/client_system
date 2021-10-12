@@ -1,7 +1,6 @@
 .product_item{
     display: flex;
     flex-direction: column;
-    font-family: "extralight";
     width: 320px;
     height: 100%;
     position: relative;
@@ -10,13 +9,11 @@
     position: absolute;
     right: 0;
     top: 0;
-    background-color: #FFF4D4;
+    background-color: #000;
     color: #fff;
     padding: 10px 15px;
     cursor: pointer;
     display: none;
-    text-transform: uppercase;
-    font-family: "msrblack";
 }
 .product_item:hover .product_detail{
     display: block;
@@ -51,7 +48,6 @@
 }
 .product_item .product_description .product_price{
     font-weight: bold;
-    font-family: "msrmedium";
 }
 .product_item .product_description .product_infor{
     font-size: 16px;
@@ -64,7 +60,6 @@
     padding: 5px 15px;
     margin-top: 10px;
     outline: none;
-    font-family: "msrmedium";
     font-weight: bold;
     text-align: center;
     cursor: pointer;
@@ -83,7 +78,6 @@
 .product_item .product_modal .name{
     font-size: 22px !important;
     text-align: center;
-    font-family: "msrmedium";
 }   
 .product_item .product_modal .close{
     padding: 10px 25px;

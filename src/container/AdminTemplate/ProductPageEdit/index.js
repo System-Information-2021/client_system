@@ -1,10 +1,10 @@
 import React from 'react'
 import "./index.css"
 
-const index = () => {
+const Index = () => {
     return (
-        <div className="create_product_form">
-            <div className="form_title">Create New Product</div>
+        <div className="edit_product_form">
+            <div className="form_title">Edit Product</div>
             <form className="container">
                 <div className="row">
                     <div className="form-group col-md-4">
@@ -59,4 +59,4 @@ const index = () => {
     )
 }
 
-export default index
+export default Index

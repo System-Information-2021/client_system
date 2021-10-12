@@ -6,10 +6,10 @@
     row-gap: 10px;
 }
 .search_form .logo_app{
-    display: flex;
+    display: flex;  
     align-items: center;
-    font-family: "extrabi";
     cursor: pointer;
+    font-family: "arvbold";
 }
 .search_form .logo_app div{
     font-size: 18px;

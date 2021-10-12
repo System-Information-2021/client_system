@@ -1,16 +1,28 @@
-import React from 'react'
-import "./index.css"
+import { Link, useLocation } from "react-router-dom";
 
-const index = () => {
+function Index() {
+    const location = useLocation();
+    const arrayPath = location.pathname.split("/").splice(1);
+
+    const breadcrumb = arrayPath.map((addr, index) => {
+        let combinePath = "/";
+        for (let i = 0; i <= index; i++) {
+            combinePath += arrayPath[i] + "/";
+            console.log("combine path", combinePath)
+        }
+        return (
+            <li >
+                <a href={combinePath}>{addr + "/"}</a>
+            </li>
+        );
+    });
+
     return (
-
-        <ol className="breadcrumb">
-            <li className="breadcrumb-item"><a href="#">Home</a></li>
-            <li className="breadcrumb-item"><a href="#">Library</a></li>
-            <li className="breadcrumb-item active" aria-current="page">Data</li>
-        </ol>
-
-    )
+        <nav>
+            <ol className="breadcrumb">{breadcrumb}</ol>
+        </nav>
+    );
 }
 
-export default index
+export default Index;
+
