@@ -11,9 +11,6 @@ const HomeTemplate = ({ routes }) => {
 
     const user = useUser();
 
-
-    console.log("user data ", user.data)
-
     // if user is an admin
     if (user.data && user.data.isadmin) return <Redirect to="/admin" />;
 

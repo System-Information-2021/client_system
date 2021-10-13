@@ -18,6 +18,15 @@ const Index = () => {
                     <ion-icon name="search-outline"></ion-icon>
                 </button>
             </form>
+            <div className="cart" onClick={() => history.push("/cart-detail")}>
+                <div className="cart_icon"><ion-icon name="cart-outline"></ion-icon></div>
+                <div className="cart_content">
+                    <div className="cart_title">Shopping Cart</div>
+                    <div className="cart_item">
+                        1 items - $49
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

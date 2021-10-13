@@ -49,8 +49,37 @@
 }
 .search_form .form_group button:hover{
     background-color: #FFF4D4;
+    color: #000;
+}
+.search_form .cart{
+    border-left: 1px solid gray;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    cursor: pointer;
 }
 
+.search_form .cart .cart_icon{
+    background-color: #000;
+    color: #fff;
+    padding: 7px 10px;
+}
+
+.search_form .cart .cart_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;   
+}
+
+.search_form .cart .cart_content .cart_title{
+    font-size: 14px;
+    font-weight: bold;
+}
+.search_form .cart .cart_content .cart_item{
+    font-size: 14px;
+}
 /* responsive */
 @media screen and (min-device-width: 350px) and (max-device-width: 768px) { 
    .search_form{

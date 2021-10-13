@@ -31,16 +31,14 @@ function App() {
 
 
   useEffect(() => {
-    console.log("user", user)
     if (token !== null) {
       const decodedToken = jwt_decode(token)
 
       if (decodedToken.exp * 1000 < new Date().getTime()) {
-        actLogout();
+        actLogout()
       }
     }
   }, [token])
-
 
   return (
     <BrowserRouter>

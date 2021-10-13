@@ -25,7 +25,7 @@ const index = () => {
                     <textarea className="form-control" rows="6"></textarea>
                 </div>
                 <div className="form-group">
-                    <label className="my-1 mr-2" >Brand Product</label>
+                    <label className="my-1 mr-2" className="brand_prouduct" >Brand Product</label>
                     <select className="custom-select my-1 mr-sm-2" >
                         <option selected>Choose...</option>
                         <option value="1">One</option>
@@ -33,7 +33,7 @@ const index = () => {
                         <option value="3">Three</option>
                     </select>
 
-                    <label className="my-1 mr-2" >Category Product</label>
+                    <label className="my-1" className="category_prouduct" >Category Product</label>
                     <select className="custom-select my-1 mr-sm-2" >
                         <option selected>Choose...</option>
                         <option value="1">One</option>

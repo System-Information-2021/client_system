@@ -30,6 +30,36 @@ const appRoutes = [
             },
             {
                 exact: true,
+                path: "/admin/product/brand",
+                component: React.lazy(() => import("../container/AdminTemplate/ProductPageBrand"))
+            },
+            {
+                exact: true,
+                path: "/admin/product/brand/create",
+                component: React.lazy(() => import("../container/AdminTemplate/ProductPageBrandCreate"))
+            },
+            {
+                exact: true,
+                path: "/admin/product/brand/edit",
+                component: React.lazy(() => import("../container/AdminTemplate/ProductPageBrandEdit"))
+            },
+            {
+                exact: true,
+                path: "/admin/product/category",
+                component: React.lazy(() => import("../container/AdminTemplate/ProductCategoryPage"))
+            },
+            {
+                exact: true,
+                path: "/admin/product/category/edit",
+                component: React.lazy(() => import("../container/AdminTemplate/ProductCategoryPage/Edit"))
+            },
+            {
+                exact: true,
+                path: "/admin/product/category/create",
+                component: React.lazy(() => import("../container/AdminTemplate/ProductCategoryPage/Create"))
+            },
+            {
+                exact: true,
                 path: "/admin/user",
                 component: React.lazy(() => import("../container/AdminTemplate/userPage"))
             },
@@ -76,6 +106,13 @@ const appRoutes = [
                     import("../container/HomeTemplate/AllProductPage")
                 ),
             },
+            {
+                exact: true,
+                path: "/cart-detail",
+                component: React.lazy(() =>
+                    import("../container/HomeTemplate/CartPage")
+                ),
+            }
         ]
     },
 
