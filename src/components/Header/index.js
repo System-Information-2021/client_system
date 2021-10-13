@@ -9,8 +9,6 @@ const Index = () => {
     const user = useUser()
     let history = useHistory();
 
-    console.log(user.data)
-
     const activeMenu = () => {
         let headerEl = document.getElementById("header_menu")
 

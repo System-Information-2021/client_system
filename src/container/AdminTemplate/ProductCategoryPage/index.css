@@ -1,9 +1,9 @@
-.admin_product{
+.admin_product_category{
     padding: 10px 15px;
     display: flex;
     flex-direction: column;
 }
-.admin_product .admin_product_header{
+.admin_product_category .admin_product_category_header{
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -11,13 +11,13 @@
     column-gap: 10px;
 }
 
-.admin_product .admin_product_header .admin_product_title{
+.admin_product_category .admin_product_category_header .admin_product_category_title{
     font-size: 24px;
     font-weight: bold;
     text-transform: uppercase;
 }
 
-.admin_product .admin_product_header .admin_product_new{
+.admin_product_category .admin_product_category_header .admin_product_category_new{
     padding: 10px;
     border: 1px solid #000;
     cursor: pointer;
@@ -25,28 +25,29 @@
     font-weight: bold;
 }
 
-.admin_product .admin_product_header .admin_product_new:hover{
+.admin_product_category .admin_product_category_header .admin_product_category_new:hover{
     background: #000;
     color: #fff;
 }
 
-.admin_product .admin_product_main_list{
+.admin_product_category .admin_product_category_main_list{
     height: 75vh;
     width: 100%;
     overflow: scroll;
 }
-.admin_product .admin_product_main_list::-webkit-scrollbar{
+.admin_product_category .admin_product_brand_main_list::-webkit-scrollbar{
     display: none;
 }
 
-.admin_product .product_pagination{
+.admin_product_category .product_pagination{
     position: absolute;
     bottom: 0;
     right: 0;
 }
-.admin_product .btn{
+.admin_product_category .btn{
     cursor: pointer;
     margin-bottom: 10px;
     background: #000;
     color: #fff;
+    margin-right: 10px;
 }

@@ -7,11 +7,11 @@ export const SidebarData = [
     {
         title: "Brand Product",
         icon: <ion-icon name="bar-chart-outline"></ion-icon>,
-        link: "/admin/brand-product",
+        link: "/admin/product/brand",
     },
     {
         title: "Categories Product",
         icon: <ion-icon name="copy-outline"></ion-icon>,
-        link: "/admin/category-product",
+        link: "/admin/product/category",
     },
 ]

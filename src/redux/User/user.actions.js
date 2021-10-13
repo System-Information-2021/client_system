@@ -4,9 +4,9 @@ import { setInforUser } from "../../services/user"
 import apiInstance from "../../services"
 import Swal from 'sweetalert2'
 
-export const actLogout = (history) => {
+export const actLogout = () => {
     localStorage.clear();
-    history.push("/")
+    window.location.reload();
 }
 
 export const actLogin = (payload, history) => {
