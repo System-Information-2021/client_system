@@ -9,6 +9,9 @@
     font-weight: bold;
     font-family: "arvregula";
 }
+.header .header_cart{
+    display: none;
+}
 .header .show_icon{
     display: none;
 }
@@ -57,5 +60,14 @@
     .header .header_left--menu{
         flex-direction: column;
         display: none;
+    }
+    .header .header_cart{
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: #000;
+        color: #fff;
+        padding: 5px;
     }
 }

@@ -88,4 +88,8 @@
    .search_form .form_group input{
        width: 100%;
    }
+
+   .search_form .cart{
+       display: none;
+   }
 }

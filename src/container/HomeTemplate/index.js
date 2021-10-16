@@ -21,7 +21,7 @@ const HomeTemplate = ({ routes }) => {
             <MenuCategory />
 
             <div className="main">
-                <Suspense fallback={<div className="contaner">Processing...</div>}>
+                <Suspense fallback={<div className="container">Processing...</div>}>
                     <Switch>
                         {routes.map((item, idx) => (
                             <Route
