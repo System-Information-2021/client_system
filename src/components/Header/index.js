@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import { actLogout } from "../../redux/User/user.actions"
 import useUser from '../../hook/useUser'
 import "./index.css"
 
 const Index = () => {
-    let users = JSON.parse(localStorage.getItem("user"))
     const user = useUser()
     let history = useHistory();
 
@@ -33,14 +31,14 @@ const Index = () => {
                 <div className="header__right--groupButton">
                     <ul>
                         {
-                            users ? (<li onClick={() => history.push("/login")}>
-                                Hello {users.lastname + users.firstname || users.email}
+                            user.data ? (<li onClick={() => history.push("/login")}>
+                                Hello {user?.data.lastname + user?.data.firstname || user?.data.email}
                             </li>) : <li className="login" onClick={() => history.push("/login")} >
                                 <ion-icon name="log-in"></ion-icon> Login
                             </li>
                         }
                         {
-                            users ? (<li onClick={user.logout} >
+                            user.data ? (<li onClick={user.logout} >
                                 <ion-icon name="log-out-outline"></ion-icon> Logout
                             </li>) : (<li className="register" onClick={() => history.push("/register")}>
                                 <ion-icon name="pencil-outline"></ion-icon> Register

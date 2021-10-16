@@ -1,21 +1,22 @@
 import React, { Suspense, useEffect, useState } from 'react';
 import { useHistory, Redirect } from "react-router-dom"
-import { actLogout } from "./redux/User/user.actions"
-import jwt_decode from "jwt-decode";
+import { actGetUserDetail } from './redux/User/user.actions';
 import ErrorBoundary from './components/ErrorBoundary';
+import { useDispatch } from 'react-redux';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "react-pagination-library/build/css/index.css"; //for css
 import appRoutes from './routes';
+import { checkExpireToken } from './services/auth';
 import './App.css';
 
 function App() {
-  let user = JSON.parse(localStorage.getItem("user"));
-  let token = localStorage.getItem("token")
+  const [loading, setLoading] = useState(true)
+  let history = useHistory()
+  const dispatch = useDispatch()
 
 
 
   const showLayout = (routes) => {
-    console.log(routes)
 
     if (routes && routes.length > 0) {
       return routes.map((item, idx) => (
@@ -29,17 +30,31 @@ function App() {
     }
   };
 
+  useEffect(() => {
+  }, [])
 
   useEffect(() => {
-    if (token !== null) {
-      const decodedToken = jwt_decode(token)
-
-      if (decodedToken.exp * 1000 < new Date().getTime()) {
-        actLogout()
+    const fetchData = async () => {
+      if (localStorage.getItem("token")) {
+        dispatch(actGetUserDetail(localStorage.getItem("token"), (userData) => {
+          if (userData) {
+            if (userData.data.isadmin === true) {
+              history.push("/admin")
+            } else {
+              history.push("/")
+            }
+          }
+          setLoading(false)
+        }))
+      } else {
+        setLoading(false)
       }
     }
-  }, [token])
+    fetchData()
+    // checkExpireToken()
+  }, [])
 
+  if (loading) return <div className="container">Processing...</div>;
   return (
     <BrowserRouter>
       <div className="app">

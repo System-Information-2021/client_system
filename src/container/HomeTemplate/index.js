@@ -11,8 +11,9 @@ const HomeTemplate = ({ routes }) => {
 
     const user = useUser();
 
-    // if user is an admin
-    if (user.data && user.data.isadmin) return <Redirect to="/admin" />;
+    if (user.data && user.data.isadmin) return <Redirect to="/admin" />
+
+
 
     return (
         <div className="home__container">
