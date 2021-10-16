@@ -11,8 +11,7 @@ const Index = ({ routes }) => {
     // If user is not an admin
     if (!user.data) return <Redirect to="/" />;
 
-    if (!user.data.isadmin) return <Redirect to="/" />;
-
+    if (user.data && !user.data.isadmin) return <Redirect to="/" />;
 
     return (
         <div className="admin_dashboard">

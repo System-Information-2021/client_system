@@ -1,10 +1,10 @@
 import { USER_LOGIN, USER_LOGIN_LOADING, USER_LOGIN_FAIL } from "./user.types"
 const INITIAL_STATE = {
     loading: false,
-    userData: null || JSON.parse(localStorage.getItem("user")),
+    userData: null,
     tokenError: null,
     error: null,
-    token: null || localStorage.getItem("token")
+    token: null
 }
 
 const userReducer = (state = INITIAL_STATE, { type, payload }) => {

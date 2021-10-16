@@ -34,7 +34,7 @@ const Index = () => {
                 }
             })
 
-            if (data.code === 201) {
+            if (data.code === 200) {
                 Swal.fire(
                     'Good job! Register Successully',
                     'You clicked the button!',
