@@ -112,6 +112,13 @@ const appRoutes = [
                 component: React.lazy(() =>
                     import("../container/HomeTemplate/CartPage")
                 ),
+            },
+            {
+                exact: true,
+                path: "/checkout",
+                component: React.lazy(() =>
+                    import("../container/HomeTemplate/CheckoutPage")
+                ),
             }
         ]
     },

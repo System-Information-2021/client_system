@@ -1,8 +1,11 @@
 import React from 'react'
 import "./index.css"
+import { useHistory } from 'react-router-dom'
 import imageDemo from "../../../assets/images/product_03_thumbnail.jpg"
 
 const Index = () => {
+    let history = useHistory()
+
     return (
         <div className="view_cart_page container">
             <div className="view_cart_title">Shopping Cart</div>
@@ -116,7 +119,7 @@ const Index = () => {
                     </div>
                     <div className="sumary_total" style={{ fontSize: "20px", fontWeight: "bold" }}><div>Total</div><div>$9999</div>
                     </div>
-                    <div className="sumary_btn">proceed to checkout</div>
+                    <div className="sumary_btn" onClick={() => history.push("/checkout")}>proceed to checkout</div>
 
                     <div className="sumary_payment">
                         <div className="payment_title" >Payment</div>

@@ -49,6 +49,9 @@ const Index = () => {
                     </ul>
                 </div>
             </div>
+            <div className="header_cart" onClick={() => history.push("/cart-detail")}>
+                <ion-icon name="cart-outline"></ion-icon>
+            </div>
         </div>
     )
 }

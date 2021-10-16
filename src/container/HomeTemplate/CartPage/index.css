@@ -54,3 +54,8 @@
     font-size: 18px;
     text-transform: uppercase;
 }
+@media screen and (min-device-width: 350px) and (max-device-width: 768px) {
+    .view_cart_page .cart_sumary {
+        padding: 0px 20px !important; 
+    }
+ }
