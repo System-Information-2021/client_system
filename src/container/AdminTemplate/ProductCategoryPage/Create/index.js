@@ -13,6 +13,11 @@ const Index = () => {
                     </div>
                 </div>
             </form>
+            <div style={{ textAlign: "center" }}>
+                <button className="btn_submit">
+                    Submit
+                </button>
+            </div>
         </div>
     )
 }

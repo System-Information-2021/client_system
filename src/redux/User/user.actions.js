@@ -56,13 +56,20 @@ export const actGetUserDetail =
                     data: { token },
                 })
                     .then((res) => {
+                        console.log(res.data)
                         if (res.data.code === 200) {
                             setAPIHeader(res.data.token)
                             dispatch(actLoginSuccess(res.data.data))
                             dispatch(actLoginLoading(false));
                             callback(res.data)
                         } else {
-                            console.log("fail get detail");
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: res.data.message,
+                            })
+                            localStorage.clear()
+                            console.log("fail get detail")
                             dispatch(actLoginLoading(false))
                             callback(null);
                         }
