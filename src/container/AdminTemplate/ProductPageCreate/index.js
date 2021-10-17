@@ -55,6 +55,12 @@ const index = () => {
                     <input type="file" class="form-control-file" />
                 </div>
             </form>
+            <div style={{ textAlign: "center" }}>
+                <button className="btn_submit">
+                    Submit
+                </button>
+            </div>
+
         </div>
     )
 }

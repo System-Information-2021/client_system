@@ -1,4 +1,5 @@
 import React, { Suspense, useEffect, useState } from 'react';
+import { useLoading, Audio, BallTriangle, Hearts } from '@agney/react-loading';
 import { useHistory, Redirect } from "react-router-dom"
 import { actGetUserDetail } from './redux/User/user.actions';
 import ErrorBoundary from './components/ErrorBoundary';
@@ -6,11 +7,14 @@ import { useDispatch } from 'react-redux';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "react-pagination-library/build/css/index.css"; //for css
 import appRoutes from './routes';
-import { checkExpireToken } from './services/auth';
 import './App.css';
 
 function App() {
   const [loading, setLoading] = useState(true)
+  const { containerProps, indicatorEl } = useLoading({
+    loading: loading,
+    indicator: <Hearts width="50" />,
+  });
   let history = useHistory()
   const dispatch = useDispatch()
 
@@ -51,10 +55,11 @@ function App() {
       }
     }
     fetchData()
-    // checkExpireToken()
   }, [])
 
-  if (loading) return <div className="container">Processing...</div>;
+  if (loading) return (<section {...containerProps} style={{ position: 'absolute', top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
+    {indicatorEl} {/* renders only while loading */}
+  </section>)
   return (
     <BrowserRouter>
       <div className="app">
