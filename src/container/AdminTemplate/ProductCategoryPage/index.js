@@ -8,6 +8,8 @@ import { toast } from 'react-toastify';
 
 const Index = () => {
     const [category, setCategory] = useState([])
+    const [totalPage, setTotalPage] = useState(1)
+
 
     let history = useHistory()
 
@@ -24,21 +26,28 @@ const Index = () => {
         })
         if (data.code === 200) {
             toast.success(`${data.status}`)
-            window.location.reload()
+            setTimeout(() => {
+                window.location.reload()
+            }, 2000);
         } else {
-            toast.error("Error")
+            toast.error(`Status_code: ${data.code}...!`)
         }
-        console.log(data)
     }
 
     useEffect(() => {
         async function fetchCategory() {
             const { data } = await apiInstance({
-                url: "/category",
-                method: "GET"
+                url: `/category`,
+                method: "GET",
+                params: {
+                    page: currentPage
+                }
             })
+
+            console.log(data)
             if (data.code === 200) {
                 setCategory(data.data)
+                setTotalPage(data.totalPage)
             } else {
                 Swal.fire({
                     icon: 'error',
@@ -48,7 +57,7 @@ const Index = () => {
             }
         }
         fetchCategory();
-    }, [])
+    }, [currentPage])
 
     return (
         <div className="admin_product_category">
@@ -68,8 +77,8 @@ const Index = () => {
                     </thead>
                     <tbody>
                         {
-                            category?.map((item, key) => {
-                                return (<tr key={key}>
+                            category?.map((item) => {
+                                return (<tr key={item.id}>
                                     <th scope="row">{item.id}</th>
                                     <td>{item.name}</td>
                                     <td>
@@ -85,7 +94,7 @@ const Index = () => {
             <div className="product_pagination">
                 <Pagination
                     currentPage={currentPage}
-                    totalPages={10}
+                    totalPages={totalPage}
                     changeCurrentPage={changeCurrentPage}
                     theme="bottom-border"
                 />

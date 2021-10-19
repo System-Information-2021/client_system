@@ -40,7 +40,7 @@ const appRoutes = [
             },
             {
                 exact: true,
-                path: "/admin/product/brand/edit",
+                path: "/admin/product/brand/edit/:id",
                 component: React.lazy(() => import("../container/AdminTemplate/ProductPageBrandEdit"))
             },
             {
