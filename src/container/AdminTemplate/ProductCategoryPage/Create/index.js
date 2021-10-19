@@ -18,7 +18,7 @@ const Index = () => {
         if (data.code === 200) {
             toast.success(`${data.status}`)
         } else {
-            toast.error("Error")
+            toast.error(`Status_code: ${data.code}...!`)
         }
     }
 

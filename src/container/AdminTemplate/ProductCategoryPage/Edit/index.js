@@ -33,9 +33,12 @@ const Index = () => {
         })
         if (data.code === 200) {
             toast.success(`${data.status}`)
-            history.push("/admin/product/category")
+            setTimeout(() => {
+                history.push("/admin/product/category")
+            }, 2000);
+
         } else {
-            toast.error("Error")
+            toast.error(`Status_code: ${data.code}...!`)
         }
     }
 
