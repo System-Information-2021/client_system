@@ -1,6 +1,8 @@
 import React, { Suspense } from 'react'
 import { Switch, Route, useHistory, Redirect } from "react-router-dom"
+import 'react-toastify/dist/ReactToastify.css';
 import SidebarAdmin from "../../components/SidebarAdmin"
+import { ToastContainer, toast } from 'react-toastify';
 import BreadCrumb from "../../components/Breadcrumb"
 import useUser from '../../hook/useUser'
 import "./index.css"
@@ -15,6 +17,18 @@ const Index = ({ routes }) => {
 
     return (
         <div className="admin_dashboard">
+            <ToastContainer
+                position="top-right"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme={'dark'}
+            />
             <SidebarAdmin />
             <div className="main_admin">
                 <div className="header_admin">
