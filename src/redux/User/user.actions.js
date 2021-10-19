@@ -56,7 +56,6 @@ export const actGetUserDetail =
                     data: { token },
                 })
                     .then((res) => {
-                        console.log(res.data)
                         if (res.data.code === 200) {
                             setAPIHeader(res.data.token)
                             dispatch(actLoginSuccess(res.data.data))

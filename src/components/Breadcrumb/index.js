@@ -8,7 +8,6 @@ function Index() {
         let combinePath = "/";
         for (let i = 0; i <= index; i++) {
             combinePath += arrayPath[i] + "/";
-            console.log("combine path", combinePath)
         }
         return (
             <li >
