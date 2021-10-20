@@ -1,23 +1,30 @@
 import { ADD_TO_CART, REMOVE_TO_CART, UPDATE_TO_CART, SHOW_ITEM_CART } from "./shopping.types";
 
-export const addToCart = (payload) => {
+export const addToCart = (id) => {
     return {
         type: ADD_TO_CART,
-        payload
+        payload: {
+            id
+        }
     }
 }
 
-export const removeToCart = (payload) => {
+export const removeToCart = (id) => {
     return {
         type: REMOVE_TO_CART,
-        payload
+        payload: {
+            id
+        }
     }
 }
 
-export const updateToCart = (payload) => {
+export const updateToCart = (id, value) => {
     return {
         type: UPDATE_TO_CART,
-        payload
+        payload: {
+            id,
+            qty: value
+        }
     }
 }
 export const showItemCart = () => {
