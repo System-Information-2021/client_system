@@ -1,10 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import Logo from "../../assets/images/logo.png"
+import { useSelector, useDispatch } from 'react-redux'
 import "./index.css"
 
 const Index = () => {
     let history = useHistory();
+
+    const [totalItem, setTotalItem] = useState(0);
+    const [totalPrice, setTotalPrice] = useState(0)
+    const cart = useSelector((state) => state.shopping.cart)
+
+    useEffect(() => {
+        let items = 0;
+        let price = 0;
+        cart.forEach(item => {
+            items += item.qty;
+            price += item.qty * item.price
+        })
+        setTotalItem(items)
+        setTotalPrice(price)
+    }, [cart, totalItem, totalPrice])
+    console.log(cart)
+
 
     return (
         <div className="search_form container">
@@ -23,7 +41,7 @@ const Index = () => {
                 <div className="cart_content">
                     <div className="cart_title">Shopping Cart</div>
                     <div className="cart_item">
-                        1 items - $49
+                        {totalItem} items - ${totalPrice}
                     </div>
                 </div>
             </div>

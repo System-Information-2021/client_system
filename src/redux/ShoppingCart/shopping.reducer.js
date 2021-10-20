@@ -18,7 +18,7 @@ const INITIAL_STATE = {
         }
     ],
     cart: [],
-    currentItem: null
+    currentItem: null,
 }
 
 const shoppingReducer = (state = INITIAL_STATE, { type, payload }) => {

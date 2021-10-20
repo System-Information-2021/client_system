@@ -54,6 +54,14 @@
     font-size: 18px;
     text-transform: uppercase;
 }
+.view_cart_page .qty_update button{
+    padding: 1px 7px;
+    background-color: #000;
+    font-weight: bold;
+    border: none;
+    color: #fff;
+    margin-top: 10px;
+}
 @media screen and (min-device-width: 350px) and (max-device-width: 768px) {
     .view_cart_page .cart_sumary {
         padding: 0px 20px !important; 
