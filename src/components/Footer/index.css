@@ -24,7 +24,7 @@
     padding: 0px 15px;
 }
 .footer .footer_top--formmail button:hover{
-    background: #FFF4D4;
+    background: #AE7B4E;
 }
 .footer ul li{
     font-size: 14px;
@@ -32,7 +32,7 @@
 }
 .footer ul li:hover{
     text-decoration: underline;
-    color: #FFF4D4;
+    color: #AE7B4E;
 }
 .footer_top{
     display: flex;
@@ -65,7 +65,7 @@
 }
 
 .footer_middle .footer_middle--social ion-icon:hover{
-    color: #FFF4D4;
+    color: #AE7B4E;
     cursor: pointer;
 }
 .footer_bottom{

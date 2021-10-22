@@ -106,7 +106,7 @@
     cursor: pointer;
 }
 .checkout_page .checkout_payment .checkout_btn:hover{
-    background: burlywood;
+    background: #AE7B4E;
 }
 
 @media screen and (min-device-width: 350px) and (max-device-width: 768px) {

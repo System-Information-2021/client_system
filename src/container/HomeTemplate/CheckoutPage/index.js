@@ -1,8 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useSelector, useDispatch } from "react-redux"
 import "./index.css"
 import imageItem from "../../../assets/images/product_03_thumbnail.jpg"
 
 const Index = () => {
+    const [totalItem, setTotalItem] = useState(0);
+    const [totalPrice, setTotalPrice] = useState(0)
+    const cart = useSelector((state) => state.shopping.cart)
+
+    useEffect(() => {
+        let items = 0;
+        let price = 0;
+        cart.forEach(item => {
+            items += item.qty;
+            price += item.qty * item.price
+        })
+        setTotalItem(items)
+        setTotalPrice(price)
+    }, [cart, totalItem, totalPrice])
+    console.log(cart)
+
     return (
         <div className="checkout_page container">
             <div className="checkout_title">Checkout</div>
@@ -86,7 +103,7 @@ const Index = () => {
                         <div className="checkout_total">
                             <div className="subtotal">
                                 <div>Subtotal</div>
-                                <div>$2909</div>
+                                <div>${totalPrice}</div>
                             </div>
                             <div className="shipping">
                                 <div>Shipping</div>
@@ -98,7 +115,7 @@ const Index = () => {
                             </div>
                             <div className="total">
                                 <div>Total</div>
-                                <div>$2909</div>
+                                <div>${totalPrice}</div>
                             </div>
                         </div>
                         <div className="checkout_btn">

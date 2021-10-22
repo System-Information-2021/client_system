@@ -1,10 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useSelector, useDispatch } from "react-redux"
 import "./index.css"
 import { useHistory } from 'react-router-dom'
-import imageDemo from "../../../assets/images/product_03_thumbnail.jpg"
+import ItemInCart from "../../../components/ItemInCart"
 
 const Index = () => {
     let history = useHistory()
+
+    const [totalItem, setTotalItem] = useState(0);
+    const [totalPrice, setTotalPrice] = useState(0);
+    const cart = useSelector((state) => state.shopping.cart)
+
+    useEffect(() => {
+        let items = 0;
+        let price = 0;
+        cart.forEach(item => {
+            items += item.qty;
+            price += item.qty * item.price
+        })
+        setTotalItem(items)
+        setTotalPrice(price)
+    }, [cart, totalItem, totalPrice])
+
 
     return (
         <div className="view_cart_page container">
@@ -20,104 +37,19 @@ const Index = () => {
                                 <th scope="col">Total</th>
                             </tr>
                         </thead>
-                        <tbody style={{}}>
-                            <tr>
-                                <th scope="row" style={{ display: 'flex', alignItems: "center", borderBottom: "1px solod gray", paddingBottom: "15px" }}>                                    <div className="cart_item_image" style={{ width: "100px", height: "100px", marginRight: "10px" }}>
-                                    <img src={imageDemo} alt="image" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
-                                </div>
-                                    <div>
-                                        <div className="cart_item_name">Womens Elegents Blouse</div>
-                                        <div className="btn_delele" style={{ color: "burlywood", cursor: "pointer" }}><ion-icon name="close-outline"></ion-icon> Delete</div>
-                                    </div>
-
-                                </th>
-                                <td style={{ color: "gray", }}>
-                                    $999
-                                </td>
-                                <td>
-                                    <div className="qty_update" style={{ display: 'flex', alignItems: "center", color: 'gray' }}>
-                                        <div className="btn_add_qty" style={{ cursor: "pointer" }}><ion-icon name="add-circle-outline"></ion-icon></div>
-                                        <div style={{ marginRight: "10px", marginLeft: "10px" }} >15</div>
-                                        <div className="btn_sub_qty" style={{ cursor: "pointer" }}><ion-icon name="remove-circle-outline"></ion-icon></div>
-                                    </div>
-                                </td>
-                                <td style={{ color: "gray" }}>$999</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" style={{ display: 'flex', alignItems: "center" }}>                                    <div className="cart_item_image" style={{ width: "100px", height: "100px", marginRight: "10px" }}>
-                                    <img src={imageDemo} alt="image" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
-                                </div>
-                                    <div>
-                                        <div className="cart_item_name" >Womens Elegents Blouse</div>
-                                        <div className="btn_delele" style={{ color: "burlywood", cursor: "pointer" }}><ion-icon name="close-outline"></ion-icon> Delete</div>
-                                    </div>
-
-                                </th>
-                                <td style={{ color: "gray", }}>
-                                    $999
-                                </td>
-                                <td>
-                                    <div className="qty_update" style={{ display: 'flex', alignItems: "center", color: 'gray' }}>
-                                        <div className="btn_add_qty" style={{ cursor: "pointer" }}><ion-icon name="add-circle-outline"></ion-icon></div>
-                                        <div style={{ marginRight: "10px", marginLeft: "10px" }} >15</div>
-                                        <div className="btn_sub_qty" style={{ cursor: "pointer" }}><ion-icon name="remove-circle-outline"></ion-icon></div>
-                                    </div>
-                                </td>
-                                <td style={{ color: "gray" }}>$999</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" style={{ display: 'flex', alignItems: "center" }}>                                    <div className="cart_item_image" style={{ width: "100px", height: "100px", marginRight: "10px" }}>
-                                    <img src={imageDemo} alt="image" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
-                                </div>
-                                    <div>
-                                        <div className="cart_item_name">Womens Elegents Blouse</div>
-                                        <div className="btn_delele" style={{ color: "burlywood", cursor: "pointer" }}><ion-icon name="close-outline"></ion-icon> Delete</div>
-                                    </div>
-
-                                </th>
-                                <td style={{ color: "gray", }}>
-                                    $999
-                                </td>
-                                <td>
-                                    <div className="qty_update" style={{ display: 'flex', alignItems: "center", color: 'gray' }}>
-                                        <div className="btn_add_qty" style={{ cursor: "pointer" }}><ion-icon name="add-circle-outline"></ion-icon></div>
-                                        <div style={{ marginRight: "10px", marginLeft: "10px" }} >15</div>
-                                        <div className="btn_sub_qty" style={{ cursor: "pointer" }}><ion-icon name="remove-circle-outline"></ion-icon></div>
-                                    </div>
-                                </td>
-                                <td style={{ color: "gray" }}>$999</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" style={{ display: 'flex', alignItems: "center" }}>                                    <div className="cart_item_image" style={{ width: "100px", height: "100px", marginRight: "10px" }}>
-                                    <img src={imageDemo} alt="image" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
-                                </div>
-                                    <div>
-                                        <div className="cart_item_name">Womens Elegents Blouse</div>
-                                        <div className="btn_delele" style={{ color: "burlywood", cursor: "pointer" }}><ion-icon name="close-outline"></ion-icon> Delete</div>
-                                    </div>
-
-                                </th>
-                                <td style={{ color: "gray", }}>
-                                    $999
-                                </td>
-                                <td>
-                                    <div className="qty_update" style={{ display: 'flex', alignItems: "center", color: 'gray' }}>
-                                        <div className="btn_add_qty" style={{ cursor: "pointer" }}><ion-icon name="add-circle-outline"></ion-icon></div>
-                                        <div style={{ marginRight: "10px", marginLeft: "10px" }} >15</div>
-                                        <div className="btn_sub_qty" style={{ cursor: "pointer" }}><ion-icon name="remove-circle-outline"></ion-icon></div>
-                                    </div>
-                                </td>
-                                <td style={{ color: "gray" }}>$999</td>
-                            </tr>
+                        <tbody >
+                            <ItemInCart />
+                            <ItemInCart />
+                            <ItemInCart />
                         </tbody>
                     </table>
                 </div>
                 <div className="cart_sumary col-md-3">
                     <div className="sumary_title">order sumary</div>
                     <div className="sumary_sub_total">
-                        <div style={{ fontSize: "18px", fontWeight: "bold", }}>Subtotal</div><div>$9999</div>
+                        <div style={{ fontSize: "18px", fontWeight: "bold", }}>Subtotal</div><div>${totalPrice}</div>
                     </div>
-                    <div className="sumary_total" style={{ fontSize: "20px", fontWeight: "bold" }}><div>Total</div><div>$9999</div>
+                    <div className="sumary_total" style={{ fontSize: "20px", fontWeight: "bold" }}><div>Total</div><div>${totalPrice}</div>
                     </div>
                     <div className="sumary_btn" onClick={() => history.push("/checkout")}>proceed to checkout</div>
 
