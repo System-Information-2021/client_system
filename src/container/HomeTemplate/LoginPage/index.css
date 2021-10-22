@@ -29,7 +29,7 @@
     border-radius: 5px;
 }
 .form_login .btn_create_new_account:hover{
-    background-color: #FFF4D4;
+    background-color: #AE7B4E;
     color: #000;
 }
 .form_login .side_right .form-group{
@@ -46,7 +46,7 @@
     color: #fff;
 }
 .form_login .btn_login:hover{
-    background-color: #FFF4D4;
+    background-color: #AE7B4E;
     color: #000;
 }
 
@@ -58,7 +58,7 @@
     border-radius: 5px;
 }
 .form_login .btn_reset_form:hover{
-    background-color: #FFF4D4;
+    background-color: #AE7B4E;
     color: #000;
 }
 .form_login .side_left .side_left--title{

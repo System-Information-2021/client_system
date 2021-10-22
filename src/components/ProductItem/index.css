@@ -21,7 +21,7 @@
 .product_item .product_image{
     width: 100%;
     height: 60%;
-    border: 1px solid #FFF4D4;
+    border: 1px solid #AE7B4E;
 }
 
 .product_item .product_image img{
@@ -32,7 +32,7 @@
 .product_item .product_description{
     padding: 10px;
     flex: 1;
-    background-color: #FFF4D4;
+    background-color: #AE7B4E;
     color: #000;
     font-family: "";
     margin-top: auto;

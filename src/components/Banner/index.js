@@ -4,6 +4,7 @@ import { Carousel, } from "react-bootstrap"
 import ImageBanner from "../../assets/images/banner.png"
 import banner1 from "../../assets/images/banner1.jpg"
 import banner2 from "../../assets/images/banner2.jpg"
+import banner3 from "../../assets/images/banner3.png"
 
 const index = () => {
     return (
@@ -12,7 +13,7 @@ const index = () => {
                 <Carousel.Item interval={1000}>
                     <img
                         className="d-block w-100"
-                        src={ImageBanner}
+                        src={banner1}
                         alt="First slide"
                     />
 
@@ -20,7 +21,7 @@ const index = () => {
                 <Carousel.Item interval={500}>
                     <img
                         className="d-block w-100"
-                        src={banner1}
+                        src={banner2}
                         alt="Second slide"
                     />
 
@@ -28,7 +29,7 @@ const index = () => {
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src={banner2}
+                        src={banner3}
                         alt="Third slide"
                     />
 
