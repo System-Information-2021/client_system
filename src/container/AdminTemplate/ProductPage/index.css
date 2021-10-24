@@ -50,3 +50,13 @@
     background: #000;
     color: #fff;
 }
+.admin_product_main_list .group_image{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+.admin_product_main_list .group_image img{
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
