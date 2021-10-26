@@ -18,7 +18,6 @@ const Index = () => {
         setTotalItem(items)
         setTotalPrice(price)
     }, [cart, totalItem, totalPrice])
-    console.log(cart)
 
     return (
         <div className="checkout_page container">

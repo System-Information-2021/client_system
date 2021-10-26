@@ -12,7 +12,12 @@ const Index = () => {
     const [currentPage, setCurrentPage] = useState(1);
 
     const changeCurrentPage = (numPage) => {
+        console.log(numPage)
         setCurrentPage(numPage);
+    }
+
+    const activeProduct = (id, active) => {
+        console.log(id, active)
     }
 
     useEffect(() => {
@@ -30,7 +35,7 @@ const Index = () => {
             }
         }
         fetchProduct()
-    }, [totalPage, currentPage])
+    }, [currentPage])
 
 
     return (
@@ -50,7 +55,7 @@ const Index = () => {
                             <th scope="col">Product Category</th>
                             <th scope="col">Quantity</th>
                             <th scope="col">Image</th>
-                            <th scope="col">Active</th>
+                            <th scope="col">Status</th>
                             <th scope="col">Description</th>
                         </tr>
                     </thead>
@@ -61,19 +66,16 @@ const Index = () => {
                                     <th scope="row">{item.id}</th>
                                     <td>{item.name}</td>
                                     <td>{item.price}</td>
-                                    <td>{item.id_brand}</td>
-                                    <td>{item.id_category}</td>
+                                    <td>{item.brand?.name}</td>
+                                    <td>{item.category?.name}</td>
                                     <td>{item.quantity}</td>
                                     <td>
                                         <div className="group_image">
                                             <img src={`https://system-server-postgres.herokuapp.com/uploads/${item.image1}`} alt="iamge_product" />
-                                            <img src={`https://system-server-postgres.herokuapp.com/uploads/${item.image2}`} alt="iamge_product" />
-                                            <img src={`https://system-server-postgres.herokuapp.com/uploads/${item.image3}`} alt="iamge_product" />
                                         </div>
                                     </td>
-                                    <td>{item.active === true ? "True" : "False"}</td>
+                                    <td className="button_active">{item.active === true ? (<button className="btn" onClick={() => activeProduct(item.id, false)}>Unactive</button>) : (<button className="btn" onClick={() => activeProduct(item.id, true)}>Active</button>)}</td>
                                     <td>{item.description}</td>
-
                                     <td>
                                         <div className="btn btn_edit" onClick={() => history.push("/admin/product/edit")} style={{ marginRight: "10px" }}><ion-icon name="create-outline"></ion-icon></div>
                                         <div className="btn btn_delete"><ion-icon name="trash-outline"></ion-icon></div>
