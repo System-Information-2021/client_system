@@ -21,8 +21,6 @@ const Index = () => {
         setTotalItem(items)
         setTotalPrice(price)
     }, [cart, totalItem, totalPrice])
-    console.log(cart)
-
 
     return (
         <div className="search_form container">

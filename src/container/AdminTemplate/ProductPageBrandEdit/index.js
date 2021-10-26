@@ -7,6 +7,7 @@ import "./index.css"
 const Index = () => {
     let { id } = useParams()
     let history = useHistory()
+
     const [valueBrand, setValueBrand] = useState("")
 
 
@@ -34,11 +35,13 @@ const Index = () => {
                 method: "GET"
             })
             if (data.code === 200) {
-                setValueBrand(data.brand.name)
+                setValueBrand(data.data.name)
             }
         }
         getBrandById();
     }, [])
+
+    console.log(valueBrand)
 
     return (
         <div className="product_brand_edit_form">

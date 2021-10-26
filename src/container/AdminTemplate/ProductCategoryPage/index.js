@@ -72,7 +72,7 @@ const Index = () => {
                         <tr>
                             <th scope="col">Id</th>
                             <th scope="col">Product Brand Name</th>
-                            <th scope="col">Active</th>
+                            <th scope="col">Status</th>
                         </tr>
                     </thead>
                     <tbody>
