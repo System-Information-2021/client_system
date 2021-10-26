@@ -6,6 +6,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import BreadCrumb from "../../components/Breadcrumb"
 import CPAnimationAdmin from "../../components/CPAnimationAdmin"
 import useUser from '../../hook/useUser'
+import music from "../../assets/music/Giang-Sinh-Cuoi-Minh-Vuong-M4U.mp3"
+
 import "./index.css"
 
 const Index = ({ routes }) => {
@@ -43,6 +45,8 @@ const Index = ({ routes }) => {
                     <div className="breadcrumb_container">
                         <BreadCrumb />
                     </div>
+                    <audio autoplay loop id="playAudio" src={music} controls autoPlay />
+
                     <button className="logout_button" onClick={user.logout}>
                         <ion-icon name="log-out-sharp"></ion-icon>
                         Log out
