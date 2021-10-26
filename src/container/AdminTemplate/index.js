@@ -1,13 +1,15 @@
-import React, { Suspense } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 import { Switch, Route, useHistory, Redirect } from "react-router-dom"
 import 'react-toastify/dist/ReactToastify.css';
 import SidebarAdmin from "../../components/SidebarAdmin"
 import { ToastContainer, toast } from 'react-toastify';
 import BreadCrumb from "../../components/Breadcrumb"
+import CPAnimationAdmin from "../../components/CPAnimationAdmin"
 import useUser from '../../hook/useUser'
 import "./index.css"
 
 const Index = ({ routes }) => {
+    const [animation, setAnimation] = useState(false)
     const user = useUser()
 
     // If user is not an admin
@@ -15,8 +17,14 @@ const Index = ({ routes }) => {
 
     if (user.data && !user.data.isadmin) return <Redirect to="/" />;
 
+    setTimeout(() => {
+        setAnimation(false)
+    }, 6000);
+
     return (
         <div className="admin_dashboard">
+            {animation === true && <CPAnimationAdmin />}
+
             <ToastContainer
                 position="top-right"
                 autoClose={2000}

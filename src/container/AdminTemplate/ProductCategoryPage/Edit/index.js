@@ -18,7 +18,7 @@ const Index = () => {
                 method: "GET"
             })
             if (data.code === 200) {
-                setValueEdit(data.category.name)
+                setValueEdit(data.data.name)
             }
         }
         fetchCategoryById()

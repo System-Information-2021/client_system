@@ -83,8 +83,6 @@ const Index = () => {
                                 </tr>)
                             })
                         }
-
-
                     </tbody>
                 </table>
             </div>
