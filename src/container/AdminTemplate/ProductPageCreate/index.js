@@ -19,11 +19,29 @@ const Index = () => {
     useEffect(() => {
         async function fetchBrand() {
             const { data } = await apiInstance({
-                url: "/brand",
+                url: "/brand/all",
                 method: "GET",
             })
-            // if(data.)
+            if (data.code === 200) {
+                setBrand(data.data)
+            } else {
+                toast.error("Fetch Data Error")
+            }
         }
+        async function fetchCategory() {
+            const { data } = await apiInstance({
+                url: "/category/all",
+                method: "GET",
+            })
+
+            if (data.code === 200) {
+                setCategory(data.data)
+            } else {
+                toast.error("Fetch Data Error")
+            }
+        }
+        fetchBrand()
+        fetchCategory()
     }, [])
 
     const handleSubmitProduct = async (e) => {
@@ -33,8 +51,8 @@ const Index = () => {
         formData.append("name", name)
         formData.append("price", price)
         formData.append("description", description)
-        formData.append("id_brand", 1)
-        formData.append("id_category", 2)
+        formData.append("id_brand", brandId)
+        formData.append("id_category", categoryId)
 
         for (let i = 0; i < images.length; i++) {
             formData.append("images", images[i]);
@@ -75,23 +93,26 @@ const Index = () => {
                     <label>Description Product</label>
                     <textarea className="form-control" rows="6" onChange={e => setDescription(e.target.value)}></textarea>
                 </div>
-                {/* <div className="form-group">
+                <div className="form-group">
                     <label className="my-1 mr-2" className="brand_prouduct" >Brand Product</label>
-                    <select className="custom-select my-1 mr-sm-2" >
+                    <select className="custom-select my-1 mr-sm-2" onChange={e => setBrandId(e.target.value)}>
                         <option selected>Choose...</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        {
+                            brand?.map(item => (
+                                <><option value={item.id}>{item.name}</option></>))
+                        }
                     </select>
 
                     <label className="my-1" className="category_prouduct" >Category Product</label>
-                    <select className="custom-select my-1 mr-sm-2" >
+                    <select className="custom-select my-1 mr-sm-2" onChange={e => setCategoryId(e.target.value)}  >
                         <option selected>Choose...</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        {
+                            category?.map(item => {
+                                return (<option value={item.id}>{item.name}</option>)
+                            })
+                        }
                     </select>
-                </div> */}
+                </div>
                 <div className="form-group">
                     <label>Select 3 Image</label>
                     <input type="file" className="form-control-file" onChange={e => setImages(e.target.files)} accept='image/*' multiple />
