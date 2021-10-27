@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import "./index.css"
 import Pagination from "react-pagination-library";
 import apiInstance from "../../../services/index"
+import { toast } from 'react-toastify';
 
 
 const Index = () => {
@@ -16,8 +17,34 @@ const Index = () => {
         setCurrentPage(numPage);
     }
 
-    const activeProduct = (id, active) => {
-        console.log(id, active)
+    const activeProduct = async (id) => {
+        console.log(id)
+
+        const { data } = await apiInstance({
+            url: `product/active/${id}`,
+            method: "POST"
+        })
+        if (data.code === 200) {
+            toast.success(data.messsage)
+        } else {
+            toast.error(data.code)
+        }
+    }
+
+    const deleteProduct = async (id) => {
+        console.log(id)
+        const { data } = await apiInstance({
+            url: `/product/delete/${id}`,
+            method: "DELETE"
+        })
+        if (data.code === 200) {
+            toast.success(data.messsage)
+            setTimeout(() => {
+                window.location.reload()
+            }, 2000);
+        } else {
+            toast.error(`Status_code: ${data.code}...!`)
+        }
     }
 
     useEffect(() => {
@@ -74,11 +101,11 @@ const Index = () => {
                                             <img src={`https://system-server-postgres.herokuapp.com/uploads/${item.image1}`} alt="iamge_product" />
                                         </div>
                                     </td>
-                                    <td className="button_active">{item.active === true ? (<button className="btn" onClick={() => activeProduct(item.id, false)}>Unactive</button>) : (<button className="btn" onClick={() => activeProduct(item.id, true)}>Active</button>)}</td>
+                                    <td className="button_active">{item.active === true ? (<button className="btn" onClick={() => activeProduct(item.id)}>Unactive</button>) : (<button className="btn" onClick={() => activeProduct(item.id, true)}>Active</button>)}</td>
                                     <td>{item.description}</td>
                                     <td>
                                         <div className="btn btn_edit" onClick={() => history.push("/admin/product/edit")} style={{ marginRight: "10px" }}><ion-icon name="create-outline"></ion-icon></div>
-                                        <div className="btn btn_delete"><ion-icon name="trash-outline"></ion-icon></div>
+                                        <div className="btn btn_delete" onClick={() => deleteProduct(item.id)}><ion-icon name="trash-outline"></ion-icon></div>
                                     </td>
                                 </tr>)
                             })
