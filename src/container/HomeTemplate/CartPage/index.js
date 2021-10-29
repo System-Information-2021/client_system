@@ -7,6 +7,8 @@ import ItemInCart from "../../../components/ItemInCart"
 const Index = () => {
     let history = useHistory()
 
+
+
     const [totalItem, setTotalItem] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0);
     const cart = useSelector((state) => state.shopping.cart)
@@ -21,7 +23,6 @@ const Index = () => {
         setTotalItem(items)
         setTotalPrice(price)
     }, [cart, totalItem, totalPrice])
-
 
     return (
         <div className="view_cart_page container">
@@ -38,9 +39,12 @@ const Index = () => {
                             </tr>
                         </thead>
                         <tbody >
-                            <ItemInCart />
-                            <ItemInCart />
-                            <ItemInCart />
+                            {
+                                cart?.map((item, index) => {
+                                    return (<ItemInCart data={item} />)
+                                })
+                            }
+
                         </tbody>
                     </table>
                 </div>
