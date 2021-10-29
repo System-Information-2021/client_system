@@ -75,28 +75,21 @@ const Index = () => {
                             Order Sumary
                         </div>
                         <div className="list_item">
-                            <div className="checkout_item">
-                                <div className="infor">
-                                    <img src={imageItem} alt="item image" />
-                                    <div className="qty">3</div>
-                                    <div className="name_and_price">
-                                        <div>Women men </div>
-                                        <div>$9999</div>
+                            {cart?.map((item, index) => {
+                                return (<div className="checkout_item">
+                                    <div className="infor">
+                                        <img src={`https://system-server-postgres.herokuapp.com/uploads/${item.image1}`} alt="item image" />
+                                        <div className="qty">{item.qty}</div>
+                                        <div className="name_and_price">
+                                            <div>{item.name}</div>
+                                            <div>${item.price}</div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="subtotal">$999</div>
-                            </div>
-                            <div className="checkout_item">
-                                <div className="infor">
-                                    <img src={imageItem} alt="item image" />
-                                    <div className="qty">3</div>
-                                    <div className="name_and_price">
-                                        <div>Women men</div>
-                                        <div>$9999</div>
-                                    </div>
-                                </div>
-                                <div className="subtotal">$999</div>
-                            </div>
+                                    <div className="subtotal">${item.qty * item.price}</div>
+                                </div>)
+                            })}
+
+
                         </div>
 
                         <div className="checkout_total">

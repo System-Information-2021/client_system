@@ -2,11 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ProductItem from "../../../components/ProductItem"
 import { actFetchProduct } from "../../../redux/ShoppingCart/shopping.actions"
 import { useDispatch, useSelector } from 'react-redux';
-
-
 import Pagination from "react-pagination-library";
-
-
 import "./index.css"
 
 const Index = () => {
@@ -22,7 +18,6 @@ const Index = () => {
         dispatch(actFetchProduct(currentPage))
     }, [currentPage])
 
-    // console.log(listProducts)
 
     return (
         <div className="all_product container">
@@ -44,7 +39,7 @@ const Index = () => {
 
             <div className="list_product">
                 {listProducts?.map((item, index) => {
-                    return (<ProductItem data={item} />)
+                    return (<ProductItem data={item} key={index} />)
                 })}
             </div>
 
