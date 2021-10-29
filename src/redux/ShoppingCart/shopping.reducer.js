@@ -1,24 +1,10 @@
-import { ADD_TO_CART, SHOW_ITEM_CART, UPDATE_TO_CART, REMOVE_FROM_CART } from "./shopping.types"
+import { ADD_TO_CART, SHOW_ITEM_CART, UPDATE_TO_CART, REMOVE_FROM_CART, PRODUCT_SUCCESS, PRODUCT_ERROR, PAGE_PRODUCT } from "./shopping.types"
 const INITIAL_STATE = {
-    products: [
-        {
-            id: 1,
-            name: "xxx",
-            price: 15.0
-        },
-        {
-            id: 2,
-            name: "xxx",
-            price: 16.0
-        },
-        {
-            id: 3,
-            name: "xxx",
-            price: 17.0
-        }
-    ],
+    products: [],
     cart: [],
     currentItem: null,
+    productError: null,
+    totalPageProduct: 0
 }
 
 const shoppingReducer = (state = INITIAL_STATE, { type, payload }) => {
@@ -53,6 +39,22 @@ const shoppingReducer = (state = INITIAL_STATE, { type, payload }) => {
                 ...state,
                 cart: state.cart.map(item => item.id === payload.id ? { ...item, qty: +payload.qty } : item)
             }
+
+        // product
+        case PRODUCT_SUCCESS:
+            state.products = payload
+            state.productError = null
+            return { ...state }
+
+        case PRODUCT_ERROR:
+            state.products = []
+            state.productError = payload
+            return { ...state }
+
+        case PAGE_PRODUCT:
+            state.totalPageProduct = payload
+
+            return { ...state }
         default:
             return state
     }

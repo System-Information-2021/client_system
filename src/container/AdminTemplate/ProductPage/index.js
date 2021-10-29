@@ -17,22 +17,24 @@ const Index = () => {
         setCurrentPage(numPage);
     }
 
-    const activeProduct = async (id) => {
+    const activeProduct = async (id, active) => {
         console.log(id)
 
         const { data } = await apiInstance({
-            url: `product/active/${id}`,
-            method: "POST"
+            url: `/product/active/${id}`,
+            method: "POST",
+            data: { value: active }
         })
+        console.log(data)
         if (data.code === 200) {
             toast.success(data.messsage)
+            window.location.reload()
         } else {
             toast.error(data.code)
         }
     }
 
     const deleteProduct = async (id) => {
-        console.log(id)
         const { data } = await apiInstance({
             url: `/product/delete/${id}`,
             method: "DELETE"
@@ -101,7 +103,7 @@ const Index = () => {
                                             <img src={`https://system-server-postgres.herokuapp.com/uploads/${item.image1}`} alt="iamge_product" />
                                         </div>
                                     </td>
-                                    <td className="button_active">{item.active === true ? (<button className="btn" onClick={() => activeProduct(item.id)}>Unactive</button>) : (<button className="btn" onClick={() => activeProduct(item.id, true)}>Active</button>)}</td>
+                                    <td className="button_active">{item.active === true ? (<button className="btn" onClick={() => activeProduct(item.id, false)}>Unactive</button>) : (<button className="btn" onClick={() => activeProduct(item.id, true)}>Active</button>)}</td>
                                     <td>{item.description}</td>
                                     <td>
                                         <div className="btn btn_edit" onClick={() => history.push("/admin/product/edit")} style={{ marginRight: "10px" }}><ion-icon name="create-outline"></ion-icon></div>

@@ -73,8 +73,30 @@
 .product_item .product_modal{
     padding: 10px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
 }
-
+.product_item .product_modal .description{
+  display:-webkit-box;
+  -webkit-line-clamp:7;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+}
+.product_item .product_modal .group_image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 15px;
+}
+.product_item .product_modal img{
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+    
+}
 .product_item .product_modal .name{
     font-size: 22px !important;
     text-align: center;
@@ -84,4 +106,6 @@
     background-color: #000;
     color: #fff;
     border: none;
+    margin: 0 auto;
+    
 }

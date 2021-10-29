@@ -114,7 +114,7 @@ const Index = () => {
                     </select>
                 </div>
                 <div className="form-group">
-                    <label>Select 3 Image</label>
+                    <label>Must choose less than or equal to 3 image</label>
                     <input type="file" className="form-control-file" onChange={e => setImages(e.target.files)} accept='image/*' multiple />
                 </div>
 

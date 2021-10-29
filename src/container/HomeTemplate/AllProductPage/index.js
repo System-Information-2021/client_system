@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ProductItem from "../../../components/ProductItem"
+import { actFetchProduct } from "../../../redux/ShoppingCart/shopping.actions"
+import { useDispatch, useSelector } from 'react-redux';
 
 
 import Pagination from "react-pagination-library";
@@ -8,11 +10,19 @@ import Pagination from "react-pagination-library";
 import "./index.css"
 
 const Index = () => {
+    const listProducts = useSelector((state) => state.shopping.products)
+    const totalPageProduct = useSelector((state) => state.shopping.totalPageProduct)
+    const dispatch = useDispatch()
     const [currentPage, setCurrentPage] = useState(1);
 
     const changeCurrentPage = (numPage) => {
         setCurrentPage(numPage);
     }
+    useEffect(() => {
+        dispatch(actFetchProduct(currentPage))
+    }, [currentPage])
+
+    // console.log(listProducts)
 
     return (
         <div className="all_product container">
@@ -33,23 +43,14 @@ const Index = () => {
             </div>
 
             <div className="list_product">
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
+                {listProducts?.map((item, index) => {
+                    return (<ProductItem data={item} />)
+                })}
             </div>
 
             <Pagination
                 currentPage={currentPage}
-                totalPages={10}
+                totalPages={totalPageProduct}
                 changeCurrentPage={changeCurrentPage}
                 theme="bottom-border"
             />

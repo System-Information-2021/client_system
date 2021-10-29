@@ -45,7 +45,7 @@ const Index = ({ routes }) => {
                     <div className="breadcrumb_container">
                         <BreadCrumb />
                     </div>
-                    <audio autoplay loop id="playAudio" src={music} controls autoPlay />
+                    {/* <audio  loop id="playAudio" src={music} controls  /> */}
 
                     <button className="logout_button" onClick={user.logout}>
                         <ion-icon name="log-out-sharp"></ion-icon>
