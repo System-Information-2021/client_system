@@ -39,6 +39,7 @@ const Index = () => {
             url: `/product/delete/${id}`,
             method: "DELETE"
         })
+
         if (data.code === 200) {
             toast.success(data.messsage)
             setTimeout(() => {
@@ -100,7 +101,7 @@ const Index = () => {
                                     <td>{item.quantity}</td>
                                     <td>
                                         <div className="group_image">
-                                            <img src={`https://system-server-postgres.herokuapp.com/uploads/${item.image1}`} alt="iamge_product" />
+                                            <img src={item.image1} alt="iamge_product" />
                                         </div>
                                     </td>
                                     <td className="button_active">{item.active === true ? (<button className="btn" onClick={() => activeProduct(item.id, false)}>Unactive</button>) : (<button className="btn" onClick={() => activeProduct(item.id, true)}>Active</button>)}</td>
