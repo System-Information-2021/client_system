@@ -20,7 +20,7 @@ const Index = ({ data }) => {
     return (
         <div className="product_item">
             <div className="product_image">
-                <img src={`https://system-server-postgres.herokuapp.com/uploads/${data.image1}`} alt="image item" />
+                <img src={data.image1} alt="image item" />
             </div>
             <div className="product_description">
                 <div className="product_name">{data.name}</div>
@@ -42,8 +42,8 @@ const Index = ({ data }) => {
                     <h1 className="name">{data.name}</h1>
                     <p className="description">{data.description}</p>
                     <div className="group_image">
-                        <img src={`https://system-server-postgres.herokuapp.com/uploads/${data.image2}`} alt="product2" />
-                        <img src={`https://system-server-postgres.herokuapp.com/uploads/${data.image3}`} alt="product3" />
+                        <img src={data.image2} alt="product2" />
+                        <img src={data.image3} alt="product3" />
                     </div>
                     <button onClick={() => closeModal()} className="close">Close</button>
                 </div>

@@ -14,6 +14,7 @@ const Index = () => {
     const [brandId, setBrandId] = useState(1)
     const [categoryId, setCategoryId] = useState(1)
     const [images, setImages] = useState([])
+    const [gender, setGender] = useState("")
 
 
     useEffect(() => {
@@ -51,6 +52,7 @@ const Index = () => {
         formData.append("name", name)
         formData.append("price", price)
         formData.append("description", description)
+        formData.append("gender", gender)
         formData.append("id_brand", brandId)
         formData.append("id_category", categoryId)
 
@@ -112,6 +114,13 @@ const Index = () => {
                             })
                         }
                     </select>
+                    <label className="my-1" className="category_prouduct" >Gender Product</label>
+                    <select className="custom-select my-1 mr-sm-2" onChange={e => setGender(e.target.value)}  >
+                        <option selected>Choose...</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+
                 </div>
                 <div className="form-group">
                     <label>Must choose less than or equal to 3 image</label>
