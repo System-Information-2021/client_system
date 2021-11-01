@@ -16,7 +16,6 @@ const Index = ({ data }) => {
         setVisible(false)
     }
 
-
     return (
         <div className="product_item">
             <div className="product_image">
@@ -25,18 +24,16 @@ const Index = ({ data }) => {
             <div className="product_description">
                 <div className="product_name">{data.name}</div>
                 <div className="product_price">${data.price}</div>
-                <div className="product_infor">In Stock</div>
-                <div className="product_button" onClick={() => dispatch(addToCart(data.id))}>Add To Cart</div>
+                <div className="product_infor">{data.description}</div>
+                <div className="product_button_add" onClick={() => dispatch(addToCart(data.id))}>Add To Cart</div>
                 <div onClick={openModal} className="product_detail">Detail</div>
             </div>
-
             <Modal
                 visible={visible}
                 width="80%"
                 height="80%"
                 effect="fadeInUp"
                 onClickAway={() => closeModal()}
-
             >
                 <div className="product_modal">
                     <h1 className="name">{data.name}</h1>

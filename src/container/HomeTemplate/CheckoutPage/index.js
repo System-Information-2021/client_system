@@ -78,7 +78,7 @@ const Index = () => {
                             {cart?.map((item, index) => {
                                 return (<div className="checkout_item">
                                     <div className="infor">
-                                        <img src={`https://system-server-postgres.herokuapp.com/uploads/${item.image1}`} alt="item image" />
+                                        <img src={item.image1} alt="item image" />
                                         <div className="qty">{item.qty}</div>
                                         <div className="name_and_price">
                                             <div>{item.name}</div>

@@ -47,29 +47,30 @@ const Index = () => {
 
     const handleSubmitProduct = async (e) => {
         e.preventDefault()
-        const formData = new FormData()
+        // const formData = new FormData()
 
-        formData.append("name", name)
-        formData.append("price", price)
-        formData.append("description", description)
-        formData.append("gender", gender)
-        formData.append("id_brand", brandId)
-        formData.append("id_category", categoryId)
+        // formData.append("name", name)
+        // formData.append("price", price)
+        // formData.append("description", description)
+        // formData.append("gender", gender)
+        // formData.append("id_brand", brandId)
+        // formData.append("id_category", categoryId)
 
         for (let i = 0; i < images.length; i++) {
-            formData.append("images", images[i]);
+            // formData.append("images", images[i]);
         }
+        console.log(images)
 
-        const { data } = await apiInstance({
-            url: "/product/add",
-            method: "POST",
-            data: formData,
-        })
-        if (data.code === 200) {
-            toast.success(data.message)
-        } else {
-            toast.error(data.message)
-        }
+        // const { data } = await apiInstance({
+        //     url: "/product/add",
+        //     method: "POST",
+        //     data: formData,
+        // })
+        // if (data.code === 200) {
+        //     toast.success(data.message)
+        // } else {
+        //     toast.error(data.message)
+        // }
     }
 
 
@@ -124,7 +125,13 @@ const Index = () => {
                 </div>
                 <div className="form-group">
                     <label>Must choose less than or equal to 3 image</label>
-                    <input type="file" className="form-control-file" onChange={e => setImages(e.target.files)} accept='image/*' multiple />
+                    <input type="file" className="form-control-file custom-file-input" onChange={e => setImages(e.target.files)} accept='image/*' multiple />
+                </div>
+                <div className="previre_image_before_upload">
+                    {
+
+                    }
+
                 </div>
 
                 <div style={{ textAlign: "center" }} onClick={handleSubmitProduct}>
