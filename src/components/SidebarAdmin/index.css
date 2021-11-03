@@ -27,6 +27,9 @@
     margin: 5px 0px;
     cursor: pointer;
 }
+.sidebar_admin .sidebar_list li ion-icon{
+    /* font-size: 18px !important; */
+}
 .sidebar_admin .sidebar_list .active{
     background: #000;
     color: #fff;

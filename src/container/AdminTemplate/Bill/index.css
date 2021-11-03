@@ -1,0 +1,12 @@
+.list_bill{
+    padding: 0px 15px;
+}
+.list_bill .bill_title{
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.list_bill .btn{
+    background-color: #000;
+    color: #fff;
+}
