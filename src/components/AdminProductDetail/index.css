@@ -27,13 +27,16 @@
     word-break: break-word;
 }
 
-.admin_product_detail_modal .btn{
-    cursor: pointer;
-    background: #000;
+.btn{
+    background-color: #000 !important;
     color: #fff;
 }
 .admin_product_detail_modal .btn{
     width: 200px;
     margin: 0 auto;
     margin-top: auto;
+    cursor: pointer;
+    background: #000;
+    color: #fff;
+
 }

@@ -68,7 +68,7 @@ const Index = ({ item }) => {
                 <div className="btn btn_delete" onClick={() => deleteProduct(item.id)}><ion-icon name="trash-outline"></ion-icon></div>
             </td>
             <td>
-                <button className="btn" onClick={openModal}>See More</button>
+                <button className="btn see_more" onClick={openModal}>See More</button>
             </td>
             <Modal
                 visible={visible}

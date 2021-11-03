@@ -14,4 +14,9 @@ export const SidebarData = [
         icon: <ion-icon name="copy-outline"></ion-icon>,
         link: "/admin/product/category",
     },
+    {
+        title: "List Bill",
+        icon: <ion-icon name="list-circle-outline"></ion-icon>,
+        link: "/admin/bill"
+    }
 ]

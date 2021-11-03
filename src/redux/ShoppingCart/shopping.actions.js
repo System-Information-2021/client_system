@@ -9,9 +9,11 @@ export const actFetchProduct = (page) => {
                 url: "/customer/product/",
                 method: "GET",
                 params: {
-                    page: page
+                    page: 1,
+                    gender: "men"
                 }
             })
+            // console.log(data)
             if (data.code === 200) {
                 dispatch(fetchProductSuccess(data.data))
                 dispatch(fetchPageProduct(data.totalPage))
