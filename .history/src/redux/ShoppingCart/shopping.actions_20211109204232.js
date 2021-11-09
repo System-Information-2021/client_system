@@ -12,7 +12,7 @@ export const actFetchProduct = (page, brand, category, gender) => {
                     page: page,
                     categoryId: category,
                     gender: gender,
-                    brandId: brand
+                    // brandId: brand
                 }
             })
             console.log(data)

@@ -37,6 +37,7 @@ const Index = () => {
         fetchCategory()
     }, [])
 
+    console.log(selectBrand)
     return (
         <div className="all_product container">
             <MenuCategory setBrandId={setSelectBrand} />

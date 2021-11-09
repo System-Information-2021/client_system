@@ -21,7 +21,7 @@ const Index = () => {
                 <div className="hambuger" id="hambuger" onClick={activeMenu}><ion-icon name="reorder-four-outline"></ion-icon></div>
                 <ul className="header_left--menu" id="header_menu">
                     <li onClick={() => history.push("/")}>Home</li>
-                    <li onClick={() => history.push("/all-product")}>All Product</li>
+                    <li onClick={() => history.push("/")}>All Product</li>
                     <li>About Us</li>
                     <li onClick={() => history.push("/login")}>My Account</li>
                     <li>Contact Us</li>

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import ProductItem from "../../../components/ProductItem"
-import MenuCategory from "../../../components/MenuCategory"
 import { actFetchProduct } from "../../../redux/ShoppingCart/shopping.actions"
 import { useDispatch, useSelector } from 'react-redux';
 import Pagination from "react-pagination-library";
@@ -12,7 +11,6 @@ const Index = () => {
     const totalPageProduct = useSelector((state) => state.shopping.totalPageProduct)
     const dispatch = useDispatch()
     const [category, setCategory] = useState([])
-    const [selectBrand, setSelectBrand] = useState("")
     const [selectCate, setSelectCate] = useState("")
     const [gender, setGender] = useState("")
     const [currentPage, setCurrentPage] = useState(1);
@@ -21,8 +19,8 @@ const Index = () => {
         setCurrentPage(numPage);
     }
     useEffect(() => {
-        dispatch(actFetchProduct(currentPage, selectBrand, selectCate, gender))
-    }, [currentPage, selectCate, gender, selectBrand])
+        dispatch(actFetchProduct(currentPage, selectCate, gender))
+    }, [currentPage, selectCate, gender])
 
     useEffect(() => {
         async function fetchCategory() {
@@ -39,18 +37,17 @@ const Index = () => {
 
     return (
         <div className="all_product container">
-            <MenuCategory setBrandId={setSelectBrand} />
             <div className="filter_group">
                 <div className="filter_product">
                     <select onChange={(e) => setGender(e.target.value)}>
                         <option value="">Please select gender if filter</option>
-                        <option value="male">Men</option>
-                        <option value="female">Women</option>
+                        <option value="men">Men</option>
+                        <option value="women">Women</option>
                     </select>
                 </div>
                 <div className="filter_product" onChange={e => setSelectCate(e.target.value)}>
                     <select>
-                        <option value="">Please select category if filter ...</option>
+                        <option>Choosen ...</option>
                         {category.map((item, index) => {
                             return (<option value={item.id} key={index}>{item.name}</option>)
                         })}

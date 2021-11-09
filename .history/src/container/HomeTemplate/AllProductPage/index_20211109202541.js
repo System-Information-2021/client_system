@@ -12,7 +12,6 @@ const Index = () => {
     const totalPageProduct = useSelector((state) => state.shopping.totalPageProduct)
     const dispatch = useDispatch()
     const [category, setCategory] = useState([])
-    const [selectBrand, setSelectBrand] = useState("")
     const [selectCate, setSelectCate] = useState("")
     const [gender, setGender] = useState("")
     const [currentPage, setCurrentPage] = useState(1);
@@ -21,8 +20,8 @@ const Index = () => {
         setCurrentPage(numPage);
     }
     useEffect(() => {
-        dispatch(actFetchProduct(currentPage, selectBrand, selectCate, gender))
-    }, [currentPage, selectCate, gender, selectBrand])
+        dispatch(actFetchProduct(currentPage, selectCate, gender))
+    }, [currentPage, selectCate, gender])
 
     useEffect(() => {
         async function fetchCategory() {
@@ -39,7 +38,7 @@ const Index = () => {
 
     return (
         <div className="all_product container">
-            <MenuCategory setBrandId={setSelectBrand} />
+            <MenuCategory />
             <div className="filter_group">
                 <div className="filter_product">
                     <select onChange={(e) => setGender(e.target.value)}>

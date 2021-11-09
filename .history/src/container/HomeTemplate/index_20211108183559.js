@@ -3,6 +3,7 @@ import { Redirect, Route, Switch } from "react-router";
 import Header from "../../components/Header"
 import Footer from "../../components/Footer"
 import SearchForm from "../../components/SearchForm"
+import MenuCategory from "../../components/MenuCategory"
 import useUser from '../../hook/useUser';
 import "./index.css"
 
@@ -18,6 +19,7 @@ const HomeTemplate = ({ routes }) => {
         <div className="home__container">
             <Header />
             <SearchForm />
+            <MenuCategory />
 
             <div className="main">
                 <Suspense fallback={<div className="container">Processing...</div>}>
