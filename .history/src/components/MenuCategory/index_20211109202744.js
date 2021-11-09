@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 import apiInstance from '../../services'
 import "./index.css"
 
-const Index = ({ setBrandId }) => {
+const Index = () => {
     let history = useHistory();
 
     const [brand, setBrand] = useState([])
@@ -26,9 +26,11 @@ const Index = ({ setBrandId }) => {
             <ul>
                 <li className="hambuger_category"><ion-icon name="reorder-four-outline"></ion-icon></li>
                 {brand?.map((item, index) => {
-                    return (<li key={index} onClick={() => setBrandId(item.id)}>{item.name}</li>)
+                    return (<li key={index}>{item.name}</li>)
                 })}
+
             </ul>
+
         </div>
     )
 }

@@ -5,7 +5,7 @@
     height: 450px;
     position: relative;
     background-color: #AE7B4E;
-    border: 5px solid #AE7B4E;
+    border: 1px solid #000;
 }
 
 .product_item .product_description {

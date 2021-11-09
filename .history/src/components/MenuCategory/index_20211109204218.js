@@ -26,9 +26,11 @@ const Index = ({ setBrandId }) => {
             <ul>
                 <li className="hambuger_category"><ion-icon name="reorder-four-outline"></ion-icon></li>
                 {brand?.map((item, index) => {
-                    return (<li key={index} onClick={() => setBrandId(item.id)}>{item.name}</li>)
+                    return (<li key={index} onClick={setBrandId(item.id)}>{item.name}</li>)
                 })}
+
             </ul>
+
         </div>
     )
 }

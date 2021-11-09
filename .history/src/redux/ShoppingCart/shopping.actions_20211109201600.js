@@ -2,17 +2,16 @@ import Swal from "sweetalert2";
 import { ADD_TO_CART, REMOVE_FROM_CART, UPDATE_TO_CART, SHOW_ITEM_CART, PRODUCT_SUCCESS, PRODUCT_ERROR, PAGE_PRODUCT } from "./shopping.types";
 import apiInstance from "../../services";
 
-export const actFetchProduct = (page, brand, category, gender) => {
+export const actFetchProduct = (page, category, gender) => {
     return async (dispatch) => {
         try {
             const { data } = await apiInstance({
                 url: "/customer/product/",
                 method: "GET",
                 params: {
-                    page: page,
+                    page: 1,
                     categoryId: category,
-                    gender: gender,
-                    brandId: brand
+                    gender: gender
                 }
             })
             console.log(data)

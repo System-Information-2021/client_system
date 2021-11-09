@@ -2,20 +2,18 @@ import Swal from "sweetalert2";
 import { ADD_TO_CART, REMOVE_FROM_CART, UPDATE_TO_CART, SHOW_ITEM_CART, PRODUCT_SUCCESS, PRODUCT_ERROR, PAGE_PRODUCT } from "./shopping.types";
 import apiInstance from "../../services";
 
-export const actFetchProduct = (page, brand, category, gender) => {
+export const actFetchProduct = (page) => {
     return async (dispatch) => {
         try {
             const { data } = await apiInstance({
                 url: "/customer/product/",
                 method: "GET",
                 params: {
-                    page: page,
-                    categoryId: category,
-                    gender: gender,
-                    brandId: brand
+                    page: 1,
+                    gender: "men"
                 }
             })
-            console.log(data)
+            // console.log(data)
             if (data.code === 200) {
                 dispatch(fetchProductSuccess(data.data))
                 dispatch(fetchPageProduct(data.totalPage))

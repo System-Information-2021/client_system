@@ -21,7 +21,7 @@ const Index = () => {
         setCurrentPage(numPage);
     }
     useEffect(() => {
-        dispatch(actFetchProduct(currentPage, selectBrand, selectCate, gender))
+        dispatch(actFetchProduct(currentPage, selectCate, gender))
     }, [currentPage, selectCate, gender, selectBrand])
 
     useEffect(() => {
