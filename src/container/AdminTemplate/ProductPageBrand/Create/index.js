@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { toast } from 'react-toastify'
-import apiInstance from '../../../services'
+import apiInstance from '../../../../services/index'
 import "./index.css"
 
 const Index = () => {

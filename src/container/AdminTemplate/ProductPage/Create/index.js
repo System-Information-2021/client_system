@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from "react-router-dom"
-import apiInstance from "../../../services/index"
+import apiInstance from "../../../../services/index"
 import { toast } from 'react-toastify'
 import "./index.css"
 
@@ -59,7 +59,7 @@ const Index = () => {
         for (let i = 0; i < images.length; i++) {
             formData.append("images", images[i]);
         }
-        console.log(images)
+        // console.log(images)
 
         const { data } = await apiInstance({
             url: "/product/add",

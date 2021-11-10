@@ -21,12 +21,12 @@ const appRoutes = [
             {
                 exact: true,
                 path: "/admin/product/create",
-                component: React.lazy(() => import("../container/AdminTemplate/ProductPageCreate"))
+                component: React.lazy(() => import("../container/AdminTemplate/ProductPage/Create"))
             },
             {
                 exact: true,
                 path: "/admin/product/edit",
-                component: React.lazy(() => import("../container/AdminTemplate/ProductPageEdit"))
+                component: React.lazy(() => import("../container/AdminTemplate/ProductPage/Edit"))
             },
             {
                 exact: true,
@@ -36,12 +36,12 @@ const appRoutes = [
             {
                 exact: true,
                 path: "/admin/product/brand/create",
-                component: React.lazy(() => import("../container/AdminTemplate/ProductPageBrandCreate"))
+                component: React.lazy(() => import("../container/AdminTemplate/ProductPageBrand/Create"))
             },
             {
                 exact: true,
                 path: "/admin/product/brand/edit/:id",
-                component: React.lazy(() => import("../container/AdminTemplate/ProductPageBrandEdit"))
+                component: React.lazy(() => import("../container/AdminTemplate/ProductPageBrand/Edit"))
             },
             {
                 exact: true,
@@ -123,6 +123,13 @@ const appRoutes = [
                 path: "/checkout",
                 component: React.lazy(() =>
                     import("../container/HomeTemplate/CheckoutPage")
+                ),
+            },
+            {
+                exact: true,
+                path: "/product/search/:query",
+                component: React.lazy(() =>
+                    import("../container/HomeTemplate/SearchPage")
                 ),
             }
         ]

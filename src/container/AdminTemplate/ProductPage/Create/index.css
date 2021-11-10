@@ -1,7 +1,8 @@
-.create_product_form{
+.create_product_form {
     padding: 20px 50px;
 }
-.create_product_form .form_title{
+
+.create_product_form .form_title {
     font-size: 24px;
     text-align: center;
     text-transform: uppercase;
@@ -9,20 +10,23 @@
     margin-bottom: 20px;
 }
 
-.create_product_form .form-group{
+.create_product_form .form-group {
     margin-bottom: 20px;
 }
-.create_product_form .form-group label{
+
+.create_product_form .form-group label {
     margin-bottom: 10px;
     margin-right: 10px;
 }
-.create_product_form .form-group .category_prouduct{
+
+.create_product_form .form-group .category_prouduct {
     margin-left: 20px;
 }
-.btn_submit{
+
+.btn_submit {
     text-align: center;
     background-color: #000;
     color: #fff;
-    padding: 10px 20px;    
+    padding: 10px 20px;
     border: none;
 }

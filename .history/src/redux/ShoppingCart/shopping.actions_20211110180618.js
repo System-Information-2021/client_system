@@ -1,5 +1,6 @@
-import { PRODUCT_SUCCESS, PRODUCT_ERROR, PAGE_PRODUCT } from "./product.types"
-import apiInstance from "../../services/index"
+import Swal from "sweetalert2";
+import { ADD_TO_CART, REMOVE_FROM_CART, UPDATE_TO_CART, SHOW_ITEM_CART, PRODUCT_SUCCESS, PRODUCT_ERROR, PAGE_PRODUCT } from "./shopping.types";
+import apiInstance from "../../services";
 
 export const actFetchProduct = (page, brand, category, gender) => {
     return async (dispatch) => {
@@ -14,7 +15,7 @@ export const actFetchProduct = (page, brand, category, gender) => {
                     brandId: brand
                 }
             })
-            console.log(data.data)
+            console.log(data)
             if (data.code === 200) {
                 dispatch(fetchProductSuccess(data.data))
                 dispatch(fetchPageProduct(data.totalPage))
@@ -34,6 +35,40 @@ export const actFetchProduct = (page, brand, category, gender) => {
         }
     }
 }
+
+export const addToCart = (id) => {
+    return {
+        type: ADD_TO_CART,
+        payload: {
+            id
+        }
+    }
+}
+
+export const removeToCart = (id) => {
+    return {
+        type: REMOVE_FROM_CART,
+        payload: {
+            id
+        }
+    }
+}
+
+export const updateToCart = (id, value) => {
+    return {
+        type: UPDATE_TO_CART,
+        payload: {
+            id,
+            qty: value
+        }
+    }
+}
+export const showItemCart = () => {
+    return {
+        type: SHOW_ITEM_CART
+    }
+}
+// product
 
 export const fetchProductSuccess = (payload) => {
     return {

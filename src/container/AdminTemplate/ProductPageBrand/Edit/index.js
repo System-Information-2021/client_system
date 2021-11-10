@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import apiInstance from '../../../services'
+import apiInstance from '../../../../services/index'
 import "./index.css"
 
 const Index = () => {
