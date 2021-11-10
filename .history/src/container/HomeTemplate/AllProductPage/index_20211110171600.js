@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import ProductItem from "../../../components/ProductItem"
 import MenuCategory from "../../../components/MenuCategory"
-import { actFetchProduct } from "../../../redux/Product/product.actions"
+import { actFetchProduct } from "../../../redux/ShoppingCart/shopping.actions"
 import { useDispatch, useSelector } from 'react-redux';
 import Pagination from "react-pagination-library";
 import apiInstance from '../../../services';
 import "./index.css"
 
 const Index = () => {
-    const listProducts = useSelector((state) => state.products.listProducts)
+    const listProducts = useSelector((state) => state.shopping.products)
     const totalPageProduct = useSelector((state) => state.shopping.totalPageProduct)
     const dispatch = useDispatch()
     const [category, setCategory] = useState([])

@@ -25,7 +25,7 @@ const Index = ({ data }) => {
                 <div className="product_name">{data.name}</div>
                 <div className="product_price">${data.price}</div>
                 <div className="product_infor">{data.description}</div>
-                <div className="product_button_add" onClick={() => dispatch(addToCart(data.id))}>Add To Cart</div>
+                <div className="product_button_add" onClick={() => dispatch(addToCart({ "id": data.id, "name": data.name, "price": data.price, "image1": data.image1 }))}>Add To Cart</div>
                 <div onClick={openModal} className="product_detail">Detail</div>
             </div>
             <Modal
