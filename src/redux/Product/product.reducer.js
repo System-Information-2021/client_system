@@ -3,7 +3,6 @@ const INITIAL_STATE = {
     listProducts: [],
     listBrands: [],
     listCategorys: [],
-    listSearch: [],
     productError: null,
     searchError: null,
     brandError: null,

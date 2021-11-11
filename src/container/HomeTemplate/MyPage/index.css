@@ -1,0 +1,46 @@
+.my_page {
+    /* height: 60vh;
+    background-color: yellow; */
+}
+
+.my_page .submit {
+    background-color: #000;
+    color: #fff;
+}
+
+.my_page .submit:hover {
+    background-color: #AE7B4E;
+}
+
+.my_page .title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.my_page .sidebar_list {
+    background-color: #f0e9e9;
+    padding: 10px 0px;
+    height: 60vh;
+}
+
+.my_page .sidebar_list ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    row-gap: 15px;
+}
+
+.my_page .sidebar_list ul li {
+    padding: 7px 15px;
+    font-weight: bold;
+}
+
+.my_page .sidebar_list ul li:hover {
+    background-color: #000;
+    cursor: pointer;
+    color: #fff;
+}
