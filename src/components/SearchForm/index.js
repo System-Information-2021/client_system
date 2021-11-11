@@ -36,7 +36,7 @@ const Index = () => {
                 <div>Shopping Online</div>
             </div>
             <form className="form_group">
-                <input type="text" placeholder="search product brand or category ..." onChange={e => setKey(e.target.value)} />
+                <input type="text" placeholder="search product brand or category ..." onChange={e => setKey(e.target.value)} value={key} />
                 <button onClick={e => searchText(e)}>
                     <ion-icon name="search-outline"></ion-icon>
                 </button>

@@ -1,4 +1,4 @@
-import { PRODUCT_SUCCESS, PRODUCT_ERROR, PAGE_PRODUCT, BRAND_ERROR, BRAND_SUCCESS, CATEGORY_SUCCESS, CATEGORY_ERROR, SEARCH_SUCCESS, SEARCH_ERROR } from "./product.types"
+import { PRODUCT_SUCCESS, PRODUCT_ERROR, PAGE_PRODUCT, BRAND_ERROR, BRAND_SUCCESS, CATEGORY_SUCCESS, CATEGORY_ERROR } from "./product.types"
 import apiInstance from "../../services/index"
 
 export const actFetchProduct = (page, brand, category, gender) => {
@@ -85,35 +85,6 @@ export const actFetchCategory = () => {
     }
 }
 
-export const fetchSearch = (key) => {
-    return async (dispatch) => {
-        try {
-            const { data } = await apiInstance({
-                url: "/customer/product/search",
-                method: "GET",
-                params: {
-                    key: key,
-                    page: 1,
-                }
-            })
-            console.log(data)
-            if (data.code === 200) {
-                dispatch(fetchSearch(data.data))
-            } else {
-                dispatch(fetchSearchError(data.message))
-            }
-        } catch (err) {
-            let error = err;
-            if (typeof err.error_code === "undefined") {
-                error = {
-                    error_code: 999,
-                    message: "Something went wrong, please try again later",
-                };
-                dispatch(fetchSearchError(error))
-            }
-        }
-    }
-}
 
 
 export const fetchProductSuccess = (payload) => {
@@ -164,16 +135,3 @@ export const fetchCategoryError = (payload) => {
     }
 }
 
-export const fetchSearchResult = (payload) => {
-    return {
-        type: SEARCH_SUCCESS,
-        payload
-    }
-}
-
-export const fetchSearchError = (payload) => {
-    return {
-        type: SEARCH_ERROR,
-        payload
-    }
-}
