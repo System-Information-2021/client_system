@@ -1,0 +1,99 @@
+.search_page .list_item {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 10px;
+    row-gap: 10px;
+}
+
+.search_page .search_title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.search_page .filter_group {
+    display: flex;
+    column-gap: 13px;
+}
+
+.search_page .filter_product select {
+    /* Reset Select */
+    appearance: none;
+    outline: 0;
+    border: 0;
+    box-shadow: none;
+    /* Personalize */
+    flex: 1;
+    padding: 0 1em;
+    color: #000;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+/* Remove IE arrow */
+
+.search_page .filter_product select::-ms-expand {
+    display: none;
+}
+
+/* Custom Select wrapper */
+
+.search_page .filter_product {
+    position: relative;
+    display: flex;
+    width: 20em;
+    height: 3em;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+/* Arrow */
+
+.search_page .filter_product::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1em;
+    /* background-color: 000; */
+    transition: .25s all ease;
+    pointer-events: none;
+}
+
+/* Transition */
+
+.search_page .filter_product:hover::after {
+    color: #f39c12;
+}
+
+/* responsive */
+
+@media screen and (min-device-width: 350px) and (max-device-width: 768px) {
+    .search_page .list_item {
+        row-gap: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .search_page .filter_product {
+        margin: 0 auto;
+        margin-bottom: 10px;
+    }
+    .search_page .filter_group {
+        flex-direction: column;
+    }
+}
+
+@media screen and (min-device-width: 768px) and (max-device-width: 1000px) {
+    .search_page .list_item {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-device-width: 1000px) and (max-device-width: 1440px) {
+    .search_page .list_item {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

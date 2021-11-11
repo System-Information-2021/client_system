@@ -1,11 +1,11 @@
-
-.all_product .list_product{
+.all_product .list_product {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     column-gap: 10px;
     row-gap: 10px;
 }
-.all_product .filter_group{
+
+.all_product .filter_group {
     display: flex;
     column-gap: 13px;
 }
@@ -22,25 +22,28 @@
     color: #000;
     border: 1px solid #000;
     cursor: pointer;
-  }
+}
 
-  /* Remove IE arrow */
-  .all_product .filter_product select::-ms-expand {
+/* Remove IE arrow */
+
+.all_product .filter_product select::-ms-expand {
     display: none;
-  }
+}
 
-  /* Custom Select wrapper */
-  .all_product .filter_product  {
+/* Custom Select wrapper */
+
+.all_product .filter_product {
     position: relative;
     display: flex;
     width: 20em;
     height: 3em;
     overflow: hidden;
     margin-bottom: 10px;
-  }
+}
 
-  /* Arrow */
-  .all_product .filter_product::after {
+/* Arrow */
+
+.all_product .filter_product::after {
     content: '\25BC';
     position: absolute;
     top: 0;
@@ -49,37 +52,41 @@
     /* background-color: 000; */
     transition: .25s all ease;
     pointer-events: none;
-  }
-  /* Transition */
-  .all_product .filter_product:hover::after {
+}
+
+/* Transition */
+
+.all_product .filter_product:hover::after {
     color: #f39c12;
-  }
+}
 
 /* responsive */
-@media screen and (min-device-width: 350px) and (max-device-width: 768px) { 
-    .all_product .list_product{
+
+@media screen and (min-device-width: 350px) and (max-device-width: 768px) {
+    .all_product .list_product {
         row-gap: 10px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
-    .all_product .filter_product  {
+    .all_product .filter_product {
         margin: 0 auto;
         margin-bottom: 10px;
     }
-    .all_product .filter_group{
+    .all_product .filter_group {
         flex-direction: column;
     }
 }
 
-@media screen and (min-device-width: 768px) and (max-device-width: 1000px) { 
-    .all_product .list_product{
+@media screen and (min-device-width: 768px) and (max-device-width: 1000px) {
+    .all_product .list_product {
         grid-template-columns: repeat(2, 1fr);
     }
 }
-@media screen and (min-device-width: 1000px) and (max-device-width: 1440px) { 
-    .all_product .list_product{
+
+@media screen and (min-device-width: 1000px) and (max-device-width: 1440px) {
+    .all_product .list_product {
         grid-template-columns: repeat(3, 1fr);
     }
 }
