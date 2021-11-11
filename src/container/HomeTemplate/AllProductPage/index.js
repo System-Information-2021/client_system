@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ProductItem from "../../../components/ProductItem"
 import MenuCategory from "../../../components/MenuCategory"
-import { actFetchProduct } from "../../../redux/Product/product.actions"
+import { actFetchProduct, actFetchCategory } from "../../../redux/Product/product.actions"
 import { useDispatch, useSelector } from 'react-redux';
 import Pagination from "react-pagination-library";
 import apiInstance from '../../../services';
@@ -9,9 +9,9 @@ import "./index.css"
 
 const Index = () => {
     const listProducts = useSelector((state) => state.products.listProducts)
-    const totalPageProduct = useSelector((state) => state.shopping.totalPageProduct)
+    const totalPageProduct = useSelector((state) => state.products.totalPageProduct)
+    const listCategory = useSelector((state) => state.products.listCategorys)
     const dispatch = useDispatch()
-    const [category, setCategory] = useState([])
     const [selectBrand, setSelectBrand] = useState("")
     const [selectCate, setSelectCate] = useState("")
     const [gender, setGender] = useState("")
@@ -25,16 +25,7 @@ const Index = () => {
     }, [currentPage, selectCate, gender, selectBrand])
 
     useEffect(() => {
-        async function fetchCategory() {
-            const { data } = await apiInstance({
-                url: "/customer/category",
-                method: "GET"
-            })
-            if (data.code === 200) {
-                setCategory(data.data)
-            }
-        }
-        fetchCategory()
+        dispatch(actFetchCategory())
     }, [])
 
     return (
@@ -51,7 +42,7 @@ const Index = () => {
                 <div className="filter_product" onChange={e => setSelectCate(e.target.value)}>
                     <select>
                         <option value="">All Category</option>
-                        {category.map((item, index) => {
+                        {listCategory?.map((item, index) => {
                             return (<option value={item.id} key={index}>{item.name}</option>)
                         })}
                     </select>

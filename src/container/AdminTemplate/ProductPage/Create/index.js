@@ -68,6 +68,9 @@ const Index = () => {
         })
         if (data.code === 200) {
             toast.success(data.message)
+            setTimeout(() => {
+                history.push("/admin/product")
+            }, 2000)
         } else {
             toast.error(data.message)
         }

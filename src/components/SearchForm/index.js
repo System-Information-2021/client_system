@@ -6,10 +6,17 @@ import "./index.css"
 
 const Index = () => {
     let history = useHistory();
-
+    const [key, setKey] = useState("")
     const [totalItem, setTotalItem] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0)
     const cart = useSelector((state) => state.shopping.cart)
+
+
+    const searchText = (e) => {
+        e.preventDefault();
+        history.push(`/product/search/${key}`)
+        setKey("")
+    }
 
     useEffect(() => {
         let items = 0;
@@ -29,8 +36,8 @@ const Index = () => {
                 <div>Shopping Online</div>
             </div>
             <form className="form_group">
-                <input type="text" placeholder="search product ..." />
-                <button type="submit">
+                <input type="text" placeholder="search product brand or category ..." onChange={e => setKey(e.target.value)} />
+                <button onClick={e => searchText(e)}>
                     <ion-icon name="search-outline"></ion-icon>
                 </button>
             </form>
