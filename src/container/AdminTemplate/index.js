@@ -1,6 +1,6 @@
 import React, { Suspense, useEffect, useState } from 'react'
 import { Switch, Route, useHistory, Redirect } from "react-router-dom"
-import 'react-toastify/dist/ReactToastify.css';
+
 import SidebarAdmin from "../../components/SidebarAdmin"
 import { ToastContainer, toast } from 'react-toastify';
 import BreadCrumb from "../../components/Breadcrumb"

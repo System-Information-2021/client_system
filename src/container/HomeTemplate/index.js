@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react'
 import { Redirect, Route, Switch } from "react-router";
+import { ToastContainer, toast } from 'react-toastify';
 import Header from "../../components/Header"
 import Footer from "../../components/Footer"
 import SearchForm from "../../components/SearchForm"
@@ -16,6 +17,18 @@ const HomeTemplate = ({ routes }) => {
 
     return (
         <div className="home__container">
+            <ToastContainer
+                position="top-right"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme={'dark'}
+            />
             <Header />
             <SearchForm />
 

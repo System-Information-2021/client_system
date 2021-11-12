@@ -99,6 +99,13 @@ const appRoutes = [
             },
             {
                 exact: true,
+                path: "/my-page",
+                component: React.lazy(() =>
+                    import("../container/HomeTemplate/MyPage")
+                ),
+            },
+            {
+                exact: true,
                 path: "/about-us",
                 component: React.lazy(() =>
                     import("../container/HomeTemplate/AbourUs")

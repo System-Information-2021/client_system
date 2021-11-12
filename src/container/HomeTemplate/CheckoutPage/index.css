@@ -1,18 +1,25 @@
-.checkout_page .checkout_title{
+.checkout_page .checkout_title {
     font-size: 24px;
     font-weight: bold;
     font-family: "arvbold";
     text-transform: uppercase;
     margin-bottom: 10px;
 }
-.checkout_page .checkout_form_info .row{
+
+.checkout_page .hidden {
+    display: none;
+}
+
+.checkout_page .checkout_form_info .row {
     margin-bottom: 15px;
 }
-.checkout_page .checkout_payment{
+
+.checkout_page .checkout_payment {
     border: 1px solid #F5F5F5;
     padding: 10px;
 }
-.checkout_page .checkout_payment .checkout_sumary .title{
+
+.checkout_page .checkout_payment .checkout_sumary .title {
     text-transform: uppercase;
     font-size: 18px;
     border-bottom: 1px solid #F5F5F5;
@@ -20,42 +27,48 @@
     font-weight: bold;
     padding-bottom: 5px;
 }
-.checkout_page .checkout_payment .checkout_item{
+
+.checkout_page .checkout_payment .checkout_item {
     display: flex;
     justify-content: space-between;
     background-color: #F5F5F5;
     margin: 10px 0px;
     padding: 5px;
 }
-.checkout_page .checkout_payment .checkout_item .infor{
+
+.checkout_page .checkout_payment .checkout_item .infor {
     display: flex;
     align-items: center;
     column-gap: 10px;
     position: relative;
-
 }
-.checkout_page .checkout_payment .checkout_item .infor img{
+
+.checkout_page .checkout_payment .checkout_item .infor img {
     width: 60px;
     height: 60px;
     object-fit: contain;
 }
-.checkout_page .checkout_payment .list_item{
+
+.checkout_page .checkout_payment .list_item {
     border-bottom: 1px solid #F5F5F5;
 }
-.checkout_page .checkout_payment .checkout_item .infor .name_and_price div:nth-child(1){
+
+.checkout_page .checkout_payment .checkout_item .infor .name_and_price div:nth-child(1) {
     font-size: 16px;
     color: #3087C6;
-    display:-webkit-box;
-    -webkit-line-clamp:1;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
     word-break: break-word;
 }
-.checkout_page .checkout_payment .checkout_item .infor{
+
+.checkout_page .checkout_payment .checkout_item .infor {
     font-size: 14px;
 }
-.checkout_page .checkout_payment .checkout_item .infor .qty{
+
+.checkout_page .checkout_payment .checkout_item .infor .qty {
     position: absolute;
     top: -10px;
     left: -10px;
@@ -66,36 +79,35 @@
     color: #fff;
 }
 
-
-.checkout_page .checkout_payment .checkout_total .subtotal{
+.checkout_page .checkout_payment .checkout_total .subtotal {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
 }
-.checkout_page .checkout_payment .checkout_total .shipping{
+
+.checkout_page .checkout_payment .checkout_total .shipping {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
-
 }
-.checkout_page .checkout_payment .checkout_total .taxes{
+
+.checkout_page .checkout_payment .checkout_total .taxes {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
-
 }
 
-.checkout_page .checkout_payment .checkout_total .total{
+.checkout_page .checkout_payment .checkout_total .total {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
-
 }
-.checkout_page .checkout_payment .checkout_btn{
+
+.checkout_page .checkout_payment .checkout_btn {
     background: #000;
     color: #fff;
     display: block;
@@ -105,12 +117,13 @@
     font-weight: bold;
     cursor: pointer;
 }
-.checkout_page .checkout_payment .checkout_btn:hover{
+
+.checkout_page .checkout_payment .checkout_btn:hover {
     background: #AE7B4E;
 }
 
 @media screen and (min-device-width: 350px) and (max-device-width: 768px) {
-   .checkout_page{
-       padding: 10px 20px !important;
-   }
- }
+    .checkout_page {
+        padding: 10px 20px !important;
+    }
+}

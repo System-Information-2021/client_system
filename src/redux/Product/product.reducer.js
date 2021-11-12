@@ -1,9 +1,8 @@
-import { PRODUCT_SUCCESS, PRODUCT_ERROR, PAGE_PRODUCT, BRAND_ERROR, BRAND_SUCCESS, CATEGORY_ERROR, CATEGORY_SUCCESS, SEARCH_ERROR, SEARCH_SUCCESS } from "./product.types"
+import { PRODUCT_SUCCESS, PRODUCT_ERROR, PAGE_PRODUCT, BRAND_ERROR, BRAND_SUCCESS, CATEGORY_ERROR, CATEGORY_SUCCESS } from "./product.types"
 const INITIAL_STATE = {
     listProducts: [],
     listBrands: [],
     listCategorys: [],
-    listSearch: [],
     productError: null,
     searchError: null,
     brandError: null,
@@ -43,15 +42,6 @@ const productReducer = (state = INITIAL_STATE, { type, payload }) => {
 
         case CATEGORY_ERROR:
             state.categoryError = payload
-            return { ...state }
-
-        case SEARCH_SUCCESS:
-            state.listSearch = payload
-            state.searchError = null
-            return { ...state }
-
-        case SEARCH_ERROR:
-            state.searchError = payload
             return { ...state }
 
         default:
