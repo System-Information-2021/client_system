@@ -34,13 +34,13 @@ export const actLogin = (payload, history) => {
                 dispatch(actLoginLoading(false))
             }
         } catch (err) {
-            let error = err;
-            if (typeof err.error_code === "undefined") {
-                error = {
-                    error_code: 999,
-                    message: "Something went wrong, please try again later",
-                };
-            }
+            // let error = err;
+            // if (typeof err.error_code === "undefined") {
+            //     error = {
+            //         error_code: 999,
+            //         message: "Something went wrong, please try again later",
+            //     };
+            // }
             dispatch(actLoginLoading(false))
         }
     }
