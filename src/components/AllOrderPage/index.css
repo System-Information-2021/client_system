@@ -27,3 +27,13 @@
 .page_order .header_order ul li:hover {
     border-bottom: 2px solid #000;
 }
+
+.page_order .list_order {
+    /* background-color: yellow; */
+    overflow-y: scroll;
+    height: 40vh;
+}
+
+.page_order .list_order::-webkit-scrollbar {
+    display: none;
+}

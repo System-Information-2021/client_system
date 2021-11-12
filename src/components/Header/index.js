@@ -32,7 +32,7 @@ const Index = () => {
                 <div className="header__right--groupButton">
                     <ul>
                         {
-                            user.data ? (<li onClick={() => history.push("/login")}>
+                            user.data ? (<li onClick={() => history.push("/my-page")}>
                                 Hello {user?.data.lastname + user?.data.firstname || user?.data.email}
                             </li>) : <li className="login" onClick={() => history.push("/login")} >
                                 <ion-icon name="log-in"></ion-icon> Login

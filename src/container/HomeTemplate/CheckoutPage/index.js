@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from "react-redux"
+import { Redirect } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import useUser from "../../../hook/useUser"
 import "./index.css"
-import imageItem from "../../../assets/images/product_03_thumbnail.jpg"
 
 const Index = () => {
+    const user = useUser()
+
     const [totalItem, setTotalItem] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0)
     const cart = useSelector((state) => state.shopping.cart)
@@ -18,6 +22,15 @@ const Index = () => {
         setTotalItem(items)
         setTotalPrice(price)
     }, [cart, totalItem, totalPrice])
+
+    // If user is not login
+    if (!user.data) {
+        toast.error("you not login");
+        // setTimeout(() => {
+        //     return <Redirect to="/cart-detail" />;
+        // }, 2000);
+    }
+
 
     return (
         <div className="checkout_page container">
@@ -78,7 +91,7 @@ const Index = () => {
                             {cart?.map((item, index) => {
                                 return (<div className="checkout_item">
                                     <div className="infor">
-                                        <img src={item.image1} alt="item image" />
+                                        <img src={item.image1} alt="item" />
                                         <div className="qty">{item.qty}</div>
                                         <div className="name_and_price">
                                             <div>{item.name}</div>
@@ -110,7 +123,8 @@ const Index = () => {
                                 <div>${totalPrice}</div>
                             </div>
                         </div>
-                        <div className="checkout_btn">
+
+                        <div className={!user.data ? "hidden" : "checkout_btn"}>
                             Submit
                         </div>
                     </div>

@@ -4,7 +4,7 @@ import AllOrderPage from "../../../components/AllOrderPage"
 import "./index.css"
 
 const Index = () => {
-    const [activeTab, setAvtiveTab] = useState("");
+    const [activeTab, setAvtiveTab] = useState("account");
 
     return (
         <div className="my_page container">

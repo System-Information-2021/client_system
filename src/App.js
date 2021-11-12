@@ -3,6 +3,7 @@ import { useLoading, Audio, BallTriangle, Hearts } from '@agney/react-loading';
 import { useHistory, Redirect } from "react-router-dom"
 import { actGetUserDetail } from './redux/User/user.actions';
 import ErrorBoundary from './components/ErrorBoundary';
+import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "react-pagination-library/build/css/index.css"; //for css
