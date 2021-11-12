@@ -14,7 +14,7 @@ export const actFetchProduct = (page, brand, category, gender) => {
                     brandId: brand
                 }
             })
-            console.log(data.data)
+            // console.log(data.data)
             if (data.code === 200) {
                 dispatch(fetchProductSuccess(data.data))
                 dispatch(fetchPageProduct(data.totalPage))
@@ -23,13 +23,13 @@ export const actFetchProduct = (page, brand, category, gender) => {
             }
 
         } catch (err) {
-            let error = err;
-            if (typeof err.error_code === "undefined") {
-                error = {
-                    error_code: 999,
-                    message: "Something went wrong, please try again later",
-                };
-            }
+            // let error = err;
+            // if (typeof err.error_code === "undefined") {
+            //     error = {
+            //         error_code: 999,
+            //         message: "Something went wrong, please try again later",
+            //     };
+            // }
             dispatch(fetchProductError(false))
         }
     }
