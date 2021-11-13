@@ -4,7 +4,6 @@ import MenuCategory from "../../../components/MenuCategory"
 import { actFetchProduct, actFetchCategory } from "../../../redux/Product/product.actions"
 import { useDispatch, useSelector } from 'react-redux';
 import Pagination from "react-pagination-library";
-import apiInstance from '../../../services';
 import "./index.css"
 
 const Index = () => {

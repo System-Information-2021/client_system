@@ -1,0 +1,15 @@
+.personal .personal_title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.personal .form-group {
+    margin-bottom: 15px;
+}
+
+.personal .submit {
+    cursor: pointer;
+    padding: 7px 10px;
+}
