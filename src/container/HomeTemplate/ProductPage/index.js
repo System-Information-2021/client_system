@@ -53,7 +53,7 @@ const Index = () => {
         }
         fetchNewReleases()
     }, [])
-    console.log(newrelease)
+    // console.log(newrelease)
     return (
         <div className="products container">
             <Banner />
