@@ -1,43 +1,26 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import useUser from "../../hook/useUser"
 import "./index.css"
 
 const Index = () => {
+    const user = useUser();
+    const [email, setEmail] = useState(user.data.email)
+    const [password, setPassword] = useState("")
+    const [resetPassword, setResetPassword] = useState("")
+
     return (
         <div className="my_account">
             <div className="title">My Account</div>
             <form>
                 <div className="form-row row">
-                    <div className="form-group col-md-4">
-                        <input type="email" className="form-control" placeholder="Email" />
-                    </div>
-                    <div className="form-group col-md-4">
-                        <input type="password" className="form-control" placeholder="Password" />
-                    </div>
-                    <div className="form-group col-md-4">
-                        <input type="password" className="form-control" placeholder="Repeat password" />
-                    </div>
-                </div>
-                <div className="form-row row">
-                    <div className="form-group col-md-6">
-                        <input type="email" className="form-control" placeholder="First Name" />
-                    </div>
-                    <div className="form-group col-md-6">
-                        <input type="text" className="form-control" placeholder="Last Name" />
+                    <div className="form-group col-md-12">
+                        <input type="email" className="form-control" placeholder="Email" onChange={(e) => setEmail(e.target.value)} value={email} />
                     </div>
                     <div className="form-group col-md-12">
-                        <input type="text" className="form-control" placeholder="Company" />
-                    </div>
-                    <div className="form-group col-md-6">
-                        <input type="text" className="form-control" placeholder="Address" />
-                    </div>
-                    <div className="form-group col-md-6">
-                        <input type="text" className="form-control" placeholder="City" />
+                        <input type="password" className="form-control" placeholder="Password" onChange={(e) => setPassword(e.target.value)} value={password} />
                     </div>
                     <div className="form-group col-md-12">
-                        <input type="text" className="form-control" placeholder="Phone" />
-                    </div>
-                    <div className="form-group col-md-12">
-                        <input type="text" className="form-control" placeholder="Comment" />
+                        <input type="password" className="form-control" placeholder="Repeat password" onChange={(e) => setResetPassword(e.target.value)} value={resetPassword} />
                     </div>
                 </div>
                 <div style={{ textAlign: "center" }}>

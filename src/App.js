@@ -21,7 +21,7 @@ function App() {
   let history = useHistory()
   const dispatch = useDispatch()
 
-  console.log(cart)
+  // console.log(cart)
 
 
 

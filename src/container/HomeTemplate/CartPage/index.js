@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from "react-redux"
 import "./index.css"
+import useUser from "../../../hook/useUser"
 import { useHistory } from 'react-router-dom'
 import ItemInCart from "../../../components/ItemInCart"
 
 const Index = () => {
+    const user = useUser()
     let history = useHistory()
 
 
@@ -55,7 +57,8 @@ const Index = () => {
                     </div>
                     <div className="sumary_total" style={{ fontSize: "20px", fontWeight: "bold" }}><div>Total</div><div>${totalPrice}</div>
                     </div>
-                    <div className="sumary_btn" onClick={() => history.push("/checkout")}>proceed to checkout</div>
+
+                    <div className={!user.data ? "hidden " : "sumary_btn"} onClick={() => history.push("/checkout")}>proceed to checkout</div>
 
                     <div className="sumary_payment">
                         <div className="payment_title" >Payment</div>

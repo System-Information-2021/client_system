@@ -1,16 +1,27 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from "react-redux"
+import { useHistory } from "react-router-dom"
 import { Redirect } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import useUser from "../../../hook/useUser"
+import apiInstance from "../../../services/index"
 import "./index.css"
 
 const Index = () => {
     const user = useUser()
+    let history = useHistory()
 
     const [totalItem, setTotalItem] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0)
     const cart = useSelector((state) => state.shopping.cart)
+    const [firstname, setFirstName] = useState(user.data.firstname)
+    const [lastname, setLastName] = useState(user.data.lastname)
+    const [phone, setPhone] = useState(user.data.mobile_number)
+    const [address, setAddress] = useState(user.data.address)
+    const [city, setCity] = useState(user.data.city)
+    const [note, setNote] = useState("")
+
+    // console.log("user data", user.data.id)
 
     useEffect(() => {
         let items = 0;
@@ -23,13 +34,36 @@ const Index = () => {
         setTotalPrice(price)
     }, [cart, totalItem, totalPrice])
 
-    // If user is not login
-    if (!user.data) {
-        toast.error("you not login");
-        // setTimeout(() => {
-        //     return <Redirect to="/cart-detail" />;
-        // }, 2000);
+
+    if (!user.data) return <Redirect to="/cart-detail" />
+
+
+    const submitOrder = async (e) => {
+        e.preventDefault();
+        console.log("click")
+        if (firstname === "" || lastname === "" || phone === "" || address === "" || city === "" || cart.length === 0) {
+            toast.warning("Please fill input! and cart not found")
+            return;
+        }
+        const { data } = await apiInstance({
+            url: "/cart/order",
+            method: "POST",
+            data: {
+                firstname, lastname, numberphone: phone, address, city, id_user: user.data.id, total_price: totalPrice, data: cart
+            }
+        })
+        console.log(data)
+        if (data.code === 200) {
+            toast.success("Order successfully");
+            setTimeout(() => {
+                history.push("/my-page")
+            }, 2000);
+        } else {
+            toast.warning(data.message)
+        }
     }
+
+    // console.log("total", totalPrice)
 
 
     return (
@@ -40,45 +74,31 @@ const Index = () => {
                     <form>
                         <div className="row">
                             <div className="col">
-                                <input type="text" className="form-control" placeholder="First name" aria-label="First name" />
+                                <input type="text" className="form-control" placeholder="First name" onChange={(e) => setFirstName(e.target.value)} value={firstname} />
                             </div>
                             <div className="col">
-                                <input type="text" className="form-control" placeholder="Last name" aria-label="Last name" />
+                                <input type="text" className="form-control" placeholder="Last name" onChange={(e) => setLastName(e.target.value)} value={lastname} />
                             </div>
-                        </div>
-                        <div className="row">
-                            <div className="col">
-                                <input type="text" className="form-control" placeholder="Company" aria-label="Address" />
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col-7">
-                                <input type="text" className="form-control" placeholder="Address" aria-label="First name" />
-                            </div>
-                            <div className="col-5">
-                                <input type="text" className="form-control" placeholder="City" aria-label="Last name" />
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col-5">
-                                <input type="text" className="form-control" placeholder="Company" aria-label="Address" />
-                            </div>
-                            <div className="col-7">
-                                <input type="text" className="form-control" placeholder="Phone" aria-label="Address" />
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col">
-                                <div className="form-check">
-                                    <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" />
-                                    <label className="form-check-label" for="gridRadios1">
-                                        I agree checkout method
-                                    </label>
-                                </div>
-                            </div>
-
                         </div>
 
+                        <div className="row">
+                            <div className="col-7">
+                                <input type="text" className="form-control" placeholder="Address" onChange={(e) => setAddress(e.target.value)} value={address} />
+                            </div>
+                            <div className="col-5">
+                                <input type="text" className="form-control" placeholder="City"
+                                    onChange={(e) => setCity(e.target.value)} value={city} />
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-12">
+                                <input type="text" className="form-control" placeholder="Phone" onChange={e => setPhone(e.target.value)} value={phone} />
+                            </div>
+                        </div>
+                        <div className="mb-3">
+                            <label className="form-label">Note Shipper</label>
+                            <textarea className="form-control" rows="3"></textarea>
+                        </div>
                     </form>
 
                 </div>
@@ -101,8 +121,6 @@ const Index = () => {
                                     <div className="subtotal">${item.qty * item.price}</div>
                                 </div>)
                             })}
-
-
                         </div>
 
                         <div className="checkout_total">
@@ -124,7 +142,8 @@ const Index = () => {
                             </div>
                         </div>
 
-                        <div className={!user.data ? "hidden" : "checkout_btn"}>
+
+                        <div className={!user.data ? "hidden" : "checkout_btn"} onClick={submitOrder}>
                             Submit
                         </div>
                     </div>

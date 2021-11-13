@@ -19,7 +19,7 @@ const Index = ({ data }) => {
     return (
         <div className="product_item">
             <div className="product_image">
-                <img src={data.image1} alt="image item" />
+                <img src={data.image1} alt="item" />
             </div>
             <div className="product_description">
                 <div className="product_name">{data.name}</div>

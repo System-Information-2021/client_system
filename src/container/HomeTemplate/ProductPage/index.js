@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import apiInstance from '../../../services'
 import { useDispatch } from "react-redux"
 import { actLogin } from "../../../redux/User/user.actions"
 import "./index.css"
@@ -10,6 +11,7 @@ import ProductItemSlider from "../../../components/ProductItemSlider"
 import Introduction from "../../../components/Introduction"
 
 const Index = () => {
+    const [newrelease, setNewRelease] = useState([])
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -39,28 +41,42 @@ const Index = () => {
             items: 1
         }
     };
+    useEffect(() => {
+        async function fetchNewReleases() {
+            const { data } = await apiInstance({
+                url: "/customer/new-release",
+                method: "GET"
+            })
+            if (data.code === 200) {
+                setNewRelease(data.data)
+            }
+        }
+        fetchNewReleases()
+    }, [])
+    // console.log(newrelease)
     return (
         <div className="products container">
             <Banner />
             <div className="destop">
                 <div className="product_title">Featured Products</div>
                 <div className="list_products_slider">
-                    <Carousel responsive={responsive} >
+                    {/* <Carousel responsive={responsive} >
                         <ProductItemSlider />
                         <ProductItemSlider />
                         <ProductItemSlider />
                         <ProductItemSlider />
                         <ProductItemSlider />
-                    </Carousel>
+                    </Carousel> */}
                 </div>
                 <div className="product_title">NEW RELEASES</div>
                 <div className="list_products_slider">
                     <Carousel responsive={responsive} >
-                        <ProductItemSlider />
-                        <ProductItemSlider />
-                        <ProductItemSlider />
-                        <ProductItemSlider />
-                        <ProductItemSlider />
+                        {
+                            newrelease?.map((item) => {
+                                return (<ProductItemSlider key={item.id} item={item} />)
+                            })
+                        }
+
                     </Carousel>
                 </div>
                 <Introduction />
