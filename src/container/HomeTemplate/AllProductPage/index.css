@@ -81,12 +81,12 @@
 
 @media screen and (min-device-width: 768px) and (max-device-width: 1000px) {
     .all_product .list_product {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
 @media screen and (min-device-width: 1000px) and (max-device-width: 1440px) {
     .all_product .list_product {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
 }

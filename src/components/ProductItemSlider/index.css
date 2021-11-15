@@ -8,7 +8,7 @@
 .product_item_slider .product_image {
     width: 100%;
     height: 60%;
-    border: 1px solid #AE7B4E;
+    border: 5px solid #AE7B4E;
 }
 
 .product_item_slider .product_image img {

@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import "./index.css"
 
-const index = () => {
+const Index = () => {
+    const [listBill, setListBill] = useState("")
+
     return (
         <div className="list_bill">
             <div className="bill_title">Bill</div>
@@ -9,10 +11,10 @@ const index = () => {
                 <thead>
                     <tr>
                         <th scope="col">Id</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                        <th scope="col">Detail</th>
+                        <th scope="col">First And Lastname</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Date Time</th>
+                        <th scope="col">Total Price</th>
 
                     </tr>
                 </thead>
@@ -30,4 +32,4 @@ const index = () => {
     )
 }
 
-export default index
+export default Index

@@ -56,11 +56,11 @@ const Index = ({ item }) => {
     return (
         <tr>
             <th scope="row">{item.id}</th>
-            <td>{item.name}</td>
+            <td className="name">{item.name}</td>
             <td>{item.price}</td>
             <td>{item.brand?.name}</td>
             <td>{item.category?.name}</td>
-            <td>{item.quantity}</td>
+            {/* <td>{item.quantity}</td> */}
 
             <td className="button_active">{item.active === true ? (<button className="btn" onClick={() => activeProduct(item.id, false)}>Unactive</button>) : (<button className="btn" onClick={() => activeProduct(item.id, true)}>Active</button>)}</td>
             <td>

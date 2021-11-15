@@ -21,7 +21,7 @@ const Index = () => {
     }
     useEffect(() => {
         dispatch(actFetchProduct(currentPage, selectBrand, selectCate, gender))
-    }, [currentPage, selectCate, gender, selectBrand])
+    }, [currentPage, selectCate, gender, selectBrand, dispatch])
 
     useEffect(() => {
         dispatch(actFetchCategory())
