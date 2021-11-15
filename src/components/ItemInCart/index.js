@@ -14,7 +14,7 @@ const Index = ({ data }) => {
         <tr>
             <th scope="row" style={{ display: 'flex', alignItems: "center", borderBottom: "1px solod gray", paddingBottom: "15px" }}>
                 <div className="cart_item_image" style={{ width: "100px", height: "100px", marginRight: "10px" }}>
-                    <img src={data.image1} alt="image" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
+                    <img src={data.image1} alt="item" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
                 </div>
                 <div>
                     <div className="cart_item_name">{data.name}</div>

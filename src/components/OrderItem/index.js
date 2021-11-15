@@ -31,7 +31,6 @@ const Index = ({ item, status }) => {
 
     const dateTime = new Date(item.createdAt).toUTCString()
 
-    // console.log(new Date(item.createdAt).toUTCString())
 
 
     return (
@@ -45,8 +44,8 @@ const Index = ({ item, status }) => {
                     <td>{dateTime}</td>
                     <td>${item.total_price}</td>
                     <td><button className="detail_button" onClick={() => openModal()}>Detail</button></td>
-                    {status === 1 && <td><button className="detail_button" onClick={(e) => { if (window.confirm('Are you sure you wish to cancel this item?')) deleteOrder(item.id) }}>Cancel order</button></td>}
-                    {status === 2 && <td><button className="detail_button" onClick={(e) => { if (window.confirm('Are you sure you wish to cancel this item?')) deleteOrder(item.id) }}>Cancel order</button></td>}
+                    {status === 1 && <td><button className="detail_button" onClick={(e) => { if (window.confirm('Are you sure you wish to cancel this item?')) deleteOrder(item.id) }}>Cancel</button></td>}
+                    {status === 2 && <td><button className="detail_button" onClick={(e) => { if (window.confirm('Are you sure you wish to cancel this item?')) deleteOrder(item.id) }}>Cancel</button></td>}
                     <Modal
                         visible={visible}
                         width="80%"
@@ -54,35 +53,43 @@ const Index = ({ item, status }) => {
                         effect="fadeInUp"
                         onClickAway={() => closeModal()}
                     >
-                        <div className="modal_order">
-                            <div style={{ textAlign: 'center', marginBottom: '15px', fontWeight: "bold", fontSize: '24px' }}>Order Detail</div>
-                            <ul className="list-group">
-                                <li className="list-group-item">First Name: {item.firstname}</li>
-                                <li className="list-group-item">Last Name: {item.lastname}</li>
-                                <li className="list-group-item">Address: {item.address}</li>
-                                <li className="list-group-item">City: {item.city}</li>
-                                <li className="list-group-item">Phone Number: {item.numberphone}</li>
-                                <li className="list-group-item">Status: {item.status}</li>
-                                <li className="list-group-item">Date Order: {dateTime}</li>
+                        <div className="modal_order row">
 
+                            <div style={{ textAlign: 'center', marginBottom: '15px', fontWeight: "bold", fontSize: '24px' }}>Order Detail</div>
+                            <div className="col-4">
+                                <ul className="list-group">
+                                    <li className="list-group-item">First Name: {item.firstname}</li>
+                                    <li className="list-group-item">Last Name: {item.lastname}</li>
+                                    <li className="list-group-item">Address: {item.address}</li>
+                                    <li className="list-group-item">City: {item.city}</li>
+                                    <li className="list-group-item">Phone Number: {item.numberphone}</li>
+                                    <li className="list-group-item">Status: {item.status}</li>
+                                    <li className="list-group-item">Date Order: {dateTime}</li>
+
+
+                                </ul>
+                            </div>
+                            <div className="col-8">
                                 <div className="order_product_list">
                                     {item.products.map((prop) => {
                                         return (
-                                            <div className="order_product_list_item">
-                                                <div style={{ display: 'flex', alignItems: 'center', columnGap: "15px" }}>
-                                                    <img src={prop.image1} alt="img" />
-                                                    <div className="name">{prop.name}</div>
-                                                </div>
-                                                <div style={{ display: 'flex', alignItems: 'center', columnGap: "15px" }}>                          <div className="price">Price: ${prop.price}</div>
-                                                    <div className="qty">Quantity: {prop.qty}</div>
-                                                    <div className="total">Total Price Item: ${parseInt(prop.price) * parseInt(prop.qty)}</div>
-                                                </div>
+                                            <>
+                                                <div className="order_product_list_item">
+                                                    <div style={{ display: "flex", alignItems: "center", columnGap: "10px" }}>
+                                                        <img src={prop.image1} alt="img" />
+                                                        <div className="name">{prop.name}</div>
+                                                        <div className="qty">x {prop.qty}</div>
+                                                    </div>
+                                                    <div style={{ marginLeft: "auto", display: 'flex', columnGap: "10px" }}>
 
-                                            </div>
+                                                        <div className="total">Total Item: ${parseInt(prop.price) * parseInt(prop.qty)}</div>
+                                                    </div>
+                                                </div>
+                                            </>
                                         )
                                     })}
                                 </div>
-                            </ul>
+                            </div>
                             <div className="order_total">
                                 Total Order: ${item.total_price}
                             </div>

@@ -58,16 +58,16 @@ const Index = () => {
         <div className="products container">
             <Banner />
             <div className="destop">
-                <div className="product_title">Featured Products</div>
+                {/* <div className="product_title">Featured Products</div>
                 <div className="list_products_slider">
-                    {/* <Carousel responsive={responsive} >
+                    <Carousel responsive={responsive} >
                         <ProductItemSlider />
                         <ProductItemSlider />
                         <ProductItemSlider />
                         <ProductItemSlider />
                         <ProductItemSlider />
-                    </Carousel> */}
-                </div>
+                    </Carousel>
+                </div> */}
                 <div className="product_title">NEW RELEASES</div>
                 <div className="list_products_slider">
                     <Carousel responsive={responsive} >

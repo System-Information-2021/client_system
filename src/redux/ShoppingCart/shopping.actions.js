@@ -3,9 +3,6 @@ import { ADD_TO_CART, REMOVE_FROM_CART, UPDATE_TO_CART, SHOW_ITEM_CART } from ".
 export const addToCart = (payload) => {
     return {
         type: ADD_TO_CART,
-        // payload: {
-        //     id
-        // }
         payload
     }
 }

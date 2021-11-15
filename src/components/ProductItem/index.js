@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Modal from 'react-awesome-modal';
 import { addToCart } from "../../redux/ShoppingCart/shopping.actions"
 import { useDispatch } from 'react-redux';
+import { toast } from "react-toastify"
 import "./index.css"
 
 const Index = ({ data }) => {
@@ -16,6 +17,11 @@ const Index = ({ data }) => {
         setVisible(false)
     }
 
+    const addCart = (id, name, price, image) => {
+        toast.success("add to cart")
+        dispatch(addToCart({ "id": id, "name": name, "price": price, "image1": image }))
+    }
+
     return (
         <div className="product_item">
             <div className="product_image">
@@ -25,7 +31,7 @@ const Index = ({ data }) => {
                 <div className="product_name">{data.name}</div>
                 <div className="product_price">${data.price}</div>
                 <div className="product_infor">{data.description}</div>
-                <div className="product_button_add" onClick={() => dispatch(addToCart({ "id": data.id, "name": data.name, "price": data.price, "image1": data.image1 }))}>Add To Cart</div>
+                <div className="product_button_add" onClick={() => addCart(data.id, data.name, data.price, data.image1)}>Add To Cart</div>
                 <div onClick={openModal} className="product_detail">Detail</div>
             </div>
             <Modal
