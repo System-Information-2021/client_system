@@ -5,7 +5,8 @@ import "./index.css"
 import { toast } from 'react-toastify';
 
 const Index = ({ item }) => {
-    const [curStatus, setCurStatus] = useState(item.status);
+    // eslint-disable-next-line no-use-before-define
+    const [curStatus, setCurStatus] = useState();
     const [visible, setVisible] = useState(false);
 
     const openModal = () => {
@@ -19,21 +20,59 @@ const Index = ({ item }) => {
 
 
     const changeStatus = async (id, status) => {
+        setCurStatus(status)
         const { data } = await apiInstance({
             url: `/cart/update/${id}/${status}`,
             method: 'PUT',
         })
         if (data.code === 200) {
             toast.success(data.message)
+        } else {
+            toast.error("change status error")
         }
     }
+    const transferStatus = (status) => {
+        let messageStatus
+        switch (status) {
+            case "pending":
+                messageStatus = 1
+                break;
+            case "received":
+                messageStatus = 2
+                break;
+            case "delivering":
+                messageStatus = 3
+                break;
+            case "delivered":
+                messageStatus = 4
+                break;
+            case "cancel":
+                messageStatus = 5
+                break;
+            default:
+                break;
+        }
+        return messageStatus;
+    }
+    // console.log("default", transferStatus(item.status))
+    // console.log(curStatus)
+
+    useEffect(() => {
+        setCurStatus(transferStatus(item.status))
+    }, [item.status])
 
     return (
         <tr>
             <th scope="row">{item.id}</th>
             <td>{item.firstname} {item.lastname}</td>
             <td>
-                {item.status}
+                <td><select className="" onChange={e => changeStatus(item.id, e.target.value)} value={curStatus}>
+                    <option value={1}>Pending</option>
+                    <option value={2}>Received</option>
+                    <option value={3}>Delivering</option>
+                    <option value={4}>Delivered</option>
+                    <option value={5}>Cancel</option>
+                </select></td>
             </td>
             <td>{dateTime}</td>
             <td>$ {item.total_price}</td>
@@ -67,7 +106,6 @@ const Index = ({ item }) => {
                                 <td>{item.firstname} {item.lastname}</td>
                                 <td>{item.address}</td>
                                 <td>{item.city}</td>
-                                <td>{curStatus}</td>
                                 <td>{item.numberphone}</td>
                                 <td>$ {item.total_price}</td>
                             </tr>
@@ -91,7 +129,7 @@ const Index = ({ item }) => {
                 </div>
 
                 <div className="bgr_status">
-                    <button className="btn">Cancel Order</button>
+                    <button className="btn">Delete Order</button>
                 </div>
             </Modal>
         </tr>

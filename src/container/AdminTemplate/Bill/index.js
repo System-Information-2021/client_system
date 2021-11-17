@@ -23,7 +23,7 @@ const Index = () => {
                     page: currentPage
                 }
             })
-            console.log(data)
+            // console.log(data)
             if (data.code === 200) {
                 setListBill(data.data)
                 setTotalPage(data.totalPage)
