@@ -40,6 +40,10 @@ const Index = () => {
 
     const submitOrder = async (e) => {
         e.preventDefault();
+        if (cart.length === 0) {
+            toast.warning("Cart not allow empty...!")
+            return;
+        }
         const { data } = await apiInstance({
             url: "/cart/order",
             method: "POST",
@@ -54,10 +58,10 @@ const Index = () => {
                 history.push("/my-page")
             }, 2000);
         } else {
-            console.log(data.message)
-            data.message.forEach(item => {
-                toast.warning(item)
+            data.message.forEach((item) => {
+                return toast.warning(item)
             })
+
         }
         // console.log(note)
     }

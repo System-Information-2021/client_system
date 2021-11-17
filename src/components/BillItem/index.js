@@ -81,8 +81,8 @@ const Index = ({ item }) => {
 
             <Modal
                 visible={visible}
-                width="60%"
-                height="60%"
+                width="70%"
+                height="70%"
                 effect="fadeInUp"
                 onClickAway={() => closeModal()}
             >
@@ -111,6 +111,7 @@ const Index = ({ item }) => {
                         </tbody>
                     </table>
                 </div>
+                <div className="note">Note: {item.note}</div>
                 <div className="list_bill_product">
                     {item.products.map((prod) => {
                         return (<div className="item">
