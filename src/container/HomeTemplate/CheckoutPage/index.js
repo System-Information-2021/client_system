@@ -40,30 +40,27 @@ const Index = () => {
 
     const submitOrder = async (e) => {
         e.preventDefault();
-        console.log("click")
-        if (firstname === "" || lastname === "" || phone === "" || address === "" || city === "" || cart.length === 0) {
-            toast.warning("Please fill input! and cart not found")
-            return;
-        }
         const { data } = await apiInstance({
             url: "/cart/order",
             method: "POST",
             data: {
-                firstname, lastname, numberphone: phone, address, city, id_user: user.data.id, total_price: totalPrice, data: cart
+                firstname, lastname, numberphone: phone, address, city, note: note, id_user: user.data.id, total_price: totalPrice, data: cart
             }
         })
-        console.log(data)
+        // console.log(data)
         if (data.code === 200) {
             toast.success("Order successfully");
             setTimeout(() => {
                 history.push("/my-page")
             }, 2000);
         } else {
-            toast.warning(data.message)
+            console.log(data.message)
+            data.message.forEach(item => {
+                toast.warning(item)
+            })
         }
+        // console.log(note)
     }
-
-    // console.log("total", totalPrice)
 
 
     return (
@@ -97,7 +94,7 @@ const Index = () => {
                         </div>
                         <div className="mb-3">
                             <label className="form-label">Note Shipper</label>
-                            <textarea className="form-control" rows="3"></textarea>
+                            <textarea className="form-control" rows="3" id="noter-text-area" onChange={e => setNote(e.target.value)}></textarea>
                         </div>
                     </form>
 
