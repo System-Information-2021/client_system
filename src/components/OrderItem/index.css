@@ -21,17 +21,15 @@
 
 .order_product_list {
     margin-top: 10px;
-    height: 400px;
+    height: 60vh;
     overflow-y: scroll;
-    /* background: #AE7B4E; */
+    background: #AE7B4E;
     padding: 10px 15px;
 }
 
 .order_product_list_item {
     display: flex;
     align-items: center;
-    /* justify-content: space-between; */
-    /* column-gap: 15px; */
     margin-bottom: 10px;
     border: 1px solid #E8E8E8;
     padding-right: 10px;
