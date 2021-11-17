@@ -38,8 +38,7 @@ const Index = ({ item, status }) => {
             <tbody>
                 <tr>
                     <td>{item.id}</td>
-                    <td>{item.firstname}</td>
-                    <td>{item.lastname}</td>
+                    <td>{item.firstname} {item.lastname}</td>
                     <td>{item.numberphone}</td>
                     <td>{dateTime}</td>
                     <td>${item.total_price}</td>

@@ -52,12 +52,11 @@ const Index = () => {
             </div>
             <div className="main_order">
                 <div className="list_order">
-                    <table className="table table-striped">
+                    <table className="table">
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Lastname</th>
-                                <th>First Name</th>
+                                <th>Name</th>
                                 <th>Phone Number</th>
                                 <th>Time Order</th>
                                 <th>Total</th>

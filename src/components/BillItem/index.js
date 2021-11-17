@@ -95,7 +95,6 @@ const Index = ({ item }) => {
                                 <th scope="col">Name</th>
                                 <th scope="col">Address</th>
                                 <th scope="col">City</th>
-                                <th scope="col">Status</th>
                                 <th scope="col">Phone</th>
                                 <th scope="col">Total_price</th>
                             </tr>
@@ -107,7 +106,7 @@ const Index = ({ item }) => {
                                 <td>{item.address}</td>
                                 <td>{item.city}</td>
                                 <td>{item.numberphone}</td>
-                                <td>$ {item.total_price}</td>
+                                <td>${item.total_price}</td>
                             </tr>
                         </tbody>
                     </table>
