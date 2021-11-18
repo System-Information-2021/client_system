@@ -2,13 +2,32 @@
     padding: 0px 15px;
 }
 
+
+.list_bill .bill_filter {
+    margin: 15px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
 .list_bill .bill_title {
     font-size: 24px;
     font-weight: bold;
     text-transform: uppercase;
 }
 
+.list_bill .admin_bill_list {
+    /* background-color: yellow; */
+    overflow-y: scroll;
+    height: 70vh;
+}
+
 .list_bill .btn {
     background-color: #000;
     color: #fff;
+}
+
+.list_bill .paginate_bill {
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }

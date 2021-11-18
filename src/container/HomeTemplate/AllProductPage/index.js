@@ -9,7 +9,6 @@ import "./index.css"
 const Index = () => {
     const listProducts = useSelector((state) => state.products.listProducts)
     const totalPageProduct = useSelector((state) => state.products.totalPageProduct)
-    const listCategory = useSelector((state) => state.products.listCategorys)
     const dispatch = useDispatch()
     const [selectBrand, setSelectBrand] = useState("")
     const [selectCate, setSelectCate] = useState("")
@@ -23,36 +22,16 @@ const Index = () => {
         dispatch(actFetchProduct(currentPage, selectBrand, selectCate, gender))
     }, [currentPage, selectCate, gender, selectBrand, dispatch])
 
-    useEffect(() => {
-        dispatch(actFetchCategory())
-    }, [])
 
     return (
         <div className="all_product container">
-            <MenuCategory setBrandId={setSelectBrand} />
-            <div className="filter_group">
-                <div className="filter_product">
-                    <select onChange={(e) => setGender(e.target.value)}>
-                        <option value="">All Gender</option>
-                        <option value="male">Men</option>
-                        <option value="female">Women</option>
-                    </select>
-                </div>
-                <div className="filter_product" onChange={e => setSelectCate(e.target.value)}>
-                    <select>
-                        <option value="">All Category</option>
-                        {listCategory?.map((item, index) => {
-                            return (<option value={item.id} key={index}>{item.name}</option>)
-                        })}
-                    </select>
-                </div>
-            </div>
-
+            <MenuCategory setBrandId={setSelectBrand} setCateId={setSelectCate} />
             <div className="list_product">
                 {listProducts?.map((item, index) => {
                     return (<ProductItem data={item} key={index} />)
                 })}
             </div>
+            {listProducts.length === 0 && <div>No product item</div>}
 
             <Pagination
                 currentPage={currentPage}
