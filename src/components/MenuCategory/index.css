@@ -8,6 +8,31 @@
     font-size: 14px;
     font-family: "arvregula";
     margin-bottom: 15px;
+    position: relative;
+}
+
+.menu_category:hover .dropdow__content {
+    display: block;
+}
+
+.menu_category .dropdow__content {
+    background-color: #fff;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    display: none;
+    padding: 10px;
+    color: #000;
+}
+
+.menu_category .dropdow__content p:hover {
+    color: #AE7B4E;
+}
+
+.menu_category .dropdow__content p {
+    cursor: pointer;
 }
 
 .menu_category .mobile {
@@ -35,6 +60,7 @@
     padding: 0px 10px;
     line-height: 60px;
 }
+
 
 .menu_category ul li:hover {
     background-color: #AE7B4E;

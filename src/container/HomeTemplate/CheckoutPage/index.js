@@ -20,6 +20,7 @@ const Index = () => {
     const [address, setAddress] = useState(user.data.address)
     const [city, setCity] = useState(user.data.city)
     const [note, setNote] = useState("")
+    const [email, setEmail] = useState(user.data.email)
 
     // console.log("user data", user.data.id)
 
@@ -93,6 +94,11 @@ const Index = () => {
                         <div className="row">
                             <div className="col-12">
                                 <input type="text" className="form-control" placeholder="Phone" onChange={e => setPhone(e.target.value)} value={phone} />
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-12">
+                                <input type="text" className="form-control" placeholder="Email contact" onChange={e => setEmail(e.target.value)} value={email} />
                             </div>
                         </div>
                         <div className="mb-3">

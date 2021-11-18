@@ -60,6 +60,7 @@ const Index = ({ item }) => {
     useEffect(() => {
         setCurStatus(transferStatus(item.status))
     }, [item.status])
+    console.log(item)
 
     return (
         <tr>
@@ -74,6 +75,7 @@ const Index = ({ item }) => {
                     <option value={5}>Cancel</option>
                 </select></td>
             </td>
+            <td>{item.email || "Not email"}</td>
             <td>{dateTime}</td>
             <td>$ {item.total_price}</td>
             <td><button className="btn" onClick={() => openModal()}>Detail</button></td>
