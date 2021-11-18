@@ -37,13 +37,12 @@ const Index = () => {
 
     if (!user.data) return <Redirect to="/cart-detail" />
 
-
     const submitOrder = async (e) => {
         e.preventDefault();
-        if (cart.length === 0) {
-            toast.warning("Cart not allow empty...!")
-            return;
-        }
+        // if (cart.length === 0) {
+        //     toast.warning("Cart not allow empty...!")
+        //     return;
+        // }
         const { data } = await apiInstance({
             url: "/cart/order",
             method: "POST",
@@ -51,16 +50,16 @@ const Index = () => {
                 firstname, lastname, numberphone: phone, address, city, note: note, id_user: user.data.id, total_price: totalPrice, data: cart
             }
         })
-        // console.log(data)
+        console.log(data)
         if (data.code === 200) {
             toast.success("Order successfully");
             setTimeout(() => {
                 history.push("/my-page")
             }, 2000);
         } else {
-            data.message.forEach((item) => {
-                return toast.warning(item)
-            })
+            // data.message.forEach((item) => {
+            //     return toast.warning(item)
+            // })
 
         }
         // console.log(note)
