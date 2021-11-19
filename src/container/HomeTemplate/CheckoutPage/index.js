@@ -40,15 +40,11 @@ const Index = () => {
 
     const submitOrder = async (e) => {
         e.preventDefault();
-        // if (cart.length === 0) {
-        //     toast.warning("Cart not allow empty...!")
-        //     return;
-        // }
         const { data } = await apiInstance({
             url: "/cart/order",
             method: "POST",
             data: {
-                firstname, lastname, numberphone: phone, address, city, note: note, id_user: user.data.id, total_price: totalPrice, data: cart
+                firstname, lastname, numberphone: phone, address, city, note: note, email: email, id_user: user.data.id, total_price: totalPrice, data: cart
             }
         })
         console.log(data)
@@ -58,9 +54,9 @@ const Index = () => {
                 history.push("/my-page")
             }, 2000);
         } else {
-            // data.message.forEach((item) => {
-            //     return toast.warning(item)
-            // })
+            data.message.forEach((item) => {
+                return toast.warning(item)
+            })
 
         }
         // console.log(note)

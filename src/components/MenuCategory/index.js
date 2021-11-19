@@ -16,7 +16,7 @@ const Index = ({ setBrandId, setCateId }) => {
         dispatch(actFetchCategory())
     }, [dispatch])
 
-    console.log(listCategory)
+    // console.log(listCategory)
 
     const setBrandAndCate = () => {
         setBrandId("")

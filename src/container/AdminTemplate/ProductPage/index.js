@@ -8,12 +8,12 @@ import AdminProductDetail from "../../../components/AdminProductDetail"
 
 
 const Index = () => {
-    const [product, setProduct] = useState(null);
-    const [filterPro, setFilterPro] = useState([]);
+    const [product, setProduct] = useState([]);
     const [totalPage, setTotalPage] = useState(1);
     let history = useHistory()
     const [currentPage, setCurrentPage] = useState(1);
     const [query, setQuery] = useState("")
+    const [filter, setFilter] = useState([])
 
 
 
@@ -31,7 +31,6 @@ const Index = () => {
                     page: currentPage
                 }
             })
-            // console.log(data)
             if (data.code === 200) {
                 setProduct(data.data)
                 setTotalPage(data.totalPage)
@@ -40,12 +39,6 @@ const Index = () => {
         fetchProduct()
     }, [currentPage])
 
-    useEffect(() => {
-
-    }, [])
-    const searchFunction = (key) => {
-        const productFilter = product.filter((str) => key.indexOf(str) === -1)
-    }
 
     return (
         <div className="admin_product">
@@ -53,11 +46,7 @@ const Index = () => {
                 <div className="admin_product_title">All Products</div>
                 <div className="admin_product_new" onClick={() => history.push("/admin/product/create")}>New Product</div>
             </div>
-            <div className="admin_product_search">
-                <form>
-                    <input type="text" placeholder="search name product" />
-                </form>
-            </div>
+            <SearchFormAdmin />
             <div className="admin_product_main_list">
                 <table className="table">
                     <thead className="thead-dark">
