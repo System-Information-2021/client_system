@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import apiInstance from '../../services/index'
 import useUser from '../../hook/useUser'
+import { toast } from "react-toastify"
 import "./index.css"
 
 const Index = () => {
@@ -12,6 +14,29 @@ const Index = () => {
     const [city, setCity] = useState(user?.data.city)
     const [comment, setComment] = useState(user?.data.comment)
     const [company, setCompany] = useState(user?.data.company)
+
+    const changeInforUser = async (e) => {
+        e.preventDefault()
+        if (firstname === "" || lastname === "" || phone === "" || address === "" || city === "") {
+            toast.warning("please enter all input")
+            return;
+        }
+        const { data } = await apiInstance({
+            url: `/user/${user.data.id}/update`,
+            method: "PUT",
+            data: {
+                firstname, lastname, mobile_number: phone, address, city, comment, company
+            }
+        })
+        if (data.code === 200) {
+            toast.success(data.message)
+            setTimeout(() => {
+                window.location.reload()
+            }, 2000)
+        } else {
+            toast.error(data.message)
+        }
+    }
 
 
     return (
@@ -43,7 +68,7 @@ const Index = () => {
                 </div>
             </form>
             <div style={{ textAlign: 'center' }}>
-                <button className="btn submit">
+                <button className="btn submit" onClick={changeInforUser}>
                     Submit
                 </button>
             </div>

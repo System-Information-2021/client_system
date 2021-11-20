@@ -1,0 +1,94 @@
+ .product_modal {
+     padding: 10px;
+     display: flex;
+     column-gap: 20px;
+     height: 100%;
+     width: 100%;
+ }
+
+ .product_modal .modal_group_image {
+     display: flex;
+     flex: 50%;
+     flex-direction: column;
+     row-gap: 10px;
+     height: 100%;
+ }
+
+
+
+ .product_modal .modal_group_image .display {
+     border: 1px solid #000;
+     border-radius: 5px;
+ }
+
+ .product_modal .modal_group_image .display img {
+     height: 500px;
+     width: 100%;
+     object-fit: contain;
+ }
+
+ .product_modal .modal_group_image .list {
+     display: flex;
+     column-gap: 10px;
+     justify-content: center;
+     align-items: center;
+ }
+
+ .product_modal .modal_group_image .list img {
+     width: 60px;
+     height: 60px;
+     object-fit: cover;
+     border: 1px solid #000;
+ }
+
+ .product_modal .infor {
+     flex: 50%;
+     height: 85%;
+ }
+
+ .product_modal .infor .description {
+     height: 50%;
+     overflow-y: scroll;
+ }
+
+ .product_modal .infor .description::-webkit-scrollbar {
+     display: none;
+ }
+
+ .product_modal .infor {
+     display: flex;
+     flex-direction: column;
+     row-gap: 10px;
+ }
+
+ .product_modal .infor .name {
+     font-size: 18px;
+     font-weight: bold;
+ }
+
+ .product_modal .infor .price {
+     color: #AE7B4E;
+     font-weight: bold;
+ }
+
+ .product_modal .infor .add_cart {
+     text-align: center;
+     width: 150px;
+     padding: 10px 0px;
+     margin: 0 auto;
+     margin-top: auto;
+     background-color: #000;
+     color: #fff;
+     cursor: pointer;
+ }
+
+ .product_modal .close {
+     position: absolute;
+     right: 10px;
+     top: 10px;
+     padding: 5px 10px;
+     border: none !important;
+     background-color: #000;
+     color: #fff;
+     cursor: pointer;
+ }

@@ -5,17 +5,17 @@ import Pagination from "react-pagination-library";
 import apiInstance from "../../../services/index"
 import SearchFormAdmin from "../../../components/SearchFormAdmin"
 import AdminProductDetail from "../../../components/AdminProductDetail"
+// import 
 
 
 const Index = () => {
-    const [product, setProduct] = useState(null);
-    const [filterPro, setFilterPro] = useState([]);
+    const [product, setProduct] = useState([]);
     const [totalPage, setTotalPage] = useState(1);
     let history = useHistory()
     const [currentPage, setCurrentPage] = useState(1);
     const [query, setQuery] = useState("")
 
-
+    // console.log(query)
 
     const changeCurrentPage = (numPage) => {
         console.log(numPage)
@@ -28,7 +28,8 @@ const Index = () => {
                 url: `/product`,
                 method: "GET",
                 params: {
-                    page: currentPage
+                    page: currentPage,
+                    key: query
                 }
             })
             // console.log(data)
@@ -38,14 +39,8 @@ const Index = () => {
             }
         }
         fetchProduct()
-    }, [currentPage])
+    }, [currentPage, query])
 
-    useEffect(() => {
-
-    }, [])
-    const searchFunction = (key) => {
-        const productFilter = product.filter((str) => key.indexOf(str) === -1)
-    }
 
     return (
         <div className="admin_product">
@@ -53,11 +48,7 @@ const Index = () => {
                 <div className="admin_product_title">All Products</div>
                 <div className="admin_product_new" onClick={() => history.push("/admin/product/create")}>New Product</div>
             </div>
-            <div className="admin_product_search">
-                <form>
-                    <input type="text" placeholder="search name product" />
-                </form>
-            </div>
+            <SearchFormAdmin title="product" setState={setQuery} />
             <div className="admin_product_main_list">
                 <table className="table">
                     <thead className="thead-dark">
@@ -65,11 +56,9 @@ const Index = () => {
                             <th scope="col">Id</th>
                             <th scope="col">Product Name</th>
                             <th scope="col">Product Price</th>
-                            <th scope="col">Product Brand</th>
-                            <th scope="col">Product Category</th>
+                            <th scope="col">Brand</th>
+                            <th scope="col">Category</th>
                             {/* <th scope="col">Quantity</th> */}
-                            <th scope="col">Status</th>
-                            <th scope="col">Description</th>
                         </tr>
                     </thead>
                     <tbody style={{ height: "65vh", background: "", overflow: "scroll" }}>

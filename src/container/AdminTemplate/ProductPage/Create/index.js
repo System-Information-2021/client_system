@@ -6,6 +6,7 @@ import "./index.css"
 
 const Index = () => {
     let history = useHistory()
+    const [files, setFiles] = useState([]);
     const [name, setName] = useState("")
     const [price, setPrice] = useState("")
     const [description, setDescription] = useState("")
@@ -13,7 +14,6 @@ const Index = () => {
     const [category, setCategory] = useState([])
     const [brandId, setBrandId] = useState(1)
     const [categoryId, setCategoryId] = useState(1)
-    const [images, setImages] = useState([])
     const [gender, setGender] = useState("")
 
 
@@ -45,6 +45,18 @@ const Index = () => {
         fetchCategory()
     }, [])
 
+    const handlerFile = (e) => {
+
+        let allfiles = []
+        for (let i = 0; i < e.target.files.length; i++) {
+            allfiles.push(e.target.files[i]);
+        }
+        if (allfiles.length > 0) {
+            setFiles(allfiles);
+        }
+    };
+
+
     const handleSubmitProduct = async (e) => {
         e.preventDefault()
         const formData = new FormData()
@@ -56,8 +68,8 @@ const Index = () => {
         formData.append("id_brand", brandId)
         formData.append("id_category", categoryId)
 
-        for (let i = 0; i < images.length; i++) {
-            formData.append("images", images[i]);
+        for (let i = 0; i < files.length; i++) {
+            formData.append("images", files[i]);
         }
         // console.log(images)
 
@@ -66,6 +78,7 @@ const Index = () => {
             method: "POST",
             data: formData,
         })
+        console.log(data)
         if (data.code === 200) {
             toast.success(data.message)
             setTimeout(() => {
@@ -75,6 +88,8 @@ const Index = () => {
             toast.error(data.message)
         }
     }
+
+
 
 
     return (
@@ -100,7 +115,7 @@ const Index = () => {
                     <textarea className="form-control" rows="6" onChange={e => setDescription(e.target.value)}></textarea>
                 </div>
                 <div className="form-group">
-                    <label className="my-1 mr-2" className="brand_prouduct" >Brand Product</label>
+                    <label className="my-1 mr-2 brand_prouduct" >Brand Product</label>
                     <select className="custom-select my-1 mr-sm-2" onChange={e => setBrandId(e.target.value)}>
                         <option selected>Choose...</option>
                         {
@@ -109,7 +124,7 @@ const Index = () => {
                         }
                     </select>
 
-                    <label className="my-1" className="category_prouduct" >Category Product</label>
+                    <label className="my-1 category_prouduct"  >Category Product</label>
                     <select className="custom-select my-1 mr-sm-2" onChange={e => setCategoryId(e.target.value)}  >
                         <option selected>Choose...</option>
                         {
@@ -118,7 +133,7 @@ const Index = () => {
                             })
                         }
                     </select>
-                    <label className="my-1" className="category_prouduct" >Gender Product</label>
+                    <label className="my-1 gender_prouduct">Gender Product</label>
                     <select className="custom-select my-1 mr-sm-2" onChange={e => setGender(e.target.value)}  >
                         <option selected>Choose...</option>
                         <option value="male">Male</option>
@@ -128,13 +143,20 @@ const Index = () => {
                 </div>
                 <div className="form-group">
                     <label>Must choose less than or equal to 3 image</label>
-                    <input type="file" className="form-control-file custom-file-input" onChange={e => setImages(e.target.files)} accept='image/*' multiple />
+                    <input type="file" className="form-control-file custom-file-input" onChange={handlerFile} accept='image/*' multiple />
+
                 </div>
+
+
                 <div className="previre_image_before_upload">
-                    {
 
-                    }
+                    <span className="filename">
+                        {files.map((item, index) => {
+                            return (<>
+                                <img src={URL.createObjectURL(item)} alt={files.name} /> </>)
+                        })}
 
+                    </span>
                 </div>
 
                 <div style={{ textAlign: "center" }} onClick={handleSubmitProduct}>

@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./index.css"
 
-const Index = ({ title }) => {
-    console.log(title)
+const Index = ({ title, setState }) => {
+
     return (
         <div className="search_from_admin">
             <form>
-                <input type="text" placeholder="search item" />
+                <input type="text" placeholder={title === "bill" ? "search email" : `search ${title}`} onChange={e => setState(e.target.value)} />
             </form>
         </div>
     )

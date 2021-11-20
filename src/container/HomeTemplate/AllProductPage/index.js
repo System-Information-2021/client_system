@@ -25,7 +25,7 @@ const Index = () => {
 
     return (
         <div className="all_product container">
-            <MenuCategory setBrandId={setSelectBrand} setCateId={setSelectCate} />
+            <MenuCategory setBrandId={setSelectBrand} setCateId={setSelectCate} setGender={setGender} />
             <div className="list_product">
                 {listProducts?.map((item, index) => {
                     return (<ProductItem data={item} key={index} />)

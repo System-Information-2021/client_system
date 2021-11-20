@@ -5,10 +5,12 @@ import { useHistory, useParams } from 'react-router-dom';
 import apiInstance from "../../../services/index"
 import Swal from 'sweetalert2'
 import { toast } from 'react-toastify';
+import SearchFormAdmin from "../../../components/SearchFormAdmin"
 
 const Index = () => {
     const [category, setCategory] = useState([])
     const [totalPage, setTotalPage] = useState(1)
+    const [query, setQuery] = useState("")
 
 
     let history = useHistory()
@@ -40,11 +42,12 @@ const Index = () => {
                 url: `/category`,
                 method: "GET",
                 params: {
-                    page: currentPage
+                    page: currentPage,
+                    key: query
                 }
             })
 
-            console.log(data)
+            // console.log(data)
             if (data.code === 200) {
                 setCategory(data.data)
                 setTotalPage(data.totalPage)
@@ -57,7 +60,7 @@ const Index = () => {
             }
         }
         fetchCategory();
-    }, [currentPage])
+    }, [currentPage, query])
 
     return (
         <div className="admin_product_category">
@@ -65,13 +68,14 @@ const Index = () => {
                 <div className="admin_product_category_title">All Brand</div>
                 <div className="admin_product_category_new" onClick={() => history.push("/admin/product/category/create")}>New Category</div>
             </div>
+            <SearchFormAdmin title="category" setState={setQuery} />
 
             <div className="admin_product_category_main_list">
                 <table className="table">
                     <thead className="thead-dark">
                         <tr>
                             <th scope="col">Id</th>
-                            <th scope="col">Product Brand Name</th>
+                            <th scope="col">Product Category Name</th>
                             <th scope="col">Status</th>
                         </tr>
                     </thead>
@@ -83,7 +87,7 @@ const Index = () => {
                                     <td>{item.name}</td>
                                     <td>
                                         <div className="btn btn_edit" onClick={() => history.push(`/admin/product/category/edit/${item.id}`)}><ion-icon name="create-outline"></ion-icon></div>
-                                        <div className="btn btn_delete" onClick={() => deleteCategory(item.id)}><ion-icon name="trash-outline"></ion-icon></div>
+                                        <div className="btn btn_delete" onClick={(e) => { if (window.confirm('Are you sure you wish to cancel this item?')) deleteCategory(item.id) }}><ion-icon name="trash-outline"></ion-icon></div>
                                     </td>
                                 </tr>)
                             })

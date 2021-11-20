@@ -4,6 +4,7 @@ import "./index.css"
 import useUser from "../../../hook/useUser"
 import { useHistory } from 'react-router-dom'
 import ItemInCart from "../../../components/ItemInCart"
+import { toast } from 'react-toastify'
 
 const Index = () => {
     const user = useUser()
@@ -16,6 +17,9 @@ const Index = () => {
     const cart = useSelector((state) => state.shopping.cart)
 
     useEffect(() => {
+        if (!user.data) {
+            toast.warning("you must have account when checkout");
+        }
         let items = 0;
         let price = 0;
         cart.forEach(item => {
@@ -24,7 +28,7 @@ const Index = () => {
         })
         setTotalItem(items)
         setTotalPrice(price)
-    }, [cart, totalItem, totalPrice])
+    }, [cart, totalItem, totalPrice, user.data])
 
     return (
         <div className="view_cart_page container">
@@ -43,7 +47,7 @@ const Index = () => {
                         <tbody >
                             {
                                 cart?.map((item, index) => {
-                                    return (<ItemInCart data={item} />)
+                                    return (<ItemInCart data={item} key={index} />)
                                 })
                             }
 
@@ -58,7 +62,7 @@ const Index = () => {
                     <div className="sumary_total" style={{ fontSize: "20px", fontWeight: "bold" }}><div>Total</div><div>${totalPrice}</div>
                     </div>
 
-                    <div className={!user.data ? "hidden " : "sumary_btn"} onClick={() => history.push("/checkout")}>proceed to checkout</div>
+                    <div className={!user.data ? "hidden" : "sumary_btn"} onClick={() => history.push("/checkout")}>proceed to checkout</div>
 
                     <div className="sumary_payment">
                         <div className="payment_title" >Payment</div>

@@ -29,10 +29,10 @@ const Index = ({ item, status }) => {
         }
     }
 
-    const dateTime = new Date(item.createdAt).toUTCString()
+    // const dateTime = new Date(item.createdAt).toUTCString()
 
 
-
+    // console.log(item)
     return (
         <>
             <tbody>
@@ -40,8 +40,9 @@ const Index = ({ item, status }) => {
                     <td>{item.id}</td>
                     <td>{item.firstname} {item.lastname}</td>
                     <td>{item.numberphone}</td>
-                    <td>{dateTime}</td>
+                    <td>{item.createdAt}</td>
                     <td>${item.total_price}</td>
+
                     <td><button className="detail_button" onClick={() => openModal()}>Detail</button></td>
                     {status === 1 && <td><button className="detail_button" onClick={(e) => { if (window.confirm('Are you sure you wish to cancel this item?')) deleteOrder(item.id) }}>Cancel</button></td>}
                     {status === 2 && <td><button className="detail_button" onClick={(e) => { if (window.confirm('Are you sure you wish to cancel this item?')) deleteOrder(item.id) }}>Cancel</button></td>}
@@ -63,7 +64,9 @@ const Index = ({ item, status }) => {
                                     <li className="list-group-item">City: {item.city}</li>
                                     <li className="list-group-item">Phone Number: {item.numberphone}</li>
                                     <li className="list-group-item">Status: {item.status}</li>
-                                    <li className="list-group-item">Date Order: {dateTime}</li>
+                                    <li className="list-group-item">Date Order: {item.createdAt}</li>
+                                    <li className="list-group-item">Date Order: {item.note}</li>
+
 
 
                                 </ul>

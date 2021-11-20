@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import { toast } from 'react-toastify'
 import useUser from "../../hook/useUser"
+import apiInstance from "../../services/index"
 import "./index.css"
 
 const Index = () => {
@@ -7,6 +9,35 @@ const Index = () => {
     const [email, setEmail] = useState(user.data.email)
     const [password, setPassword] = useState("")
     const [resetPassword, setResetPassword] = useState("")
+
+    const changePassword = async (e) => {
+        e.preventDefault();
+        if (password === "" || resetPassword === "") {
+            toast.warning("input value not null...!")
+            return;
+        }
+        const { data } = await apiInstance({
+            url: `/user/${user.data.id}/change-password`,
+            method: "POST",
+            data: {
+                email: user.data.email,
+                password: password,
+                re_password: resetPassword
+            }
+        })
+        console.log(data)
+        if (data.code === 200) {
+            toast.success(data.message)
+            localStorage.clear()
+            setTimeout(() => {
+                window.location.reload()
+            }, 2000)
+        } else {
+            toast.error(data.message)
+        }
+
+    }
+
 
     return (
         <div className="my_account">
@@ -24,7 +55,7 @@ const Index = () => {
                     </div>
                 </div>
                 <div style={{ textAlign: "center" }}>
-                    <button type="submit" className="btn submit">Submit</button>
+                    <button type="submit" className="btn submit" onClick={changePassword}>Submit</button>
                 </div>
             </form>
         </div>

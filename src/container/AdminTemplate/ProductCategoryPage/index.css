@@ -37,7 +37,7 @@
     overflow-y: scroll;
 }
 
-.admin_product_category .admin_product_brand_main_list::-webkit-scrollbar {
+.admin_product_category .admin_product_category_main_list::-webkit-scrollbar {
     display: none;
 }
 
