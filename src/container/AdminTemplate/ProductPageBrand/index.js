@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import apiInstance from '../../../services';
 import "./index.css"
-
+import SearchFormAdmin from "../../../components/SearchFormAdmin"
 import Pagination from "react-pagination-library";
 import { useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -11,6 +11,7 @@ const Index = () => {
     let history = useHistory()
     const [brand, setBrand] = useState([])
     const [currentPage, setCurrentPage] = useState(1);
+    const [query, setQuery] = useState("")
     const [totalPage, setTotalPage] = useState(1)
 
     const changeCurrentPage = (numPage) => {
@@ -38,10 +39,11 @@ const Index = () => {
                 url: "/brand",
                 method: "GET",
                 params: {
-                    page: currentPage
+                    page: currentPage,
+                    key: query,
                 }
             })
-            console.log(data)
+            // console.log(data)
 
             if (data.code === 200) {
                 setBrand(data.data)
@@ -55,7 +57,7 @@ const Index = () => {
             }
         }
         fetchBrand()
-    }, [currentPage])
+    }, [currentPage, query])
 
     return (
         <div className="admin_product_brand">
@@ -63,6 +65,7 @@ const Index = () => {
                 <div className="admin_product_brand_title">All Brand</div>
                 <div className="admin_product_brand_new" onClick={() => history.push("/admin/product/brand/create")}>New Brand</div>
             </div>
+            <SearchFormAdmin title="brand" setState={setQuery} />
             <div className="admin_product_brand_main_list">
                 <table className="table">
                     <thead className="thead-dark">

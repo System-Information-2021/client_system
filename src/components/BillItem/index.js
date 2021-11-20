@@ -16,7 +16,7 @@ const Index = ({ item }) => {
     const closeModal = () => {
         setVisible(false)
     }
-    const dateTime = new Date(item.createdAt).toUTCString()
+    // const dateTime = new Date(item.createdAt).toUTCString()
 
 
     const changeStatus = async (id, status) => {
@@ -54,13 +54,30 @@ const Index = ({ item }) => {
         }
         return messageStatus;
     }
-    // console.log("default", transferStatus(item.status))
-    // console.log(curStatus)
+
+    const deleteOrder = async (e, id) => {
+        e.preventDefault();
+        closeModal()
+        const { data } = await apiInstance({
+            url: `/cart/deleteorder/${id}`,
+            method: "DELETE"
+        })
+        // console.log(data)
+        if (data.code === 200) {
+            toast.success(data.message)
+            setTimeout(() => {
+                window.location.reload()
+            }, 2000)
+        } else {
+            toast.error("fail delete order")
+        }
+    }
+
 
     useEffect(() => {
         setCurStatus(transferStatus(item.status))
     }, [item.status])
-    // console.log(item)
+
 
     return (
         <tr>
@@ -76,7 +93,7 @@ const Index = ({ item }) => {
                 </select></td>
             </td>
             <td>{item.email || "Not email"}</td>
-            <td>{dateTime}</td>
+            <td>{item.createdAt || ""}</td>
             <td>$ {item.total_price}</td>
             <td><button className="btn" onClick={() => openModal()}>Detail</button></td>
 
@@ -131,7 +148,7 @@ const Index = ({ item }) => {
                 </div>
 
                 <div className="bgr_status">
-                    <button className="btn">Delete Order</button>
+                    <button className="btn" onClick={(e) => { if (window.confirm('Are you sure you wish to delete this item?')) deleteOrder(e, item.id) }}>Delete Order</button>
                 </div>
             </Modal>
         </tr>

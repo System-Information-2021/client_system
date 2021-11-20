@@ -31,3 +31,20 @@
     bottom: 0;
     right: 0;
 }
+
+.list_bill .refresh {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 5px;
+    font-size: 14px;
+    border: 1px solid #000;
+    width: 80px;
+    cursor: pointer;
+    border-radius: 5px
+}
+
+.list_bill .refresh:hover {
+    background-color: #000;
+    color: #fff;
+}

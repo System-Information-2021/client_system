@@ -47,7 +47,7 @@ const Index = () => {
                 firstname, lastname, numberphone: phone, address, city, note: note, email: email, id_user: user.data.id, total_price: totalPrice, data: cart
             }
         })
-        console.log(data)
+        // console.log(data)
         if (data.code === 200) {
             toast.success("Order successfully");
             setTimeout(() => {

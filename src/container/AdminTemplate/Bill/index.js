@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import apiInstance from '../../../services'
 import BillItem from "../../../components/BillItem"
 import Pagination from "react-pagination-library";
+import SearchFormAdmin from "../../../components/SearchFormAdmin"
 import "./index.css"
 
 const Index = () => {
@@ -9,29 +10,34 @@ const Index = () => {
     const [typebill, setTypeBill] = useState(6)
     const [totalPage, setTotalPage] = useState(1)
     const [currentPage, setCurrentPage] = useState(1);
+    const [query, setQuery] = useState("")
 
     const changeCurrentPage = (numPage) => {
         setCurrentPage(numPage);
     }
 
-    useEffect(() => {
-        async function fetchBill() {
-            const { data } = await apiInstance({
-                url: `/cart/filter/${typebill}`,
-                method: 'GET',
-                params: {
-                    page: currentPage
-                }
-            })
-            // console.log(data)
-            if (data.code === 200) {
-                setListBill(data.data)
-                setTotalPage(data.totalPage)
+    async function fetchBill() {
+        const { data } = await apiInstance({
+            url: `/cart/filter/${typebill}`,
+            method: 'GET',
+            params: {
+                page: currentPage,
+                email: query
             }
+        })
+        // console.log(data)
+        if (data.code === 200) {
+            setListBill(data.data)
+            setTotalPage(data.totalPage)
         }
+    }
+
+    useEffect(() => {
+
         fetchBill()
-    }, [currentPage, typebill])
-    // console.log(listBill)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [currentPage, typebill, query]);
+    console.log(listBill)
     return (
         <div className="list_bill">
             <div className="bill_title">Bill</div>
@@ -44,12 +50,11 @@ const Index = () => {
                     <option value={5}>Cancel</option>
                     <option value={6} selected>All Bill</option>
                 </select>
-                <form>
-                    <input type="text" placeholder="search bill" />
-                </form>
+                <SearchFormAdmin title="bill" setState={setQuery} />
             </div>
 
             <div className="admin_bill_list">
+                <div className="refresh" onClick={fetchBill}><ion-icon name="refresh-circle-outline"></ion-icon> <div>refresh</div></div>
                 <table className="table" >
                     <thead>
                         <tr>
