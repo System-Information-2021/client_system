@@ -14,7 +14,6 @@ const Index = () => {
     const [category, setCategory] = useState([])
     const [brandId, setBrandId] = useState(1)
     const [categoryId, setCategoryId] = useState(1)
-    const [images, setImages] = useState([])
     const [gender, setGender] = useState("")
 
 
@@ -47,7 +46,6 @@ const Index = () => {
     }, [])
 
     const handlerFile = (e) => {
-        console.log(e.target.files);
 
         let allfiles = []
         for (let i = 0; i < e.target.files.length; i++) {
@@ -70,8 +68,8 @@ const Index = () => {
         formData.append("id_brand", brandId)
         formData.append("id_category", categoryId)
 
-        for (let i = 0; i < images.length; i++) {
-            formData.append("images", images[i]);
+        for (let i = 0; i < files.length; i++) {
+            formData.append("images", files[i]);
         }
         // console.log(images)
 
@@ -90,7 +88,6 @@ const Index = () => {
             toast.error(data.message)
         }
     }
-
 
 
 
@@ -153,9 +150,12 @@ const Index = () => {
 
                 <div className="previre_image_before_upload">
 
-                    <span className="Filename">
-                        {files.name}
-                        <img src={URL.createObjectURL(files)} alt={files.name} />
+                    <span className="filename">
+                        {files.map((item, index) => {
+                            return (<>
+                                <img src={URL.createObjectURL(item)} alt={files.name} /> </>)
+                        })}
+
                     </span>
                 </div>
 

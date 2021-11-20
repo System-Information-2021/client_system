@@ -4,7 +4,7 @@ import { actFetchBrand, actFetchCategory } from "../../redux/Product/product.act
 import { useDispatch, useSelector } from "react-redux"
 import "./index.css"
 
-const Index = ({ setBrandId, setCateId }) => {
+const Index = ({ setBrandId, setCateId, setGender }) => {
     let history = useHistory();
     const dispatch = useDispatch()
     const listBrand = useSelector((state) => state.products.listBrands)
@@ -21,6 +21,7 @@ const Index = ({ setBrandId, setCateId }) => {
     const setBrandAndCate = () => {
         setBrandId("")
         setCateId("")
+        setGender("")
     }
 
     return (

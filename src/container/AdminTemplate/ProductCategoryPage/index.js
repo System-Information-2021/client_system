@@ -44,7 +44,7 @@ const Index = () => {
                 }
             })
 
-            console.log(data)
+            // console.log(data)
             if (data.code === 200) {
                 setCategory(data.data)
                 setTotalPage(data.totalPage)
@@ -83,7 +83,7 @@ const Index = () => {
                                     <td>{item.name}</td>
                                     <td>
                                         <div className="btn btn_edit" onClick={() => history.push(`/admin/product/category/edit/${item.id}`)}><ion-icon name="create-outline"></ion-icon></div>
-                                        <div className="btn btn_delete" onClick={() => deleteCategory(item.id)}><ion-icon name="trash-outline"></ion-icon></div>
+                                        <div className="btn btn_delete" onClick={(e) => { if (window.confirm('Are you sure you wish to cancel this item?')) deleteCategory(item.id) }}><ion-icon name="trash-outline"></ion-icon></div>
                                     </td>
                                 </tr>)
                             })

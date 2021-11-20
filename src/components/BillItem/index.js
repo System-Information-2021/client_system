@@ -60,7 +60,7 @@ const Index = ({ item }) => {
     useEffect(() => {
         setCurStatus(transferStatus(item.status))
     }, [item.status])
-    console.log(item)
+    // console.log(item)
 
     return (
         <tr>

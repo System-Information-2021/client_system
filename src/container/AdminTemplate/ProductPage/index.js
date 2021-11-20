@@ -31,6 +31,7 @@ const Index = () => {
                     page: currentPage
                 }
             })
+            console.log(data)
             if (data.code === 200) {
                 setProduct(data.data)
                 setTotalPage(data.totalPage)

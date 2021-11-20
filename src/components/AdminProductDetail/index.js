@@ -20,6 +20,8 @@ const Index = ({ item }) => {
         setVisible(false)
     }
 
+    console.log(item)
+
     const activeProduct = async (id, active) => {
 
         const { data } = await apiInstance({
@@ -27,7 +29,7 @@ const Index = ({ item }) => {
             method: "POST",
             data: { value: active }
         })
-        console.log(data)
+        // console.log(data)
         if (data.code === 200) {
             toast.success(data.messsage)
             window.location.reload()
@@ -65,7 +67,7 @@ const Index = ({ item }) => {
             <td className="button_active">{item.active === true ? (<button className="btn" onClick={() => activeProduct(item.id, false)}>Unactive</button>) : (<button className="btn" onClick={() => activeProduct(item.id, true)}>Active</button>)}</td>
             <td>
                 <div className="btn btn_edit" onClick={() => history.push("/admin/product/edit")} style={{ marginRight: "10px" }}><ion-icon name="create-outline"></ion-icon></div>
-                <div className="btn btn_delete" onClick={() => deleteProduct(item.id)}><ion-icon name="trash-outline"></ion-icon></div>
+                <div className="btn btn_delete" onClick={(e) => { if (window.confirm('Are you sure you wish to cancel this item?')) deleteProduct(item.id) }}><ion-icon name="trash-outline"></ion-icon></div>
             </td>
             <td>
                 <button className="btn see_more" onClick={openModal}>See More</button>
@@ -81,9 +83,9 @@ const Index = ({ item }) => {
                 <div className="admin_product_detail_modal">
 
                     <div className="group_image">
-                        <img src={item.image1} />
-                        <img src={item.image2} />
-                        <img src={item.image3} />
+                        <img src={item.image1} alt="image1" />
+                        <img src={item.image2} alt="image2" />
+                        <img src={item.image3} alt="image3" />
                     </div>
 
                     <p className="admin_product_detail_description">{item.description}</p>

@@ -80,7 +80,9 @@ const Index = () => {
                                     <td>{item.name}</td>
                                     <td>
                                         <div className="btn btn_edit" onClick={() => history.push(`/admin/product/brand/edit/${item.id}`)}><ion-icon name="create-outline"></ion-icon></div>
-                                        <div className="btn btn_delete" onClick={() => deleteBrand(item.id)}><ion-icon name="trash-outline"></ion-icon></div>
+                                        <div className="btn btn_delete"
+                                            onClick={(e) => { if (window.confirm('Are you sure you wish to cancel this item?')) deleteBrand(item.id) }}
+                                        ><ion-icon name="trash-outline" ></ion-icon></div>
                                     </td>
                                 </tr>)
                             })
