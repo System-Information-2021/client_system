@@ -67,13 +67,14 @@ const Index = ({ item }) => {
         <tr>
             <th scope="row">{item.id}</th>
             <td className="name">{item.name}</td>
-            <td>{item.price}</td>
+            <td>${item.price}</td>
             <td>{item.brand?.name}</td>
             <td>{item.category?.name}</td>
+            <td>{item.active ? "In sale" : "Not sale"}</td>
 
 
             <td>
-                <div className="btn btn_edit" onClick={() => history.push("/admin/product/edit")} style={{ marginRight: "10px" }}><ion-icon name="create-outline"></ion-icon></div>
+                {/* <div className="btn btn_edit" onClick={() => history.push("/admin/product/edit")} style={{ marginRight: "10px" }}><ion-icon name="create-outline"></ion-icon></div> */}
                 <div className="btn btn_delete" onClick={(e) => { if (window.confirm('Are you sure you wish to cancel this item?')) deleteProduct(item.id) }}><ion-icon name="trash-outline"></ion-icon></div>
             </td>
             <td>
@@ -90,7 +91,7 @@ const Index = ({ item }) => {
                 <ModalDetailProduct data={item} closeModal={closeModal} active={activeCur} isAdmin={true} changeStatusProduct={changeStatusProduct} />
 
             </Modal>
-        </tr>
+        </tr >
     )
 }
 

@@ -65,10 +65,7 @@ const Index = ({ item, status }) => {
                                     <li className="list-group-item">Phone Number: {item.numberphone}</li>
                                     <li className="list-group-item">Status: {item.status}</li>
                                     <li className="list-group-item">Date Order: {item.createdAt}</li>
-                                    <li className="list-group-item">Date Order: {item.note}</li>
-
-
-
+                                    <li className="list-group-item" style={{ height: '150px', overflowY: "scroll" }}>Note shipper: {item.note}</li>
                                 </ul>
                             </div>
                             <div className="col-8">

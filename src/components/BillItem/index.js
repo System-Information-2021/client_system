@@ -27,6 +27,9 @@ const Index = ({ item }) => {
         })
         if (data.code === 200) {
             toast.success(data.message)
+            setTimeout(() => {
+                window.location.reload()
+            }, 2000)
         } else {
             toast.error("change status error")
         }

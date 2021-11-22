@@ -29,7 +29,7 @@ const Index = () => {
                 window.location.reload()
             }, 2000);
         } else {
-            toast.error(`Status_code: ${data.code}...!`)
+            toast.error(data.message)
         }
     }
 
