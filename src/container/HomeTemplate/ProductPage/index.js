@@ -5,6 +5,7 @@ import { actLogin } from "../../../redux/User/user.actions"
 import "./index.css"
 import Banner from "../../../components/Banner"
 import Carousel from 'react-multi-carousel';
+import BlogHome from "../../../components/BlogHome"
 import 'react-multi-carousel/lib/styles.css';
 import ProductItemSlider from "../../../components/ProductItemSlider"
 
@@ -57,17 +58,23 @@ const Index = () => {
     return (
         <div className="products container">
             <Banner />
+
             <div className="destop">
-                {/* <div className="product_title">Featured Products</div>
+                <div className="product_title">NEW FEATURE</div>
                 <div className="list_products_slider">
                     <Carousel responsive={responsive} >
-                        <ProductItemSlider />
-                        <ProductItemSlider />
-                        <ProductItemSlider />
-                        <ProductItemSlider />
-                        <ProductItemSlider />
+                        {
+                            newrelease?.map((item) => {
+                                return (<ProductItemSlider key={item.id} item={item} />)
+                            })
+                        }
                     </Carousel>
-                </div> */}
+                </div>
+            </div>
+
+            <Introduction />
+
+            <div className="destop">
                 <div className="product_title">NEW RELEASES</div>
                 <div className="list_products_slider">
                     <Carousel responsive={responsive} >
@@ -76,10 +83,10 @@ const Index = () => {
                                 return (<ProductItemSlider key={item.id} item={item} />)
                             })
                         }
-
                     </Carousel>
                 </div>
-                <Introduction />
+                <BlogHome />
+
             </div>
 
         </div>

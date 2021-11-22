@@ -13,7 +13,7 @@ const index = () => {
                 <Carousel.Item interval={1000}>
                     <img
                         className="d-block w-100"
-                        src={banner1}
+                        src={banner2}
                         alt="First slide"
                     />
 
@@ -21,7 +21,7 @@ const index = () => {
                 <Carousel.Item interval={500}>
                     <img
                         className="d-block w-100"
-                        src={banner2}
+                        src={banner3}
                         alt="Second slide"
                     />
 
@@ -29,7 +29,7 @@ const index = () => {
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src={banner3}
+                        src={banner1}
                         alt="Third slide"
                     />
 

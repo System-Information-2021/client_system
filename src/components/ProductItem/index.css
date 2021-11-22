@@ -2,14 +2,13 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 380px;
+    height: 350px;
     position: relative;
-    background-color: #AE7B4E;
-    border: 5px solid #AE7B4E;
+    border: 1px solid #000;
 }
 
 .product_item .product_description .product_brand {
-    color: #fff;
+    color: red;
 }
 
 .product_item .product_description {
@@ -38,6 +37,7 @@
 .product_item .product_image {
     width: 100%;
     height: 50%;
+    border-bottom: 1px solid #000;
 }
 
 .product_item .product_image img {
@@ -56,7 +56,7 @@
 }
 
 .product_item .product_description .product_name {
-    font-size: 16px;
+    font-size: 14px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -69,13 +69,14 @@
 
 .product_item .product_description .product_stock {
     font-weight: bold;
+    font-size: 13px;
 }
 
 .product_item .product_description .product_price {
     font-weight: bold;
-    margin-bottom: 10px;
-    color: #fff;
     text-transform: uppercase;
+    font-size: 13px;
+    color: #AE7B4E;
 }
 
 .product_item .product_description .product_infor {
@@ -114,8 +115,6 @@
     row-gap: 10px;
     height: 100%;
 }
-
-
 
 .product_item .product_modal .modal_group_image .display {
     border: 1px solid #000;

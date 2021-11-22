@@ -20,6 +20,7 @@ const Index = ({ item }) => {
 
 
     const changeStatus = async (id, status) => {
+        closeModal()
         setCurStatus(status)
         const { data } = await apiInstance({
             url: `/cart/update/${id}/${status}`,
@@ -86,20 +87,11 @@ const Index = ({ item }) => {
         <tr>
             <th scope="row">{item.id}</th>
             <td>{item.firstname} {item.lastname}</td>
-            <td>
-                <td><select className="" onChange={e => changeStatus(item.id, e.target.value)} value={curStatus}>
-                    <option value={1}>Pending</option>
-                    <option value={2}>Received</option>
-                    <option value={3}>Delivering</option>
-                    <option value={4}>Delivered</option>
-                    <option value={5}>Cancel</option>
-                </select></td>
-            </td>
+            <td>{item.status}</td>
             <td>{item.email || "Not email"}</td>
             <td>{item.createdAt || ""}</td>
             <td>$ {item.total_price}</td>
             <td><button className="btn" onClick={() => openModal()}>Detail</button></td>
-
 
             <Modal
                 visible={visible}
@@ -119,6 +111,7 @@ const Index = ({ item }) => {
                                 <th scope="col">City</th>
                                 <th scope="col">Phone</th>
                                 <th scope="col">Total_price</th>
+                                <th scope="col">Change status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -129,6 +122,13 @@ const Index = ({ item }) => {
                                 <td>{item.city}</td>
                                 <td>{item.numberphone}</td>
                                 <td>${item.total_price}</td>
+                                <td><select className="" onChange={e => changeStatus(item.id, e.target.value)} value={curStatus}>
+                                    <option value={1}>Pending</option>
+                                    <option value={2}>Received</option>
+                                    <option value={3}>Delivering</option>
+                                    <option value={4}>Delivered</option>
+                                    <option value={5}>Cancel</option>
+                                </select></td>
                             </tr>
                         </tbody>
                     </table>
