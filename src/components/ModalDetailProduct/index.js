@@ -1,10 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import "./index.css"
 
 const Index = ({ data, addCart, closeModal, active, isAdmin, changeStatusProduct }) => {
 
     const [imgSelect, setImgSelect] = useState(data.image1)
     // console.log(active)
+
+
+
 
     return (
         <div className="product_modal">

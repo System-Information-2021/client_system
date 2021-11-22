@@ -32,7 +32,7 @@ const Index = () => {
                     key: query
                 }
             })
-            // console.log(data)
+
             if (data.code === 200) {
                 setProduct(data.data)
                 setTotalPage(data.totalPage)
@@ -58,13 +58,14 @@ const Index = () => {
                             <th scope="col">Product Price</th>
                             <th scope="col">Brand</th>
                             <th scope="col">Category</th>
+                            <th scope="col">Status</th>
                             {/* <th scope="col">Quantity</th> */}
                         </tr>
                     </thead>
                     <tbody style={{ height: "65vh", background: "", overflow: "scroll" }}>
                         {
                             product?.map((item) => {
-                                return (<AdminProductDetail item={item} />)
+                                return (<AdminProductDetail item={item} key={item.id} />)
                             })
                         }
                     </tbody>

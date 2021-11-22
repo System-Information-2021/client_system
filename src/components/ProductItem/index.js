@@ -50,7 +50,7 @@ const Index = ({ data }) => {
                 effect="fadeInUp"
                 onClickAway={() => closeModal()}
             >
-                <ModalDetailProduct data={data} addCart={addCart} closeModal={closeModal} selectPro={selectPro} setSelectPros={setSelectPro} isAdmin={true} />
+                <ModalDetailProduct data={data} addCart={addCart} closeModal={closeModal} selectPro={selectPro} setSelectPros={setSelectPro} isAdmin={false} />
             </Modal >
         </div >
     )
