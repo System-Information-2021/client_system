@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
+import React, { } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import "./index.css"
-import demoImage from "../../assets/images/product_03_thumbnail.jpg"
 import { addToCart } from "../../redux/ShoppingCart/shopping.actions"
-
 import { toast } from "react-toastify"
 import { useHistory } from "react-router-dom"
+
 
 const Index = ({ item }) => {
 
@@ -30,6 +29,8 @@ const Index = ({ item }) => {
                     <button className="product_button" onClick={() => addCart(item.id, item.name, item.price, item.image1)}>Add To Cart</button>
                 </div>
                 <div className="btn_detail" onClick={() => history.push("/all-product")}>Redirect</div>
+
+
             </div >
         </>
     )

@@ -17,30 +17,30 @@ const Index = () => {
 
     useEffect(() => {
         dispatch(actLogin())
-    }, [])
+    }, [dispatch])
 
     const responsive = {
 
-        superLargeDesktop: {
-            // the naming can be any, depends on you.
-            breakpoint: { max: 3000, min: 4400 },
-            items: 3,
-            partialVisibilityGutter: 40
-        },
+        // superLargeDesktop: {
+        //     // the naming can be any, depends on you.
+        //     breakpoint: { max: 3000, min: 4400 },
+        //     items: 3,
+        //     partialVisibilityGutter: 30
+        // },
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
-            items: 3,
-            partialVisibilityGutter: 40
+            items: 5,
+            partialVisibilityGutter: 50
         },
-        tablet: {
-            breakpoint: { max: 1024, min: 464 },
-            items: 2,
-            partialVisibilityGutter: 30
-        },
-        mobile: {
-            breakpoint: { max: 464, min: 0 },
-            items: 1
-        }
+        // tablet: {
+        //     breakpoint: { max: 1024, min: 464 },
+        //     items: 2,
+        //     partialVisibilityGutter: 30
+        // },
+        // mobile: {
+        //     breakpoint: { max: 464, min: 0 },
+        //     items: 1
+        // }
     };
     useEffect(() => {
         async function fetchNewReleases() {
@@ -58,9 +58,8 @@ const Index = () => {
     return (
         <div className="products container">
             <Banner />
-
             <div className="destop">
-                <div className="product_title">NEW FEATURE</div>
+                <div className="product_title">NEW FEATURES</div>
                 <div className="list_products_slider">
                     <Carousel responsive={responsive} >
                         {
