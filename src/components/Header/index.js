@@ -23,7 +23,7 @@ const Index = () => {
                     <li onClick={() => history.push("/")}>Home</li>
                     <li onClick={() => history.push("/all-product")}>All Product</li>
                     <li>About Us</li>
-                    <li onClick={() => history.push("/login")}>My Account</li>
+                    <li onClick={() => history.push("/my-page")}>My Account</li>
                     <li>Contact Us</li>
                     <li>Blog</li>
                 </ul>

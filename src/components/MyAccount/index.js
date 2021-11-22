@@ -45,7 +45,7 @@ const Index = () => {
             <form>
                 <div className="form-row row">
                     <div className="form-group col-md-12">
-                        <input type="email" className="form-control" placeholder="Email" onChange={(e) => setEmail(e.target.value)} value={email} />
+                        <input type="email" className="form-control" placeholder="Email" onChange={(e) => setEmail(e.target.value)} value={email} disabled={true} />
                     </div>
                     <div className="form-group col-md-12">
                         <input type="password" className="form-control" placeholder="Password" onChange={(e) => setPassword(e.target.value)} value={password} />

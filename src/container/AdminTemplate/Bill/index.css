@@ -21,6 +21,10 @@
     height: 70vh;
 }
 
+.list_bill .admin_bill_list::-webkit-scrollbar {
+    display: none;
+}
+
 .list_bill .btn {
     background-color: #000;
     color: #fff;

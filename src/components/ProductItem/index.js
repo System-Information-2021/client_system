@@ -35,8 +35,9 @@ const Index = ({ data }) => {
                 <div className="product_name">{data?.name}</div>
 
                 <div style={{ display: 'flex', flexDirection: "column", marginTop: "auto" }}>
-                    <div className="product_stock">In stock - {data?.quantity} {data?.quantity > 0 ? "items." : "item."}</div>
+
                     <div className="product_price">${data?.price} - {data?.brand.name}</div>
+                    <div className="product_stock">In stock - {data?.quantity} {data?.quantity > 0 ? "items." : "item."}</div>
                     <div className="product_button_add" onClick={() => addCart(data.id, data.name, data.price, data.image1)}>Add To Cart</div>
                 </div>
 

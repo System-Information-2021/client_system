@@ -1,21 +1,20 @@
-.products{
+.products {
     width: 100%;
 }
-.products .destop{
+
+.products .destop {
     display: block;
+    margin-top: 20px;
 }
 
-.products .list_products_slider{
+.products .list_products_slider {
     height: 400px;
-    margin-bottom: 10px;
 }
-.products .product_title{
+
+.products .product_title {
     font-size: 24px;
-    margin-top: 15px;
     text-transform: uppercase;
 }
 
 /* responsive */
-@media screen and (min-device-width: 350px) and (max-device-width: 768px) { 
-
-}
+@media screen and (min-device-width: 350px) and (max-device-width: 768px) {}
