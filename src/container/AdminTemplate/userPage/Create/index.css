@@ -1,0 +1,22 @@
+.user_add .title {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.user_add .form_add {
+    /* width: 70%; */
+}
+
+.user_add {
+    padding: 10px;
+}
+
+.user_add label {
+    margin-bottom: 7px;
+}
+
+.user_add .submit {
+    background-color: #000;
+    color: #fff;
+}

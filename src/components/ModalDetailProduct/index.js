@@ -3,17 +3,16 @@ import "./index.css"
 
 const Index = ({ data, addCart, closeModal, active, isAdmin, changeStatusProduct }) => {
 
-    const [imgSelect, setImgSelect] = useState(data.image1)
+    const [imgSelect, setImgSelect] = useState()
     // console.log(active)
-
-
 
 
     return (
         <div className="product_modal">
             <div className="modal_group_image">
                 <div className="display">
-                    <img src={imgSelect} alt="img_display" />
+                    {imgSelect ? <img src={imgSelect} alt="img_display" /> : <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontWeight: "bold" }}>Please Select Image</div>}
+
                 </div>
                 <div className="list">
                     <img src={data.image1} alt="image1" className="img1" onClick={() => setImgSelect(data.image1)} />

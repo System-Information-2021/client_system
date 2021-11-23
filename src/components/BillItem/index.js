@@ -16,8 +16,6 @@ const Index = ({ item }) => {
     const closeModal = () => {
         setVisible(false)
     }
-    // const dateTime = new Date(item.createdAt).toUTCString()
-
 
     const changeStatus = async (id, status) => {
         closeModal()
