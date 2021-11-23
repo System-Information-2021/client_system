@@ -21,8 +21,6 @@ const Index = (props) => {
                         </li>)
                     })
                 }
-
-
             </ul>
         </div >
     )

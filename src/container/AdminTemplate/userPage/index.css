@@ -1,0 +1,27 @@
+.user_page {
+    padding: 10px;
+}
+
+.user_page .admin_user_header {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.user_page .admin_user_header .admin_user_new {
+    border: 1px solid #000;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.user_page .admin_user_header .admin_user_new:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.user_page .admin_user_header .title {
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
