@@ -72,4 +72,18 @@
     display: block;
 }
 
-.product_item_slider .product_modal {}
+
+@media only screen and (min-device-width: 300px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+
+    .product_item_slider .product_description .product_name {
+        font-size: 14px;
+    }
+
+    .product_item_slider .product_description .product_button {
+        padding: 5px 10px;
+    }
+
+    .product_item_slider .product_image {
+        height: 50%;
+    }
+}

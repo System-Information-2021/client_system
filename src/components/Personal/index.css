@@ -13,3 +13,9 @@
     cursor: pointer;
     padding: 7px 10px;
 }
+
+@media only screen and (min-device-width: 300px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+    .personal {
+        padding: 0px 10px;
+    }
+}

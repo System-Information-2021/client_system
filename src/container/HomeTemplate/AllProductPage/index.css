@@ -63,12 +63,15 @@
 /* responsive */
 
 @media screen and (min-device-width: 350px) and (max-device-width: 768px) {
+
+
     .all_product .list_product {
         row-gap: 10px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        padding: 0px 10px
     }
 
     .all_product .filter_product {

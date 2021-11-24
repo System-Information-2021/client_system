@@ -24,6 +24,7 @@
     text-transform: uppercase;
     letter-spacing: 2;
     font-family: "arvbolditalic";
+    text-align: center;
 }
 
 .introduction .left p {
@@ -112,4 +113,30 @@
     position: absolute;
     bottom: 0;
     right: 0;
+}
+
+/* responsive */
+@media only screen and (min-device-width: 300px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+    .introduction {
+        flex-direction: column;
+        height: 100vh;
+        row-gap: 10px;
+    }
+
+
+    .introduction .right img {
+        object-fit: cover;
+        width: 100px;
+        height: 100px;
+    }
+
+    .introduction .right .img5 {
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+    }
 }

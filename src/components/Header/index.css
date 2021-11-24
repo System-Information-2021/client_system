@@ -47,25 +47,32 @@
     color: #AE7B4E;
 }
 
-/* responsive */
 
-@media screen and (min-device-width: 350px) and (max-device-width: 768px) {
+/* ip 6 7 8 */
+/* ----------- iPhone 6+, 7+ and 8+ ----------- */
+/* Portrait */
+@media only screen and (min-device-width: 300px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
     .header {
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
         height: 100%;
         width: 100%;
         position: relative;
-        text-align: center;
     }
+
     .header .header_right .username {
         width: 100px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
     }
+
     .header .active_menu {
         display: block !important;
     }
+
     .header .hambuger {
         display: block;
         font-size: 24px;
@@ -73,10 +80,12 @@
         top: 10px;
         left: 10px;
     }
+
     .header .header_left--menu {
         flex-direction: column;
         display: none;
     }
+
     .header .header_cart {
         display: block;
         position: absolute;

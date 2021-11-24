@@ -13,6 +13,7 @@ import Introduction from "../../../components/Introduction"
 
 const Index = () => {
     const [newrelease, setNewRelease] = useState([])
+    const [newRank, setNewRank] = useState([])
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -37,10 +38,10 @@ const Index = () => {
         //     items: 2,
         //     partialVisibilityGutter: 30
         // },
-        // mobile: {
-        //     breakpoint: { max: 464, min: 0 },
-        //     items: 1
-        // }
+        mobile: {
+            breakpoint: { max: 464, min: 0 },
+            items: 1,
+        }
     };
     useEffect(() => {
         async function fetchNewReleases() {
@@ -54,17 +55,31 @@ const Index = () => {
         }
         fetchNewReleases()
     }, [])
+
+    useEffect(() => {
+        async function fetchNewRank() {
+            const { data } = await apiInstance({
+                url: "/customer/rank",
+                method: "GET"
+            })
+            if (data.code === 200) {
+                setNewRank(data.data)
+            }
+        }
+        fetchNewRank()
+    }, [])
     // console.log(newrelease)
     return (
         <div className="products container">
             <Banner />
+
             <div className="destop">
                 <div className="product_title">NEW FEATURES</div>
                 <div className="list_products_slider">
                     <Carousel responsive={responsive} >
                         {
-                            newrelease?.map((item) => {
-                                return (<ProductItemSlider key={item.id} item={item} />)
+                            newRank?.map((item) => {
+                                return (<ProductItemSlider key={item.id} item={item.item} />)
                             })
                         }
                     </Carousel>

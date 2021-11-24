@@ -5,24 +5,29 @@ const index = () => {
     return (
         <div className="footer">
             <div className="footer_top container">
-                <ul className="footer_top--list1">
-                    <li>Blog</li>
-                    <li>Product Index</li>
-                </ul>
-                <ul className="footer_top--list2">
-                    <li>Terms and Conditions</li>
-                    <li>Category Index</li>
-                </ul>
-                <ul className="footer_top--list3">
-                    <li>Become an Affiliate</li>
-                </ul>
-                <div className="footer_top--formmail">
-                    <div>MAILING LIST</div>
-                    <form>
-                        <input type="text" placeholder="email address" />
-                        <button type="submit">GO</button>
-                    </form>
+                <div className="left">
+                    <ul className="footer_top--list1">
+                        <li>Blog</li>
+                        <li>Product Index</li>
+                    </ul>
+                    <ul className="footer_top--list2">
+                        <li>Terms and Conditions</li>
+                        <li>Category Index</li>
+                    </ul>
+                    <ul className="footer_top--list3">
+                        <li>Become an Affiliate</li>
+                    </ul>
                 </div>
+                <div className="right">
+                    <div className="footer_top--formmail">
+                        <div>MAILING LIST</div>
+                        <form>
+                            <input type="text" placeholder="email address" />
+                            <button type="submit" className="go">GO</button>
+                        </form>
+                    </div>
+                </div>
+
             </div>
 
             <div className="footer_middle container">
