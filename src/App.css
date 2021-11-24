@@ -2,8 +2,8 @@
     overflow-x: hidden !important;
 }
 
-@media screen and (min-device-width: 320px) and (max-device-width: 768px) {
+/* @media screen and (min-device-width: 320px) and (max-device-width: 768px) {
     .app {
         display: none
     }
-}
+} */

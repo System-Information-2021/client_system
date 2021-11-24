@@ -95,3 +95,18 @@
      color: #fff;
      cursor: pointer;
  }
+
+
+ @media only screen and (min-device-width: 300px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+     .product_modal {
+         flex-direction: column;
+         row-gap: 50px;
+         overflow-y: scroll;
+         overflow-x: hidden;
+     }
+
+     /* .product_modal .modal_group_image {
+         margin-bottom: 100px;
+     } */
+
+ }

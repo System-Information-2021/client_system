@@ -37,3 +37,13 @@
 .page_order .list_order::-webkit-scrollbar {
     display: none;
 }
+
+@media only screen and (min-device-width: 300px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+    .header_order {
+        padding: 0px 10px;
+    }
+
+    .header_order ul {
+        overflow-x: scroll;
+    }
+}

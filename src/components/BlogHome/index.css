@@ -1,5 +1,6 @@
 .home_blog {
     margin-top: 20px;
+
 }
 
 .home_blog .list_blog {
@@ -12,4 +13,21 @@
 .home_blog .title {
     font-size: 24px;
     text-transform: uppercase;
+}
+
+/* responsive */
+@media only screen and (min-device-width: 300px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+    .home_blog {
+        padding: 0px 10px;
+    }
+
+    .home_blog .list_blog {
+        grid-template-columns: repeat(2, 1fr);
+        overflow-y: scroll;
+        height: 60vh;
+    }
+
+    .home_blog .list_blog::-webkit-scrollbar {
+        display: none;
+    }
 }

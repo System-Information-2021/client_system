@@ -1,4 +1,4 @@
-.footer{
+.footer {
     color: #fff;
     background-color: #000;
     width: 100%;
@@ -6,10 +6,12 @@
     padding: 20px 0px;
     font-family: "arvregula";
 }
-.footer .footer_top--formmail form{
+
+.footer .footer_top--formmail form {
     margin-top: 10px;
 }
-.footer .footer_top--formmail input{
+
+.footer .footer_top--formmail input {
     margin-right: 10px;
     color: #fff;
     padding: 0px 10px;
@@ -17,31 +19,49 @@
     border-radius: 5px;
     background: transparent;
 }
-.footer .footer_top--formmail button{
+
+.footer .footer_top--formmail button {
     color: #fff;
     border: 1px solid gray;
     background: transparent;
     padding: 0px 15px;
 }
-.footer .footer_top--formmail button:hover{
+
+.footer .footer_top--formmail button:hover {
     background: #AE7B4E;
 }
-.footer ul li{
+
+.footer ul li {
     font-size: 14px;
     cursor: pointer;
 }
-.footer ul li:hover{
+
+.footer ul li:hover {
     text-decoration: underline;
     color: #AE7B4E;
 }
-.footer_top{
+
+.footer_top {
     display: flex;
     justify-content: space-between;
     width: 100%;
     align-items: center;
 }
 
-.footer_middle{
+.footer_top .left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 50px;
+}
+
+.footer_top .right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer_middle {
     margin-top: 50px;
     font-size: 14px;
     display: flex;
@@ -50,41 +70,66 @@
     width: 100%;
     padding-top: 50px;
 }
-.footer_middle .footer_middle--social{
+
+.footer_middle .footer_middle--social {
     display: flex;
     align-items: center;
     column-gap: 20px;
 }
-.footer_middle .footer_middle--payment{
+
+.footer_middle .footer_middle--payment {
     display: flex;
     align-items: center;
     column-gap: 20px;
 }
-.footer_middle .footer_middle--social ion-icon{
+
+.footer_middle .footer_middle--social ion-icon {
     font-size: 20px;
 }
 
-.footer_middle .footer_middle--social ion-icon:hover{
+.footer_middle .footer_middle--social ion-icon:hover {
     color: #AE7B4E;
     cursor: pointer;
 }
-.footer_bottom{
+
+.footer_bottom {
     margin-top: 20px;
     font-size: 14px;
     text-align: center;
     width: 100%;
 }
 
+
 /* responsive */
-@media screen and (min-device-width: 350px) and (max-device-width: 768px) { 
-    .footer{
+@media only screen and (min-device-width: 300px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+    .footer {
         width: 100%;
         text-align: center;
     }
-    .footer_top{
+
+    .footer_top {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .footer_top .left {
         flex-direction: column;
     }
-    .footer_middle{
-        flex-direction: column;
+
+    .footer .go {
+        display: none;
     }
- }
+
+    .footer_middle {
+        flex-direction: row;
+    }
+
+    .footer_bottom {
+        font-size: 12px;
+    }
+
+    .footer_middle .footer_middle--payment {
+        flex-direction: column;
+        row-gap: 15px;
+    }
+}

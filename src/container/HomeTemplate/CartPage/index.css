@@ -75,8 +75,12 @@
     margin-top: 10px;
 }
 
-@media screen and (min-device-width: 350px) and (max-device-width: 768px) {
+@media only screen and (min-device-width: 300px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
     .view_cart_page .cart_sumary {
         padding: 0px 20px !important;
+    }
+
+    .view_cart_page .view_cart_title {
+        text-align: center
     }
 }
