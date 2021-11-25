@@ -5,7 +5,7 @@ import Pagination from "react-pagination-library";
 import apiInstance from "../../../services/index"
 import SearchFormAdmin from "../../../components/SearchFormAdmin"
 import AdminProductDetail from "../../../components/AdminProductDetail"
-// import 
+import { toast } from 'react-toastify';
 
 
 const Index = () => {
@@ -15,11 +15,25 @@ const Index = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [query, setQuery] = useState("")
 
-    // console.log(query)
-
     const changeCurrentPage = (numPage) => {
         console.log(numPage)
         setCurrentPage(numPage);
+    }
+
+    const deleteProduct = async (id) => {
+        console.log(id)
+
+        const { data } = await apiInstance({
+            url: `/product/delete/${id}`,
+            method: "DELETE"
+        })
+        if (data.code === 200) {
+            toast.success("Delete Successully")
+            const changes = product.filter((e) => e.id !== id)
+            setProduct(changes)
+        } else {
+            toast.error("Delete Error")
+        }
     }
 
     useEffect(() => {
@@ -34,7 +48,7 @@ const Index = () => {
             })
 
             if (data.code === 200) {
-                setProduct(data.data)
+                setProduct(data.data);
                 setTotalPage(data.totalPage)
             }
         }
@@ -65,7 +79,7 @@ const Index = () => {
                     <tbody style={{ height: "65vh", background: "", overflow: "scroll" }}>
                         {
                             product?.map((item) => {
-                                return (<AdminProductDetail item={item} key={item.id} />)
+                                return (<AdminProductDetail item={item} key={item.id} deleteProduct={deleteProduct} />)
                             })
                         }
                     </tbody>

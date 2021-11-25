@@ -1,18 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import "./index.css"
 
-const Index = ({ data, addCart, closeModal, active, isAdmin, changeStatusProduct }) => {
-
+const Index = ({ data, addCart, closeModal, isAdmin }) => {
     const [imgSelect, setImgSelect] = useState()
-    // console.log(active)
-
 
     return (
         <div className="product_modal">
             <div className="modal_group_image">
                 <div className="display">
                     {imgSelect ? <img src={imgSelect} alt="img_display" /> : <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontWeight: "bold" }}>Please Select Image</div>}
-
                 </div>
                 <div className="list">
                     <img src={data.image1} alt="image1" className="img1" onClick={() => setImgSelect(data.image1)} />
@@ -27,21 +23,14 @@ const Index = ({ data, addCart, closeModal, active, isAdmin, changeStatusProduct
                 <div className="name">{data.name}</div>
                 <div className="brand">Brand - {data.brand.name}</div>
                 <div className="price">${data.price}</div>
-                {/* <div className="size">
+                <div className="size">
                     Size:
                     <select>
                         <option>XL</option>
                         <option>L</option>
                         <option>M</option>
                     </select>
-                </div> */}
-                {isAdmin && <div className="active">
-                    Status:
-                    <select value={active} onChange={e => changeStatusProduct(data.id, e.target.value)} >
-                        <option value={true}>active</option>
-                        <option value={false}>Hidden</option>
-                    </select>
-                </div>}
+                </div>
 
                 <div className="quantity">Quantity: {data.quantity} {data.quantity > 1 ? "items" : "item"} in stock</div>
                 <div style={{ fontWeight: 'bold' }}>Product detail: </div>

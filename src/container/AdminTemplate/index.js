@@ -26,7 +26,6 @@ const Index = ({ routes }) => {
     return (
         <div className="admin_dashboard">
             {animation === true && <CPAnimationAdmin />}
-
             <ToastContainer
                 position="top-right"
                 autoClose={2000}
@@ -45,8 +44,6 @@ const Index = ({ routes }) => {
                     <div className="breadcrumb_container">
                         <BreadCrumb />
                     </div>
-                    {/* <audio  loop id="playAudio" src={music} controls  /> */}
-
                     <button className="logout_button" onClick={user.logout}>
                         <ion-icon name="log-out-sharp"></ion-icon>
                         Log out

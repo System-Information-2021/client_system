@@ -24,9 +24,10 @@ const Index = () => {
             method: "DELETE"
         })
         if (data.code === 200) {
-            toast.success(data.status)
+            toast.success("Delete brand successfully")
             setTimeout(() => {
-                window.location.reload()
+                const changes = brand.filter((e) => e.id !== id)
+                setBrand(changes)
             }, 2000);
         } else {
             toast.error(data.message)
@@ -43,8 +44,6 @@ const Index = () => {
                     key: query,
                 }
             })
-            // console.log(data)
-
             if (data.code === 200) {
                 setBrand(data.data)
                 setTotalPage(data.totalPage)
