@@ -3,6 +3,7 @@ import apiInstance from '../../../services'
 import BillItem from "../../../components/BillItem"
 import Pagination from "react-pagination-library";
 import SearchFormAdmin from "../../../components/SearchFormAdmin"
+import { toast } from "react-toastify"
 import "./index.css"
 
 const Index = () => {
@@ -25,19 +26,34 @@ const Index = () => {
                 email: query
             }
         })
-        // console.log(data)
         if (data.code === 200) {
             setListBill(data.data)
             setTotalPage(data.totalPage)
         }
     }
 
-    useEffect(() => {
+    const deleteOrder = async (e, id) => {
+        e.preventDefault();
+        const { data } = await apiInstance({
+            url: `/cart/deleteorder/${id}`,
+            method: "DELETE"
+        })
 
+        if (data.code === 200) {
+            toast.success("Delete bill successfully")
+            setTimeout(() => {
+                const changes = listBill.filter(e => e.id !== id)
+                setListBill(changes)
+            }, 2000)
+        } else {
+            toast.error("Fail delete bill")
+        }
+    }
+
+    useEffect(() => {
         fetchBill()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentPage, typebill, query]);
-    console.log(listBill)
     return (
         <div className="list_bill">
             <div className="bill_title">Bill</div>
@@ -69,7 +85,7 @@ const Index = () => {
                     <tbody>
                         {listBill.length === 0 && <div>No bill item</div>}
                         {listBill?.map((item, index) => {
-                            return (<BillItem item={item} key={index} />)
+                            return (<BillItem item={item} key={index} deleteOrder={deleteOrder} />)
                         })}
                     </tbody>
                 </table>

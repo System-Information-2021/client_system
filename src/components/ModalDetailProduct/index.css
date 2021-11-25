@@ -6,20 +6,15 @@
      width: 100%;
  }
 
-
  .product_modal .modal_group_image {
      display: flex;
-     flex: 50%;
      flex-direction: column;
+     flex: 50%;
      row-gap: 10px;
      height: 100%;
  }
 
-
-
  .product_modal .modal_group_image .display {
-     border: 1px solid #000;
-     border-radius: 5px;
      height: 100%;
      width: 100%;
  }
@@ -27,7 +22,7 @@
  .product_modal .modal_group_image .display img {
      height: 100%;
      width: 100%;
-     object-fit: contain;
+     object-fit: cover;
  }
 
  .product_modal .modal_group_image .list {
@@ -41,7 +36,6 @@
      width: 60px;
      height: 60px;
      object-fit: cover;
-     border: 1px solid #000;
  }
 
  .product_modal .infor {

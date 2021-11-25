@@ -4,7 +4,7 @@ import Modal from 'react-awesome-modal';
 import "./index.css"
 import { toast } from 'react-toastify';
 
-const Index = ({ item }) => {
+const Index = ({ item, deleteOrder }) => {
     // eslint-disable-next-line no-use-before-define
     const [curStatus, setCurStatus] = useState();
     const [visible, setVisible] = useState(false);
@@ -25,12 +25,12 @@ const Index = ({ item }) => {
             method: 'PUT',
         })
         if (data.code === 200) {
-            toast.success(data.message)
+            toast.success("Update status successfully")
             setTimeout(() => {
                 window.location.reload()
             }, 2000)
         } else {
-            toast.error("change status error")
+            toast.error("Change status error")
         }
     }
     const transferStatus = (status) => {
@@ -56,25 +56,6 @@ const Index = ({ item }) => {
         }
         return messageStatus;
     }
-
-    const deleteOrder = async (e, id) => {
-        e.preventDefault();
-        closeModal()
-        const { data } = await apiInstance({
-            url: `/cart/deleteorder/${id}`,
-            method: "DELETE"
-        })
-        // console.log(data)
-        if (data.code === 200) {
-            toast.success(data.message)
-            setTimeout(() => {
-                window.location.reload()
-            }, 2000)
-        } else {
-            toast.error("fail delete order")
-        }
-    }
-
 
     useEffect(() => {
         setCurStatus(transferStatus(item.status))

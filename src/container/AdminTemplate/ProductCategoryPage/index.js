@@ -8,13 +8,11 @@ import { toast } from 'react-toastify';
 import SearchFormAdmin from "../../../components/SearchFormAdmin"
 
 const Index = () => {
+    let history = useHistory()
+
     const [category, setCategory] = useState([])
     const [totalPage, setTotalPage] = useState(1)
     const [query, setQuery] = useState("")
-
-
-    let history = useHistory()
-
     const [currentPage, setCurrentPage] = useState(1);
 
     const changeCurrentPage = (numPage) => {
@@ -27,9 +25,10 @@ const Index = () => {
             method: "DELETE",
         })
         if (data.code === 200) {
-            toast.success(`${data.status}`)
+            toast.success("Delete category successfully")
             setTimeout(() => {
-                window.location.reload()
+                const changes = category.filter(e => e.id !== id)
+                setCategory(changes)
             }, 2000);
         } else {
             toast.error(data.message)
@@ -46,8 +45,6 @@ const Index = () => {
                     key: query
                 }
             })
-
-            // console.log(data)
             if (data.code === 200) {
                 setCategory(data.data)
                 setTotalPage(data.totalPage)
