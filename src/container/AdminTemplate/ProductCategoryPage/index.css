@@ -2,28 +2,34 @@
     padding: 10px 15px;
     display: flex;
     flex-direction: column;
+    row-gap: 10px;
+    height: 93vh;
 }
 
 .admin_product_category .admin_product_category_header {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
-    padding-bottom: 10px;
     column-gap: 10px;
+    height: 5vh;
 }
 
 .admin_product_category .admin_product_category_header .admin_product_category_title {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bold;
     text-transform: uppercase;
 }
 
 .admin_product_category .admin_product_category_header .admin_product_category_new {
-    padding: 10px;
     border: 1px solid #000;
     cursor: pointer;
     text-transform: uppercase;
     font-weight: bold;
+    font-size: 18px;
+    height: 100%;
+    line-height: 5vh;
+    width: 200px;
+    text-align: center;
 }
 
 .admin_product_category .admin_product_category_header .admin_product_category_new:hover {
@@ -32,9 +38,10 @@
 }
 
 .admin_product_category .admin_product_category_main_list {
-    height: 75vh;
+    height: calc(100vh - 12vh);
     width: 100%;
-    overflow-y: scroll;
+    overflow: scroll;
+    scrollbar-width: none;
 }
 
 .admin_product_category .admin_product_category_main_list::-webkit-scrollbar {

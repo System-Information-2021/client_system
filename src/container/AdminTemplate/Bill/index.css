@@ -1,5 +1,9 @@
 .list_bill {
-    padding: 0px 15px;
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    height: 93vh;
+    row-gap: 10px;
 }
 
 
@@ -10,13 +14,12 @@
 }
 
 .list_bill .bill_title {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bold;
     text-transform: uppercase;
 }
 
 .list_bill .admin_bill_list {
-    /* background-color: yellow; */
     overflow-y: scroll;
     height: 70vh;
 }
