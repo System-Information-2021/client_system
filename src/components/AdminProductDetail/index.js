@@ -41,6 +41,7 @@ const Index = ({ item, deleteProduct }) => {
             <td>${item.price}</td>
             <td>{item.brand?.name}</td>
             <td>{item.category?.name}</td>
+            <td>{item.quantity}</td>
             <td>
                 <select value={item.active} onChange={e => changeStatusProduct(item.id, e.target.value)} >
                     <option value={true}>active</option>

@@ -23,5 +23,10 @@ export const SidebarData = [
         title: "Users",
         icon: <ion-icon name="people-outline"></ion-icon>,
         link: "/admin/user"
+    },
+    {
+        title: "Report",
+        icon: <ion-icon name="calendar-outline"></ion-icon>,
+        link: "/admin/report"
     }
 ]

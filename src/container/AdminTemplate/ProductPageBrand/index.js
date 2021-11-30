@@ -61,10 +61,11 @@ const Index = () => {
     return (
         <div className="admin_product_brand">
             <div className="admin_product_brand_header">
-                <div className="admin_product_brand_title">All Brand</div>
+                <div className="admin_product_brand_title"> Brands</div>
+                <SearchFormAdmin title="brand" setState={setQuery} />
                 <div className="admin_product_brand_new" onClick={() => history.push("/admin/product/brand/create")}>New Brand</div>
             </div>
-            <SearchFormAdmin title="brand" setState={setQuery} />
+
             <div className="admin_product_brand_main_list">
                 <table className="table">
                     <thead className="thead-dark">

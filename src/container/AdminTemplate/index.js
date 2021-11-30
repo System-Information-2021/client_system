@@ -41,9 +41,10 @@ const Index = ({ routes }) => {
             <SidebarAdmin />
             <div className="main_admin">
                 <div className="header_admin">
-                    <div className="breadcrumb_container">
+                    {/* <div className="breadcrumb_container">
                         <BreadCrumb />
-                    </div>
+                    </div> */}
+                    <div className="title">Admin Page</div>
                     <button className="logout_button" onClick={user.logout}>
                         <ion-icon name="log-out-sharp"></ion-icon>
                         Log out

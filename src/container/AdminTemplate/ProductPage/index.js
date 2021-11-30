@@ -55,14 +55,14 @@ const Index = () => {
         fetchProduct()
     }, [currentPage, query])
 
-
     return (
         <div className="admin_product">
             <div className="admin_product_header">
-                <div className="admin_product_title">All Products</div>
+                <div className="admin_product_title">Products</div>
+                <SearchFormAdmin title="product" setState={setQuery} />
                 <div className="admin_product_new" onClick={() => history.push("/admin/product/create")}>New Product</div>
             </div>
-            <SearchFormAdmin title="product" setState={setQuery} />
+
             <div className="admin_product_main_list">
                 <table className="table">
                     <thead className="thead-dark">
@@ -72,8 +72,8 @@ const Index = () => {
                             <th scope="col">Product Price</th>
                             <th scope="col">Brand</th>
                             <th scope="col">Category</th>
+                            <th scope="col">Quantity</th>
                             <th scope="col">Status</th>
-                            {/* <th scope="col">Quantity</th> */}
                         </tr>
                     </thead>
                     <tbody style={{ height: "65vh", background: "", overflow: "scroll" }}>

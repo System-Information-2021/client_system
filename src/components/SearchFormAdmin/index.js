@@ -5,8 +5,8 @@ const Index = ({ title, setState }) => {
 
     return (
         <div className="search_from_admin">
-            <form>
-                <input type="text" placeholder={title === "bill" ? "search email" : `search ${title}`} onChange={e => setState(e.target.value)} />
+            <form className="form">
+                <input type="text" placeholder={title === "bill" ? "Search Email" : `Search ${title}`} onChange={e => setState(e.target.value)} />
             </form>
         </div>
     )
