@@ -1,3 +1,54 @@
 .report {
     padding: 15px;
+    height: 93vh;
+    background-color: blanchedalmond;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.report .title {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.report .report_revenue .top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 15px;
+}
+
+.report .report_revenue .top .title {
+    font-size: 14px;
+}
+
+.report .report_product .top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.report .report_product .top .title {
+    font-size: 14px;
+}
+
+.report .report_revenue .top select {
+    outline: none;
+    padding: 5px 10px;
+}
+
+.report .report_product .product_table {
+    overflow-y: scroll;
+    height: 30vh;
+}
+
+.report .report_order {
+    flex: 1;
+}
+
+.report .report_order .order_table {
+    overflow-y: scroll;
+    height: 25vh;
 }
