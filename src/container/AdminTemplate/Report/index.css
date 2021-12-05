@@ -4,7 +4,7 @@
     background-color: blanchedalmond;
     display: flex;
     flex-direction: column;
-    row-gap: 10px;
+    row-gap: 5px;
 }
 
 .report .title {
@@ -46,6 +46,10 @@
 
 .report .report_order {
     flex: 1;
+}
+
+.report .report_order .top {
+    text-align: center;
 }
 
 .report .report_order .order_table {

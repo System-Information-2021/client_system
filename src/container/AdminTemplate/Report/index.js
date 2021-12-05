@@ -54,7 +54,7 @@ const Index = () => {
                     <div className="title">Revenue</div>
                     <select defaultValue={valRevenue} onChange={e => setValRevenue(e.target.value)}>
                         <option value={1}>Currnent Month</option>
-                        <option value={2}>Currenrt Year</option>
+                        <option value={2}>Currenrt Day</option>
                     </select>
                 </div>
                 <div className="revenue_table">
@@ -71,7 +71,7 @@ const Index = () => {
                                 return (<tr key={index}>
                                     <th scope="row">{index + 1}</th>
                                     <td>{el.sum}</td>
-                                    <td>{moment().format(el.date_trunc)
+                                    <td>{el.date_part || el.date_trunc
                                     }</td>
                                 </tr>)
                             })}
